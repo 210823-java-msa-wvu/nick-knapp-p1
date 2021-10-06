@@ -12,8 +12,8 @@ import java.io.IOException;
 /*
  *
  * Endpoints:
- *  /books - (GET) retrieves all available books
- *        - (POST) adds a book -> want available only to admins?...
+ *  /events - (GET) retrieves all available events
+ *         - (POST) adds an event
  *
  *  /books/{id} - (GET) gets a book by id
  *             - (PUT) updates a book -> want available only to admins?...
@@ -27,17 +27,17 @@ public class EventController implements FrontController{
 
         @Override
         public void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+            System.out.println("Event Controller");
             // Getting the attribute we set in the RequestHandler's handle() method
             String path = (String) request.getAttribute("path");
             System.out.println("Path attribute: " + path);
 
-            if (path == null || path.equals("")) { // http://localhost:8080/
+            if (path == null || path.equals("")) { // http://localhost:8080/Project1/events
 
                 switch (request.getMethod()) {
 
                     case "GET": {
-                        System.out.println("Getting all books from the database...");
+                        System.out.println("Getting all events from the database...");
                         response.getWriter().write(om.writeValueAsString(eventService.getAllEvents()));
                         break;
                     }

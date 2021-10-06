@@ -52,6 +52,10 @@ public class User {
         this.isBenCo = isBenCo;
     }
 
+    public int getUser_id() {
+        return user_id;
+    }
+
     public String getFirstname() {
         return firstname;
     }

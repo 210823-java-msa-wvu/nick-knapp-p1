@@ -7,12 +7,13 @@ async function login() {
         password: document.getElementById('password').value
     }
 
-    console.log(user);
+    //console.log(user);
 
     let res = await fetch(url, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(user)
+        body: JSON.stringify(user),
+        credentials: user.username
     });
 
     let resJson = await res.json()

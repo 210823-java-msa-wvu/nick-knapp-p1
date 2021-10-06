@@ -5,40 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f7e7a41-fa00-464f-9159-0cf0138f5933" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/DepartmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/FrontController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ReimbursementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/logging/LogPlayground.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Reimbursement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/CrudRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/DepartmentRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/EventRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/ReimbursementRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/UserRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/services/DepartmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/services/EventService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/services/ReimbursementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/services/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/DepartmentServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/EventServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/FrontControllerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/ReimbursementServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/UserServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/utils/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/newevent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/newrequest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/request.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/mypastrequests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/mypastrequests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/newevent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ReimbursementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ReimbursementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/FrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/FrontControllerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/newrequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/request.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,13 +48,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nick\Documents\revature\java\Project1\src\main\resources" />
+      <recent name="C:\Users\Nick\Documents\revature\java\Project1" />
       <recent name="C:\Users\Nick\Documents\revature\java\Project1\src\main\webapp\static" />
     </key>
   </component>

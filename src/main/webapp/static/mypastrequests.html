@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Request</title>
+
+    <!--Bootstrap CSS
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    -->
+</head>
+<body>
+<h1>past reimburseemtn request page</h1>
+
+<form>
+    <label></label>
+
+    <input>
+
+</form>
+
+<form action="Project1/request" method="POST">,<!--the most inconvenient commenting syntax ever-->
+    <div>
+        <!-- for each request that is active, check time since request, if time has been more than 4 days
+        and still awaiting approval, auto approve the request-->
+        <button type="button">Back</button>
+
+        <select name=”subject” multiple>
+            <option value=”math”>Math</option>
+            <option value=”english”>English</option>
+            <option value=”science”>Science</option>
+            <option value=”biology”>Biology</option>
+        </select>
+
+        <select id="selectNumber">
+            <option>Choose a number</option>
+        </select>
+
+        <label for="thenewevent">Username:
+
+            <input id="username" type="text" name="username" class="form-control">
+
+        </label>
+
+        <br><br>
+
+        <label for="password">Password:
+
+            <input id="password" type="password" name="password" class="form-control">
+
+        </label>
+
+        <br>
+
+        <label for="thenewevent">Enter New Event</label><!-- how to do dropdown -->
+        <input type="text" name="newevent" id="thenewevent" value="upcoming workshop" required><!--or use placeholder= for greyed out text-->
+        <!-- input types
+            email: verifies email addresses (@)
+            number: also has arrow keys, min="1" max="200" step="1" (arrow increment/decrement interval)
+            date:
+
+
+        -->
+
+
+        <label>View Previous Requests</label>
+        <input>
+        View Previous Requests
+
+
+        <button type="submit">Back</button>
+        <button type="submit">Logout</button>
+
+
+
+    </div>
+
+    <script src="js/mypastrequests.js"></script>
+
+</form>
+<!-- Bootstrap Scripts
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+-->
+
+</body>
+</html>

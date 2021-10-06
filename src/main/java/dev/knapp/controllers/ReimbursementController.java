@@ -21,18 +21,19 @@ public class ReimbursementController implements FrontController{
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);
 
-        if (path == null || path.equals("")) { // http://localhost:8080/Project1/reimb
+        //no id at end of url
+        if (path == null || path.equals("")) { // http://localhost:8080/Project1/request
 
             switch (request.getMethod()) {
 
                 case "GET": {
-                    System.out.println("Getting all books from the database...");
+                    System.out.println("Getting all reimbursements from the database...");
                     response.getWriter().write(om.writeValueAsString(reService.getAllReimbursements()));
                     break;
                 }
 
                 case "POST": {
-                    // then we would add the book (read from the request body) to the database
+                    // then we would add the reimbursement request (read from the request body) to the database
                     Reimbursement r = om.readValue(request.getReader(), Reimbursement.class);
                     reService.createReimbursement(r);
                     break;
@@ -45,15 +46,15 @@ public class ReimbursementController implements FrontController{
             // Else -> there IS a path attribute that we need to use in our logic
 
             // save that attribute into an integer
-            int bookId = Integer.parseInt(path);
+            int reId = Integer.parseInt(path);//reimbursement ID at the end of the url?
             Reimbursement r = null;
 
             switch (request.getMethod()) {
                 // /books/1
                 case "GET": {
-                    r = reService.searchReimbursementById(bookId);
+                    r = reService.searchReimbursementById(reId);
                     if (r != null) {
-                        response.getWriter().write(om.writeValueAsString(r));
+                        response.getWriter().write(om.writeValueAsString(r));//converts reimbursement to JSON
                     } else {
                         response.sendError(404, "Reimbursement Request not found");
                     }
@@ -66,7 +67,7 @@ public class ReimbursementController implements FrontController{
                     break;
                 }
                 case "DELETE": {
-                    reService.deleteReimbursement(bookId);
+                    reService.deleteReimbursement(reId);
                     break;
                 }
 

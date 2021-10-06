@@ -31,15 +31,14 @@ public class RequestHandler {
         controllerMap.put("users", new UserController());
         controllerMap.put("departments", new DepartmentController());
         controllerMap.put("events", new EventController());
-        controllerMap.put("reimbursements", new ReimbursementController());
+        controllerMap.put("request", new ReimbursementController());
     }
 
     // a method to return the appropriate controller
     public FrontController handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        //getting all the cookies
-        Cookie cookies[]=request.getCookies();
+
 
         // This is where the logic will go to parse the URI and send back the appropriate controller
         StringBuilder uriString = new StringBuilder(request.getRequestURI()); // uri = /LibraryServlet/books/1
