@@ -17,6 +17,7 @@ public class ReimbursementController implements FrontController{
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        System.out.println("\nentering reimbursement controller\n\n");
         // Getting the attribute we set in the RequestHandler's handle() method
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);

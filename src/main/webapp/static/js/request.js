@@ -20,6 +20,10 @@
 //    document.getElementById("menuProfile").style.display="block";
 //    document.getElementById("showProfile").style.display="none";
 
+//https://www.tabnine.com/academy/javascript/how-to-set-cookies-javascript/
+let cookies = document.cookie;
+console.log(cookies)
+
 async function loadNewRequests(){
 
     //get user id
@@ -28,29 +32,14 @@ async function loadNewRequests(){
     let url = "http://localhost:8080/Project1/loadrequests";
     //url += userid;
 
-    let request = {
-        eventname: document.getElementById('eventname').value,
-        justification: document.getElementById('justification').value,
-        cost: document.getElementById('cost').value,
-        missedworktime: document.getElementById('missedworktime').value
-        //also need to send event id back; properties need to create Java object
-    }
+ let res = await fetch(url)
+    let data = await res.json()
 
-    console.log(request);
-
-    let res = await fetch(url, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(request)
-    });
-
-    let resJson = await res.json()
-    .then(res => {
-        console.log(res);
+    .then(data => {
+        console.log(data);
+        populateData(data);
     })
-    .catch(error => {
-        console.log(error);
-    })
+    .catch(err => console.log(err));
 }
 
  var select = document.getElementById("selectNumber");
@@ -72,23 +61,53 @@ const file = input.files[0];
 file instanceof File; // true
 file instanceof Blob; // true
 
+async function loadMyRequests(){
+}
+
+async function addEvent(){
+let url ='http://localhost:8080/LibraryServlet/authors';
+
+    let author = {
+        firstName: document.getElementById('authorFirst').value,
+        lastName: document.getElementById('authorLast').value
+    }
+
+    let res = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(author),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    let resJson = await res.json()
+    .then((res) => {
+        console.log(res);
+    }).catch((error) => {
+        console.log(error);
+    });
+
+    // // traditional
+    // try {
+    //     let result = await res.json();
+    //     console.log(result);
+    // } catch (error) {
+    //     console.log(error)
+    // }
+
+}
 
 async function loadEvents(){
     let url = "http://localhost:8080/Project1/events";
 
-    let res = await fetch(url, {
-        method: "GET"
-        //headers: {"Content-Type": "application/json"},
-        //body: JSON.stringify(request)//is this optional?
-    });
+   let res = await fetch(url)
+       let data = await res.json()
 
-    let resJson = await res.json()
-    .then(res => {
-        console.log(res);
-    })
-    .catch(error => {
-        console.log(error);
-    })
+       .then(data => {
+           console.log(data);
+           populateData(data);
+       })
+       .catch(err => console.log(err));
+
 }
 
 //upload files

@@ -31,7 +31,9 @@ public class RequestHandler {
         controllerMap.put("users", new UserController());
         controllerMap.put("departments", new DepartmentController());
         controllerMap.put("events", new EventController());
-        controllerMap.put("request", new ReimbursementController());
+        controllerMap.put("newevent", new EventController());
+        controllerMap.put("postrequests", new ReimbursementController());
+        controllerMap.put("newrequest", new ReimbursementController());
     }
 
     // a method to return the appropriate controller

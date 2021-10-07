@@ -20,20 +20,21 @@
         
     </form>
 
-    <form action="/pastrequests" method="GET">,<!--the most inconvenient commenting syntax ever-->
+    <form action="/Project1/pastrequests" method="GET">,<!--the most inconvenient commenting syntax ever-->
 
-            <button type="button">View My Previous Requests</button>
+
+        <input type="submit" class="btn btn-primary" onclick="loadMyRequests()" value="View My Previous Requests">
 
             <script src="js/request.js"></script>
 
 
     </form>
-    <form action="/newevent" method="POST">
-        <button type="button">ADD NEW EVENT</button>
+    <form action="/Project1/newevent" method="POST">
+        <input type="submit" class="btn btn-primary" onclick="login()" value="Add New Event">
         <script src="js/request.js"></script>
 
     </form>
-    <form action="/newrequest" method="POST">
+    <form action="/Project1/newrequest" method="POST">
 
         <!--
             <select name=”subject” multiple>
