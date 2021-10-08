@@ -20,7 +20,7 @@ public class Reimbursement {
     String status;
     @Column(name="justification")
     String justification;
-    @Column(name="projected_reimbursement")
+    @Column(name="projected_reimbursment")//column name is misspelled in postrgresql
     BigDecimal projectedReimbursement;
     @Column(name="amount_reimbursed")
     BigDecimal amountReimbursed;

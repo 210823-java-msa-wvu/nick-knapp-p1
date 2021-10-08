@@ -32,7 +32,7 @@ public class RequestHandler {
         controllerMap.put("departments", new DepartmentController());
         controllerMap.put("events", new EventController());
         controllerMap.put("newevent", new EventController());
-        controllerMap.put("postrequests", new ReimbursementController());
+        controllerMap.put("pastrequests", new ReimbursementController());
         controllerMap.put("newrequest", new ReimbursementController());
     }
 

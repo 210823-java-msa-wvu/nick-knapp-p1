@@ -2,6 +2,9 @@ async function login() {
 
     let url = "http://localhost:8080/Project1/static/index.html";
 
+    //JS forms validation: https://www.w3schools.com/js/js_validation.asp
+
+
     let user = {
         username: document.getElementById('username').value,
         password: document.getElementById('password').value

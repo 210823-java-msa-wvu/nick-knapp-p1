@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Level;
 
 public class FrontControllerServlet extends DefaultServlet {
 
@@ -32,10 +33,11 @@ public class FrontControllerServlet extends DefaultServlet {
         //PropertiesConfigurator is used to configure logger from properties file
         //PropertyConfigurator.configure("log4j.properties");
         //BasicConfigurator.configure();
+        //java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
         log.trace(uriNoContext);
-        log.info("print some INFO");
-        log.warn("print a WARN");
-        //log.error("print an ERROR");
+        //log.info("print some INFO");
+        //log.warn("print a WARN");
+        log.error("print an ERROR");
         System.out.println("uri no context:" + uriNoContext);
 
         if (uriNoContext.startsWith("/static")) {

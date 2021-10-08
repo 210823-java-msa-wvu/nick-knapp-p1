@@ -47,7 +47,7 @@ public class ReimbursementRepo implements CrudRepository<Reimbursement> {
     public List<Reimbursement> getAll() {
         Session s = HibernateUtil.getSession();
         //create a query object
-        String query = "from reimbursements"; //HQL
+        String query = "from Reimbursement"; //HQL
         Query<Reimbursement> q = s.createQuery(query, Reimbursement.class);
 
         List<Reimbursement> reimbursements = q.getResultList();
