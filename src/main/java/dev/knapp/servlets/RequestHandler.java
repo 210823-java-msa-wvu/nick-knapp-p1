@@ -35,6 +35,7 @@ public class RequestHandler {
         controllerMap.put("pastrequests", new ReimbursementController());
         controllerMap.put("newrequest", new ReimbursementController());
         controllerMap.put("viewmypastrequests", new UserReimbursements());
+        controllerMap.put("logout", new LogoutController());
     }
 
     // a method to return the appropriate controller

@@ -35,28 +35,7 @@ async function getMyRRs(){
 
            }
 
-            //var options = ["1", "2", "3", "4", "5"];
-            //var options = resJson.description;//put event descriptions into a list
-            //let events = [];
-            /*for(let j = 0; j < resJson.length; j++){
-                console.log(resJson[j]);
-                *//*if (thisEvent == resJson[j].description){
-                    let x = resJson[j]
-                    console.log(x);
 
-                    let myData = [x.description, [x.date.month, x.date.dayOfMonth, x.date.year ], [x.time.hour, x.time.minute], x.location, x.cost, x.eventType, x.gradingFormat, x.passingGrade];
-                    let myDataLabels = ["Event Name: ", "Event Date: ", "Event Time: ", "Event Location: ", "Event Cost ($): ", "Event Type: ", "Event Grading Format: ", "Passing Grade: "]
-                    //print data to screen
-                    //populateData(resJson[j]);
-                    let k = 0;
-                    for (let element of myData){
-                        let abli = document.createElement('li');
-                        abli.innerHTML = myDataLabels[k] + element;
-                        abilities.appendChild(abli);
-                        k ++;
-                    }
-                }*//*
-            }*/
         }).catch((error) => {console.log(error);});
 }
 
@@ -109,3 +88,9 @@ document.addEventListener( "DOMContentLoaded", get_json_data, false ); // get_js
                 table.appendChild(tr);
             });
         }*/
+
+async function logout(){
+    let url ='http://localhost:8080/Project1/logout';
+    let res = await fetch(url);
+
+}
