@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f7e7a41-fa00-464f-9159-0cf0138f5933" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LogoutController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/MSRController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/MSRController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/mypastrequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/mypastrequests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/MSRController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/MSRController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +66,9 @@
       <option name="adminPort" value="8005" />
       <option name="contextPath" value="/Project1" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions" />
+      <option name="envOptions">
+        <map />
+      </option>
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8080" />
       <option name="tomcatInfo">

@@ -52,7 +52,7 @@ public class MSRController implements FrontController{
         }//create exception for the case where user has no past reimbursement requests
 
         //response.getWriter().write(om.writeValueAsString(userRes));
-        response.sendRedirect("static/mypastrequests.html");
+        //response.sendRedirect("static/mypastrequests.html");
 
 
 
@@ -95,7 +95,9 @@ public class MSRController implements FrontController{
 
             switch (request.getMethod()) {
                 // /books/1
-                case "GET": {
+                case "GET": {//get all active reimbursement requests from subordinates
+
+
                     r = reService.searchReimbursementById(reId);
                     if (r != null) {
                         response.getWriter().write(om.writeValueAsString(r));//converts reimbursement to JSON

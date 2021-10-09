@@ -37,6 +37,8 @@ public class EventController implements FrontController{
                 switch (request.getMethod()) {
 
                     case "GET": {
+
+
                         System.out.println("Getting all events from the database...");
                         response.getWriter().write(om.writeValueAsString(eventService.getAllEvents()));
                         break;

@@ -13,8 +13,15 @@
 
     </style>
 </head>
-<body onload="addEvent();">
+<body onload="start();">
     <h1>request page</h1>
+
+    <section id="data2"><!-- section for printing subordinate requests -->
+
+    </section>
+    <form><!-- form for approving/denying requests -->
+
+    </form>
 
     <!--dropdown to select event -->
     <form>
@@ -29,9 +36,12 @@
         <p> Your selected event is:
             <input type = "text" id = "favourite" size = "20"></p>
     </form>
-    <section id="data">
+    <section id="data"><!--section for printing event info -->
 
     </section>
+
+
+
 
     <br><br>
     <br><br>
@@ -50,11 +60,22 @@
 
     </form>
     <form action="/Project1/newevent" method="POST">
+
+        <label for="thenewevent">Enter New Event</label><!-- how to do dropdown -->
+        <input type="text" name="newevent" id="thenewevent" value="upcoming workshop" required><!--or use placeholder= for greyed out text-->
+        <!-- input types
+            email: verifies email addresses (@)
+            number: also has arrow keys, min="1" max="200" step="1" (arrow increment/decrement interval)
+            date:
+
+
+        -->
         <input type="submit" class="btn btn-primary" onclick="addEvent()" value="Add New Event">
         <script src="js/request.js"></script>
 
     </form>
     <form action="/Project1/newrequest" method="POST">
+        <!-- also need to post user's available reimbursement amount -->
 
         <!--
             <select name=”subject” multiple>
@@ -95,23 +116,15 @@
 
         <br>
 
-        <label for="thenewevent">Enter New Event</label><!-- how to do dropdown -->
-        <input type="text" name="newevent" id="thenewevent" value="upcoming workshop" required><!--or use placeholder= for greyed out text-->
-        <!-- input types
-            email: verifies email addresses (@)
-            number: also has arrow keys, min="1" max="200" step="1" (arrow increment/decrement interval)
-            date:
 
 
-        -->
 
 
-        <label>View Previous Requests</label>
-        <input>
-        View Previous Requests
 
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>
+
+        <input type="submit" class="btn btn-primary" onclick="submitRR()" value="SUBMIT REQUEST">
 
 
 

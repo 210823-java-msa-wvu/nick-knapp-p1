@@ -25,11 +25,20 @@
 //
 //    document.getElementById("menuProfile").style.display="block";
 //    document.getElementById("showProfile").style.display="none";
+var rrEvent = null;
+
+function start(){
+    addEvent();
+    loadNewRequests();
+
+}
 
 async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
     var mylist = document.getElementById("events");
     document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
     let thisEvent = mylist.options[mylist.selectedIndex].text;
+    rrEvent = thisEvent;
+
     //fetch event data, print event data for this event to screen
     let url ='http://localhost:8080/Project1/events';
     let res = await fetch(url);
@@ -73,24 +82,43 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
 
 //https://www.tabnine.com/academy/javascript/how-to-set-cookies-javascript/
 var cookies = document.cookie;
-console.log(cookies)
+//console.log(cookies);
+//console.log(typeof cookies);
 
+//once user logs in, get the user's subordinates' requests from the database
+ //if nonzero number of requests, display message: "you have active requests"
+ //and print request info to screen, allow input: approve/deny/request more info from requester and/or subordinate
+ //if request more info, send notification to appropriate user(s) about status update
 async function loadNewRequests(){//do this on page load.
+//CHECK FOR USER ID (FROM COOKIE(?))
+//USE USER ID TO GET SUBORDINATE'S REQUESTS IF ANY
+//IF NONZERO AMOUNT OF SUBORDINATE'S REQUESTS
+//      DISPLAY NOTIFICATION AND PRINT REIMBURSEMENT REQUESTS (RRS) TO WEBPAGE
+//      DISPLAY RADIO BUTTON THAT ALLOWS SUPERVISOR TO APPROVE, DENY, OR REQUEST MORE INFO FROM EMPLOYEE, SUPERVISOR, DEPT HEAD, ETC.
 
     //get user id
     //let userid = ;
 
-    let url = "http://localhost:8080/Project1/loadrequests";
+    //if user is supervisor, (parse out of cookies)
+    if (getCook("isSupervisor") === "true"){
+
+
+    //get user id out of cookies
+    let userid = getCook("user_id");
+
+    let url = "http://localhost:8080/Project1/loadrequests/" + userid;
     //url += userid;
 
- let res = await fetch(url)
+ let res = await fetch(url, {credentials: "include"})
     let data = await res.json()
 
     .then(data => {
         console.log(data);
-        populateData(data);
+        //populateData(data);
     })
     .catch(err => console.log(err));
+
+    }
 }
 
 
@@ -218,19 +246,41 @@ fetch('https://example.com/posts', {
 });*/
 
 
-async function newRequest(){
+async function submitRR(){
+
+    //Get event ID (user selects event from dropdown)
+    //Get data from forms
+    //Send post request
 
 
 
-    let url = "http://localhost:8080/Project1/";
+    let url = "http://localhost:8080/Project1/newrequest";
 
     let request = {
-        eventname: document.getElementById('eventname').value,
+
+        //eventname: document.getElementById('eventname').value,
+        eventname: rrEvent,
         justification: document.getElementById('justification').value,
-        cost: document.getElementById('cost').value,
+        //cost: document.getElementById('cost').value, NOT NEEDED
         missedworktime: document.getElementById('missedworktime').value
         //also need to send event id back; properties need to create Java object
     }
+    /*
+
+    	user_id integer not null,//serverside: get user id from cookie
+    	event_id integer not null,
+    	is_urgent boolean not null,//serverside: determine
+    	status varchar not null,//set serverside
+    	cost: get serverside
+    	projected_reimbursment money not null,//set serverside
+    	amount_reimbursed money not null,//set serverside
+    	is_over_available boolean not null,//set serverside
+    	is_over_justification varchar not null,//set serverside
+    	grade_received varchar not null,//set serverside
+
+    	work_time_missed_hrs numeric not null,
+
+    */
 
     console.log(request);
 
@@ -275,3 +325,11 @@ function populateData(res){
             abilities.appendChild(abli);
         }*/
 }
+
+function getCook(cookiename)
+  {
+  // Get name followed by anything except a semicolon
+  var cookiestring=RegExp(cookiename+"=[^;]+").exec(document.cookie);
+  // Return everything after the equal sign, or an empty string if the cookie name not found
+  return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
+  }

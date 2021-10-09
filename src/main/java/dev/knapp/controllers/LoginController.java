@@ -64,6 +64,7 @@ public class LoginController implements FrontController {
 
             response.sendRedirect("static/request.html");
         } else {
+            //handle this
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid login credentials");
         }
     }
