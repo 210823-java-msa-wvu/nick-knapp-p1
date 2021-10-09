@@ -27,48 +27,21 @@
 //    document.getElementById("showProfile").style.display="none";
 
 async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
-var mylist = document.getElementById("events");
-document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
-let thisEvent = mylist.options[mylist.selectedIndex].text;
-//fetch event data, print event data for this event to screen
-let url ='http://localhost:8080/Project1/events';
-
-
-   /* console.log("printing json descriptions (?)")
-    let response = await fetch(url);//do I need to have 'credentials: 'include' for cookies? https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
-    .then ((response) => {
-        response.json().then((jsonResponse) => {
-        console.log(jsonResponse)
-      })
-      // assuming your json object is wrapped in an array
-      response.json().then(i => i.forEach(i => console.log(i.description)))
-    })*/
+    var mylist = document.getElementById("events");
+    document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+    let thisEvent = mylist.options[mylist.selectedIndex].text;
+    //fetch event data, print event data for this event to screen
+    let url ='http://localhost:8080/Project1/events';
     let res = await fetch(url);
     let resJson = await res.json()
-   .then((resJson) => {
-
-
-   // This is where we will do our DOM manipulation
+        .then((resJson) => {
+            // This is where we will do our DOM manipulation
            let dataSection = document.getElementById('data');
 
-           // Create a new element
-           //let nameTag = document.createElement('h3');
-
            // Create an unordered list element
-               let abilities = document.createElement('ul');
-               dataSection.innerHTML += 'Event Info<br>';
-               dataSection.appendChild(abilities);
-
-                console.log(res.description)
-                console.log(res.cost)
-                console.log(res.date)
-
-
-           /*for (let element of parsedData){
-               let abli = document.createElement('li');
-               abli.innerHTML = element;
-               abilities.appendChild(abli);
-           }*/
+           let abilities = document.createElement('ul');
+           dataSection.innerHTML += 'Event Info<br>';
+           dataSection.appendChild(abilities);
 
             //var options = ["1", "2", "3", "4", "5"];
             //var options = resJson.description;//put event descriptions into a list

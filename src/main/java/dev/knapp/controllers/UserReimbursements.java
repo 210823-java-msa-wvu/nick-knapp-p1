@@ -29,7 +29,7 @@ public class UserReimbursements implements FrontController{
             Cookie[] thisUser=request.getCookies();//there should only be one cookie: user id
             //path = thisUser[0].getValue();
             String cookieValue = thisUser[0].getValue();
-            int intCookieValue = Integer.parseInt(cookieValue);
+            int thisUserId = Integer.parseInt(cookieValue);
 
             System.out.println("cookie name: " + thisUser[0].getName());
             System.out.println("cookie value: " + cookieValue);
@@ -46,19 +46,7 @@ public class UserReimbursements implements FrontController{
                 }
             }
         }*/
-            //take cookie user id, get all requests for that user, return them in response
-            List<Reimbursement> allRes = reService.getAllReimbursements();
-            ArrayList<Reimbursement> userRes = new ArrayList<Reimbursement>();
-            System.out.println("requests of user " + cookieValue + ": ");
-            for (Reimbursement re: allRes ){
-                if (re.getUserId() == intCookieValue){
-                    userRes.add(re);
-                    System.out.println("event id" + re.getEventId());
-                }
-            }//create exception for the case where user has no past reimbursement requests
 
-            response.getWriter().write(om.writeValueAsString(userRes));
-            //response.sendRedirect("static/mypastrequests.html");
 
 
 
@@ -75,9 +63,23 @@ public class UserReimbursements implements FrontController{
 
                     case "GET": {
 
+                        //take cookie user id, get all requests for that user, return them in response
+                        List<Reimbursement> allRes = reService.getAllReimbursements();
+                        ArrayList<Reimbursement> userRes = new ArrayList<Reimbursement>();
+                        System.out.println("requests of user " + cookieValue + ": ");
+                        for (Reimbursement re: allRes ){
+                            if (re.getUserId() == thisUserId){
+                                userRes.add(re);
+                                System.out.println("event id: " + re.getEventId());
+                            }
+                        }//create exception for the case where user has no past reimbursement requests
 
-                        System.out.println("Getting all reimbursements from the database...");
-                        response.getWriter().write(om.writeValueAsString(reService.getAllReimbursements()));
+                        response.getWriter().write(om.writeValueAsString(userRes));
+                        //response.sendRedirect("static/mypastrequests.html");
+
+
+                        //System.out.println("Getting all reimbursements from the database...");
+                        //response.getWriter().write(om.writeValueAsString(reService.getAllReimbursements()));
 
                         break;
                     }

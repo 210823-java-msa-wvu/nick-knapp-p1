@@ -7,8 +7,12 @@
     <list default="true" id="4f7e7a41-fa00-464f-9159-0cf0138f5933" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserReimbursements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserReimbursements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/mypastrequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/mypastrequests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/mypastrequests.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/mypastrequests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/UserReimbursements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/UserReimbursements.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +29,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1yWGD4HUS4dq06Biq0UwPTviQrB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

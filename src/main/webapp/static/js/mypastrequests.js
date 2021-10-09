@@ -1,94 +1,63 @@
-//function getData(){
-    let url = "http://localhost:8080/Project1/mypastrequests";
 
-        //JS forms validation: https://www.w3schools.com/js/js_validation.asp
+var cookies = document.cookie;
+console.log(cookies)
 
+//on load, get the user's past reimbursement requests and print them to the webpage
+async function getMyRRs(){
+    let url ='http://localhost:8080/Project1/viewmypastrequests';
+    let res = await fetch(url, {credentials: "include"});
+    let resJson = await res.json()
+        .then((resJson) => {
+            // This is where we will do our DOM manipulation
+           let dataSection = document.getElementById('data');
 
-//        let user = {
-//            username: document.getElementById('username').value,
-//            password: document.getElementById('password').value
-//        }
+           // Create an unordered list element
+           let abilities = document.createElement('ul');
+           dataSection.innerHTML += 'My Past Reimbursement Requests<br>';
+           dataSection.appendChild(abilities);
+           //console.log(resJson);
+           //console.log(resJson[0]);
+           for(let q = 0; q<resJson.length;q++){
+                //console.log(resJson[0]);
+                let w = resJson[q];
+                let wdata = [w.amountReimbursed, w.eventId, w.gradeReceived, w.isOverJustification, w.justification,
+                w.overAvailable, w.projectedReimbursement, w.status, w.urgent, w.userId, w.workTimeMissed];
+                let wlabels = ["amount reimbursed: ", "event ID: ", "grade Received: ", "justification for going over allowable funds: ",
+                "Justification: ", "did you need more than your available funds? ", "projected reimbursement: ", "status: ",
+                "Urgent?", "Requester ID: ", "work time missed: "];
+                let r = 0;
+                                    for (let element of wdata){
+                                        let abli = document.createElement('li');
+                                        abli.innerHTML = wlabels[r] + element;
+                                        abilities.appendChild(abli);
+                                        r ++;
+                                    }
 
-        //console.log(user);
+           }
 
-        let res = await fetch(url, {
-            method: "GET",
-            //headers: {"Content-Type": "application/json"},
-            //body: JSON.stringify(user),
-            credentials: "include"
+            //var options = ["1", "2", "3", "4", "5"];
+            //var options = resJson.description;//put event descriptions into a list
+            //let events = [];
+            /*for(let j = 0; j < resJson.length; j++){
+                console.log(resJson[j]);
+                *//*if (thisEvent == resJson[j].description){
+                    let x = resJson[j]
+                    console.log(x);
 
-
-
-
-        let data = await res.json()
-        .then(res => {
-            console.log(res);
-            console.log(data);
-            //populateData(data)//print data to webpage
-        })
-        .catch(error => {
-            console.log(error);
-        })
-//}
-
-
-function populateData(res) {//res = response (JSON)
-    //print JSON data to HTML table
-    //      https://www.geeksforgeeks.org/how-to-convert-json-data-to-a-html-table-using-javascript-jquery/
-    console.log(res);
-
-    // This is where we will do our DOM manipulation
-    let dataSection = document.getElementById('data');
-
-    // Create a new element
-    let nameTag = document.createElement('h3');
-
-    // Add text to the inner html of the new element
-    // <h3>innerHtml</h3>
-    nameTag.innerHTML = capitalize(res.name);
-
-    // Append this new element to the section element (adding it as a child node in the DOM)
-    dataSection.appendChild(nameTag);
-
-
-    // Now we'll use the same process for the Abilities
-    let abilitiesArray = res.abilities;
-    console.log(abilitiesArray);
-
-    /**
-     * <ul>
-     *    <li>"Ability Name"</li>
-     *    <li>"Ability Name"</li>
-     *    <li>"Ability Name"</li>
-     * </ul>
-     */
-
-    // Create an unordered list element
-    let abilities = document.createElement('ul');
-    dataSection.innerHTML += 'Abilities<br>';
-    dataSection.appendChild(abilities);
-
-    // Iterate over the abilities array and create 'li' elements
-    for (let ability of abilitiesArray) { // for-of -> iterate over the elements inside the array
-        let abli = document.createElement('li');
-        abli.innerHTML = capitalize(ability.ability.name);
-        abilities.appendChild(abli);
-    }
-
-    // TODO - add sprites to the rendered page and capitalize words.
-    let spritesObject = res.sprites;
-    console.log(spritesObject);
-
-    for (let sprite in spritesObject) {// for-in loop -> iterate over the indexes of the array (0...1....2...n)
-
-        if (typeof spritesObject[sprite] == 'string') {
-            let spriteImg = document.createElement('img');
-            //spriteImg.setAttribute('src', spritesObject[sprite]);
-            spriteImg.src = spritesObject[sprite];
-            dataSection.appendChild(spriteImg);
-        }
-
-    }
+                    let myData = [x.description, [x.date.month, x.date.dayOfMonth, x.date.year ], [x.time.hour, x.time.minute], x.location, x.cost, x.eventType, x.gradingFormat, x.passingGrade];
+                    let myDataLabels = ["Event Name: ", "Event Date: ", "Event Time: ", "Event Location: ", "Event Cost ($): ", "Event Type: ", "Event Grading Format: ", "Passing Grade: "]
+                    //print data to screen
+                    //populateData(resJson[j]);
+                    let k = 0;
+                    for (let element of myData){
+                        let abli = document.createElement('li');
+                        abli.innerHTML = myDataLabels[k] + element;
+                        abilities.appendChild(abli);
+                        k ++;
+                    }
+                }*//*
+            }*/
+        }).catch((error) => {console.log(error);});
 }
 
 function capitalize(str) {
@@ -103,6 +72,7 @@ function capitalize(str) {
 
 //////first add an event listener for page load
 //https://stackoverflow.com/questions/51275730/populate-html-table-with-json-data
+/*
 document.addEventListener( "DOMContentLoaded", get_json_data, false ); // get_json_data is the function name that will fire on page load
 
         //this function is in the event listener and will execute on page load
@@ -138,4 +108,4 @@ document.addEventListener( "DOMContentLoaded", get_json_data, false ); // get_js
                 '<td>' + object.DATE + '</td>';
                 table.appendChild(tr);
             });
-        }
+        }*/
