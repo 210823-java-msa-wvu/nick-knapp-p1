@@ -26,9 +26,39 @@
 //    document.getElementById("menuProfile").style.display="block";
 //    document.getElementById("showProfile").style.display="none";
 
-function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
+async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
 var mylist = document.getElementById("events");
 document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+let thisEvent = mylist.options[mylist.selectedIndex].text;
+//fetch event data, print event data for this event to screen
+let url ='http://localhost:8080/Project1/events';
+
+
+   /* console.log("printing json descriptions (?)")
+    let response = await fetch(url);//do I need to have 'credentials: 'include' for cookies? https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
+    .then ((response) => {
+        response.json().then((jsonResponse) => {
+        console.log(jsonResponse)
+      })
+      // assuming your json object is wrapped in an array
+      response.json().then(i => i.forEach(i => console.log(i.description)))
+    })*/
+    let res = await fetch(url);
+    let resJson = await res.json()
+   .then((resJson) => {
+
+            //var options = ["1", "2", "3", "4", "5"];
+            //var options = resJson.description;//put event descriptions into a list
+            let events = [];
+            for(let j = 0; j < resJson.length; j++){
+                if (thisEvent == resJson[j].description){
+                    console.log(resJson[j]);
+                    //print data to screen
+                }
+            }
+            }).catch((error) => {
+                      console.log(error);
+                  });
 }
 
 //https://www.tabnine.com/academy/javascript/how-to-set-cookies-javascript/
