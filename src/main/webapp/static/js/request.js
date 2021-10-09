@@ -27,7 +27,7 @@
 //    document.getElementById("showProfile").style.display="none";
 
 function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
-var mylist = document.getElementById("myList");
+var mylist = document.getElementById("events");
 document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
 }
 
@@ -67,25 +67,45 @@ async function loadNewRequests(){//do this on page load.
 
 async function addEvent(){//event dropdown/select event
 
-/*var select = document.getElementById("selectNumber");
-    var options = ["1", "2", "3", "4", "5"];
 
-    for(var i = 0; i < options.length; i++) {
-        var opt = options[i];
-        var el = document.createElement("option");
-        el.textContent = opt;
-        el.value = opt;
-        select.appendChild(el);
-    }*/
 
 let url ='http://localhost:8080/Project1/events';
 
 
-
+   /* console.log("printing json descriptions (?)")
+    let response = await fetch(url);//do I need to have 'credentials: 'include' for cookies? https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
+    .then ((response) => {
+        response.json().then((jsonResponse) => {
+        console.log(jsonResponse)
+      })
+      // assuming your json object is wrapped in an array
+      response.json().then(i => i.forEach(i => console.log(i.description)))
+    })*/
     let res = await fetch(url);
     let resJson = await res.json()
-    .then((res) => {
-        console.log(res);
+   .then((resJson) => {
+        console.log(resJson);
+        console.log(typeof resJson)
+
+        //add events to dropdown
+        var select = document.getElementById("events");
+            //var options = ["1", "2", "3", "4", "5"];
+            //var options = resJson.description;//put event descriptions into a list
+            let options = [];
+            for(let j = 0; j < resJson.length; j++){
+                options[j] = resJson[j].description;
+            }
+            //let options = resJson.description;
+            console.log(options);
+
+
+            for(var i = 0; i < options.length; i++) {
+                var opt = options[i];
+                var el = document.createElement("option");
+                el.textContent = opt;
+                el.value = opt;
+                select.appendChild(el);
+            }
     }).catch((error) => {
         console.log(error);
     });
