@@ -47,13 +47,50 @@ let url ='http://localhost:8080/Project1/events';
     let resJson = await res.json()
    .then((resJson) => {
 
+
+   // This is where we will do our DOM manipulation
+           let dataSection = document.getElementById('data');
+
+           // Create a new element
+           //let nameTag = document.createElement('h3');
+
+           // Create an unordered list element
+               let abilities = document.createElement('ul');
+               dataSection.innerHTML += 'Event Info<br>';
+               dataSection.appendChild(abilities);
+
+                console.log(res.description)
+                console.log(res.cost)
+                console.log(res.date)
+
+
+           /*for (let element of parsedData){
+               let abli = document.createElement('li');
+               abli.innerHTML = element;
+               abilities.appendChild(abli);
+           }*/
+
             //var options = ["1", "2", "3", "4", "5"];
             //var options = resJson.description;//put event descriptions into a list
             let events = [];
             for(let j = 0; j < resJson.length; j++){
                 if (thisEvent == resJson[j].description){
-                    console.log(resJson[j]);
+                    let x = resJson[j]
+                    console.log(x);
+                    let myData = [x.description, [x.date.month, x.date.dayOfMonth, x.date.year ], [x.time.hour, x.time.minute], x.location, x.cost, x.eventType, x.gradingFormat, x.passingGrade];
+                    let myDataLabels = ["Event Name: ", "Event Date: ", "Event Time: ", "Event Location: ", "Event Cost ($): ", "Event Type: ", "Event Grading Format: ", "Passing Grade: "]
                     //print data to screen
+                    //populateData(resJson[j]);
+                    let k = 0;
+                    for (let element of myData){
+                        let abli = document.createElement('li');
+                        abli.innerHTML = myDataLabels[k] + element;
+                        abilities.appendChild(abli);
+                        k ++;
+                    }
+
+
+
                 }
             }
             }).catch((error) => {
@@ -240,3 +277,28 @@ async function newRequest(){
 }
 
 //window.onload = addEvent;//get events as soon as page loads
+
+function populateData(res){
+
+    // This is where we will do our DOM manipulation
+        let dataSection = document.getElementById('data');
+
+        // Create a new element
+        //let nameTag = document.createElement('h3');
+
+        // Create an unordered list element
+            let abilities = document.createElement('ul');
+            dataSection.innerHTML += 'Event Info<br>';
+            dataSection.appendChild(abilities);
+
+             console.log(res.description)
+             console.log(res.cost)
+             console.log(res.date)
+
+
+        /*for (let element of parsedData){
+            let abli = document.createElement('li');
+            abli.innerHTML = element;
+            abilities.appendChild(abli);
+        }*/
+}
