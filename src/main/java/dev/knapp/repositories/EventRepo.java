@@ -47,7 +47,7 @@ public class EventRepo implements CrudRepository<Event>{
     public List<Event> getAll() {
         Session s = HibernateUtil.getSession();
         //create a query object
-        String query = "from events"; //HQL
+        String query = "from Event"; //HQL
         Query<Event> q = s.createQuery(query, Event.class);
 
         List<Event> events = q.getResultList();

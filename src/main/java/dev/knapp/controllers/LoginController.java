@@ -10,6 +10,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginController implements FrontController {
 
@@ -32,10 +34,34 @@ public class LoginController implements FrontController {
         int userId = u.getUser_id();
 
         if (userService.login(username, password)) {
+
+            String statusname = "isSupervisor";
+            //check to see if user is supervisor
+            String statusvalue = "false";
+            if(u.isBenCo()){
+                statusvalue = "true";
+            } else {
+                //for all employees, get supervisor.  If user is supervisor for at least one employee, set status to true
+                List<User> myUsers = userService.getAllUsers();
+                for (User user: myUsers){
+                    int supervisorId = user.getDsId();
+                    if (supervisorId == userId){
+                        statusvalue = "true";
+                    }
+                }
+            }
+
+
+
             String name = "user_id";
             String value = String.valueOf(userId);
             Cookie cookie = new Cookie(name,value);
-            response.addCookie(cookie);//pass user id in response
+            response.addCookie(cookie);//pass user id in response as cookie
+
+            //add supervisor status as cookie
+            Cookie statuscookie = new Cookie(statusname, statusvalue);
+            response.addCookie(statuscookie);
+
             response.sendRedirect("static/request.html");
         } else {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid login credentials");

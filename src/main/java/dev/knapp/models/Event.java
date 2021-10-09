@@ -31,6 +31,8 @@ public class Event {
     @Column(name="event_type")
     String eventType;
 
+    public Event(){}
+
     public Event(int event_id, String description, LocalDate date, LocalTime time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
         this.event_id = event_id;
         this.description = description;

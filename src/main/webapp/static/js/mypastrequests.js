@@ -1,4 +1,41 @@
-function populateData(res) {
+//function getData(){
+    let url = "http://localhost:8080/Project1/mypastrequests";
+
+        //JS forms validation: https://www.w3schools.com/js/js_validation.asp
+
+
+//        let user = {
+//            username: document.getElementById('username').value,
+//            password: document.getElementById('password').value
+//        }
+
+        //console.log(user);
+
+        let res = await fetch(url, {
+            method: "GET",
+            //headers: {"Content-Type": "application/json"},
+            //body: JSON.stringify(user),
+            credentials: "include"
+
+
+
+
+        let data = await res.json()
+        .then(res => {
+            console.log(res);
+            console.log(data);
+            //populateData(data)//print data to webpage
+        })
+        .catch(error => {
+            console.log(error);
+        })
+//}
+
+
+function populateData(res) {//res = response (JSON)
+    //print JSON data to HTML table
+    //      https://www.geeksforgeeks.org/how-to-convert-json-data-to-a-html-table-using-javascript-jquery/
+    console.log(res);
 
     // This is where we will do our DOM manipulation
     let dataSection = document.getElementById('data');

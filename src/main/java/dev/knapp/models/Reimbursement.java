@@ -33,6 +33,8 @@ public class Reimbursement {
     @Column(name="work_time_missed_hrs")
     float workTimeMissed;//hours
 
+    public Reimbursement(){}
+
     public Reimbursement(int re_id, int userId, int eventId, boolean isUrgent, String status, String justification, BigDecimal projectedReimbursement, BigDecimal amountReimbursed, boolean isOverAvailable, String isOverJustification, String gradeReceived, float workTimeMissed) {
         this.re_id = re_id;
         this.userId = userId;

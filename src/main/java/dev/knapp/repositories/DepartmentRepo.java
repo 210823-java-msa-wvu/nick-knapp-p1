@@ -47,7 +47,7 @@ public class DepartmentRepo implements CrudRepository<Department> {
     public List<Department> getAll() {
         Session s = HibernateUtil.getSession();
         //create a query object
-        String query = "from departments"; //HQL
+        String query = "from Department"; //HQL
         Query<Department> q = s.createQuery(query, Department.class);
 
         List<Department> departments = q.getResultList();

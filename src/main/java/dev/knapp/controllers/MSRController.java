@@ -2,7 +2,6 @@ package dev.knapp.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.knapp.models.Reimbursement;
-import dev.knapp.services.DepartmentService;
 import dev.knapp.services.ReimbursementService;
 
 import javax.servlet.ServletException;
@@ -13,14 +12,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReimbursementController implements FrontController{
+public class MSRController implements FrontController{
 
     private ReimbursementService reService = new ReimbursementService();
     private ObjectMapper om = new ObjectMapper();
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("\nentering reimbursement controller\n\n");
+        System.out.println("\nentering MSR controller, fetching subordinate's reimbursements\n\n");
         // Getting the attribute we set in the RequestHandler's handle() method
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);
@@ -42,7 +41,7 @@ public class ReimbursementController implements FrontController{
             }
         }*/
         //take cookie user id, get all requests for that user, return them in response
-        List<Reimbursement>  allRes = reService.getAllReimbursements();
+        List<Reimbursement> allRes = reService.getAllReimbursements();
         ArrayList<Reimbursement> userRes = new ArrayList<Reimbursement>();
         System.out.println("requests of user " + cookieValue + ": ");
         for (Reimbursement re: allRes ){

@@ -75,7 +75,7 @@ public class UserRepo implements CrudRepository<User>{
 
         Session s = HibernateUtil.getSession();
         //create a query object
-        String query = "from users"; //HQL
+        String query = "from User"; //HQL
         Query<User> q = s.createQuery(query, User.class);
 
         List<User> users = q.getResultList();

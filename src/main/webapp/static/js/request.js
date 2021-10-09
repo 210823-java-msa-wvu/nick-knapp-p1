@@ -1,16 +1,22 @@
- ///request.js
+ //request.js
  //Functionalities/features/buttons
  //     1. view past requests button
  //     2. select event button
  //     3. submit request button
  //     4. upload a file
 
-
-
  //once user logs in, get the user's subordinates' requests from the database
  //if nonzero number of requests, display message: "you have active requests"
  //and print request info to screen, allow input: approve/deny/request more info from requester and/or subordinate
  //if request more info, send notification to appropriate user(s) about status update
+
+//***********************************************************************************************************************
+
+//CHECK FOR USER ID (FROM COOKIE(?))
+//USE USER ID TO GET SUBORDINATE'S REQUESTS IF ANY
+//IF NONZERO AMOUNT OF SUBORDINATE'S REQUESTS
+//      DISPLAY NOTIFICATION AND PRINT REIMBURSEMENT REQUESTS (RRS) TO WEBPAGE
+//      DISPLAY RADIO BUTTON THAT ALLOWS SUPERVISOR TO APPROVE, DENY, OR REQUEST MORE INFO FROM EMPLOYEE, SUPERVISOR, DEPT HEAD, ETC.
 
 
 //Possibly use to verify whether user has subordinates with new requests
@@ -20,11 +26,16 @@
 //    document.getElementById("menuProfile").style.display="block";
 //    document.getElementById("showProfile").style.display="none";
 
+function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
+var mylist = document.getElementById("myList");
+document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+}
+
 //https://www.tabnine.com/academy/javascript/how-to-set-cookies-javascript/
-let cookies = document.cookie;
+var cookies = document.cookie;
 console.log(cookies)
 
-async function loadNewRequests(){
+async function loadNewRequests(){//do this on page load.
 
     //get user id
     //let userid = ;
@@ -42,7 +53,21 @@ async function loadNewRequests(){
     .catch(err => console.log(err));
 }
 
- var select = document.getElementById("selectNumber");
+
+
+//document uploading
+//https://masteringjs.io/tutorials/fundamentals/upload-file
+//var input = document.querySelector('input[type="file"]');
+//var file = input.files[0];
+//file instanceof File; // true
+//file instanceof Blob; // true
+
+//async function loadMyRequests(){
+//}
+
+async function addEvent(){//event dropdown/select event
+
+/*var select = document.getElementById("selectNumber");
     var options = ["1", "2", "3", "4", "5"];
 
     for(var i = 0; i < options.length; i++) {
@@ -51,34 +76,13 @@ async function loadNewRequests(){
         el.textContent = opt;
         el.value = opt;
         select.appendChild(el);
-    }
+    }*/
 
-//document uploading
-//https://masteringjs.io/tutorials/fundamentals/upload-file
-const input = document.querySelector('input[type="file"]');
-const file = input.files[0];
+let url ='http://localhost:8080/Project1/events';
 
-file instanceof File; // true
-file instanceof Blob; // true
 
-async function loadMyRequests(){
-}
 
-async function addEvent(){
-let url ='http://localhost:8080/LibraryServlet/authors';
-
-    let author = {
-        firstName: document.getElementById('authorFirst').value,
-        lastName: document.getElementById('authorLast').value
-    }
-
-    let res = await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(author),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    let res = await fetch(url);
     let resJson = await res.json()
     .then((res) => {
         console.log(res);
@@ -94,6 +98,27 @@ let url ='http://localhost:8080/LibraryServlet/authors';
     //     console.log(error)
     // }
 
+}
+
+//dropdown with events
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
 
 async function loadEvents(){
@@ -163,3 +188,5 @@ async function newRequest(){
         console.log(error);
     })
 }
+
+//window.onload = addEvent;//get events as soon as page loads

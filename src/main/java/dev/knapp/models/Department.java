@@ -14,6 +14,8 @@ public class Department {
     @Column(name="dept_head_id")
     int deptHeadId;
 
+    public Department(){}
+
     public Department(int dept_id, String deptName, int deptHeadId) {
         this.dept_id = dept_id;
         this.deptName = deptName;

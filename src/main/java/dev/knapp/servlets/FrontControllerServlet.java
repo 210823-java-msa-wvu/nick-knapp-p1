@@ -37,7 +37,7 @@ public class FrontControllerServlet extends DefaultServlet {
         log.trace(uriNoContext);
         //log.info("print some INFO");
         //log.warn("print a WARN");
-        log.error("print an ERROR");
+        //log.error("print an ERROR");
         System.out.println("uri no context:" + uriNoContext);
 
         if (uriNoContext.startsWith("/static")) {
