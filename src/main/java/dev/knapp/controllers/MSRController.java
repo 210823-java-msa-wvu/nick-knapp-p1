@@ -2,7 +2,9 @@ package dev.knapp.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.knapp.models.Reimbursement;
+import dev.knapp.models.User;
 import dev.knapp.services.ReimbursementService;
+import dev.knapp.services.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -16,6 +18,7 @@ public class MSRController implements FrontController{
 
     private ReimbursementService reService = new ReimbursementService();
     private ObjectMapper om = new ObjectMapper();
+    private UserService userService = new UserService();
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -90,15 +93,43 @@ public class MSRController implements FrontController{
             // Else -> there IS a path attribute that we need to use in our logic
 
             // save that attribute into an integer
-            int reId = Integer.parseInt(path);//reimbursement ID at the end of the url?
+            int userId = Integer.parseInt(path);//reimbursement ID at the end of the url?
+            System.out.println("MSR controller; user ID: " + userId);
             Reimbursement r = null;
 
             switch (request.getMethod()) {
                 // /books/1
                 case "GET": {//get all active reimbursement requests from subordinates
 
+                    //for each user, get direct supervisor id, if user is supervisor, add to list of subordinates
+                    List<User> allUsers = userService.getAllUsers();
+                    ArrayList<User> subordinates = new ArrayList<User>();
+                    ArrayList<Integer> subIds = new ArrayList<Integer>();
+                    for(User u : allUsers){
+                        int dsID = u.getDsId();
+                        if (dsID == userId){
+                            subordinates.add(u);
+                            subIds.add(u.getUser_id());
+                        }
+                    }
+                    //for each subordinate,
+                    //      get their active reimbursement requests
+                    List<Reimbursement> allRRs = reService.getAllReimbursements();
+                    ArrayList<Reimbursement> activeRRs = new ArrayList<Reimbursement>();
+                    for (Reimbursement rr : allRRs){
+                        for (Integer ID : subIds){
+                            if (rr.getUserId() == ID){
+                                if(rr.getStatus().equals("Needs direct supervisor approval")){
+                                    activeRRs.add(rr);
+                                }
+                            }
+                        }
+                    }
+                    //send activeRRs back in response
 
-                    r = reService.searchReimbursementById(reId);
+
+
+                    r = reService.searchReimbursementById(userId);
                     if (r != null) {
                         response.getWriter().write(om.writeValueAsString(r));//converts reimbursement to JSON
 
@@ -115,7 +146,7 @@ public class MSRController implements FrontController{
                     break;
                 }
                 case "DELETE": {
-                    reService.deleteReimbursement(reId);
+                    reService.deleteReimbursement(userId);
                     break;
                 }
 

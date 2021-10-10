@@ -20,9 +20,10 @@ async function getMyRRs(){
            for(let q = 0; q<resJson.length;q++){
                 //console.log(resJson[0]);
                 let w = resJson[q];
-                let wdata = [w.amountReimbursed, w.eventId, w.gradeReceived, w.isOverJustification, w.justification,
+                let eventName = getEventNameById(w.eventId);
+                let wdata = [w.amountReimbursed, eventName, w.gradeReceived, w.isOverJustification, w.justification,
                 w.overAvailable, w.projectedReimbursement, w.status, w.urgent, w.userId, w.workTimeMissed];
-                let wlabels = ["amount reimbursed: ", "event ID: ", "grade Received: ", "justification for going over allowable funds: ",
+                let wlabels = ["amount reimbursed: ", "event name: ", "grade Received: ", "justification for going over allowable funds: ",
                 "Justification: ", "did you need more than your available funds? ", "projected reimbursement: ", "status: ",
                 "Urgent?", "Requester ID: ", "work time missed: "];
                 let r = 0;
@@ -37,6 +38,22 @@ async function getMyRRs(){
 
 
         }).catch((error) => {console.log(error);});
+}
+
+async function getEventNameById(eventId){
+    let url ='http://localhost:8080/Project1/geteventbyid/' + eventId;
+    let res = await fetch(url, {credentials: "include"});
+    let resJson = await res.json()
+        .then((resJson) => {
+            // This is where we will do our DOM manipulation
+            console.log(resJson);
+
+
+
+            return resJson[0].description;
+
+        }).catch((error) => {console.log(error);});
+
 }
 
 function capitalize(str) {

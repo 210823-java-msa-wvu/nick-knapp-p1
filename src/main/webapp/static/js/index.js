@@ -1,3 +1,15 @@
+//get cookies
+//check if there is a previous failed login,  if so, print a message
+var cookies = document.cookie;
+console.log("login cookies")
+console.log(cookies);
+if (cookies != null){// or ""?
+    if (getCook("loginStatus") === "failed"){
+        alert("invalid login credentials.  please try again.")
+    }
+}
+
+
 async function login() {
 
     let url = "http://localhost:8080/Project1/static/index.html";
@@ -22,9 +34,26 @@ async function login() {
     let resJson = await res.json()
     .then(res => {
         console.log(res);
+        console.log(typeof res);
+        /*if (res == "-1"){
+        //clear forms
+        document.getElementById("username").reset();
+        document.getElementById("password").reset();
+        //error message
+        alert("invalid login credentials");*/
+
+
     })
     .catch(error => {
         console.log(error);
     })
 
 }
+
+function getCook(cookiename)
+  {
+  // Get name followed by anything except a semicolon
+  var cookiestring=RegExp(cookiename+"=[^;]+").exec(document.cookie);
+  // Return everything after the equal sign, or an empty string if the cookie name not found
+  return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
+  }

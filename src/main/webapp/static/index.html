@@ -18,14 +18,63 @@
           font-family: sans-serif;
            }
 
+           /* Login Button Design */
+
+
+    .btn-login{
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 0;
+        color: #fff;
+        border-radius: 20px;
+        cursor: pointer;
+
+    }
+    .btn-login:focus{
+        outline: 0;
+    }
+
+    .btn-login:hover{
+        opacity: 0.8;
+        transition: .3s;
+    }
+        .form-title{
+        padding: 12px;
+        text-align: center;
+        position: relative;
+    }
+    .form-title h2{
+        color: #5c86e1;
+    }
+    .form-title .user-icon{
+        position: absolute;
+        font-size: 42px;
+        color: #fff;
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        text-align: center;
+        border-radius: 45px;
+        top: -60px;
+        left: -45px;
+}
+
 
        </style>
 </head>
-<body>
+<body ><!-- onload="deleteCookies();" -->
 
 <div class="container">
 
     <form action="/Project1/login" method="POST">
+
+        <div class="form-title">
+
+            <h2>Welcome to TRMS</h2>
+
+
+        </div>
 
         <label for="username">Username:
 
@@ -44,8 +93,8 @@
         <br><br>
 
 
+        <input type="submit" class="btn-login" onclick="login()" value="LOGIN">
 
-        <input type="submit" class="btn btn-primary" onclick="login()" value="LOGIN">
 
     </form>
 

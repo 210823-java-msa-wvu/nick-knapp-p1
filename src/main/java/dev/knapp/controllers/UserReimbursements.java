@@ -25,14 +25,15 @@ public class UserReimbursements implements FrontController{
             String path = (String) request.getAttribute("path");
             System.out.println("Path attribute: " + path);
 
-            //using cookie, set path = user id
             Cookie[] thisUser=request.getCookies();//there should only be one cookie: user id
             //path = thisUser[0].getValue();
-            String cookieValue = thisUser[0].getValue();
-            int thisUserId = Integer.parseInt(cookieValue);
+            int thisUserId = -1;
 
-            System.out.println("cookie name: " + thisUser[0].getName());
-            System.out.println("cookie value: " + cookieValue);
+            for (Cookie coo : thisUser){
+                if (coo.getName().equals("user_id")){
+                    thisUserId = Integer.parseInt(coo.getValue());
+                }
+            }
 
             System.out.println("printing cookies");
             for (Cookie c : thisUser ){
@@ -66,7 +67,7 @@ public class UserReimbursements implements FrontController{
                         //take cookie user id, get all requests for that user, return them in response
                         List<Reimbursement> allRes = reService.getAllReimbursements();
                         ArrayList<Reimbursement> userRes = new ArrayList<Reimbursement>();
-                        System.out.println("requests of user " + cookieValue + ": ");
+                        System.out.println("requests of user " + thisUserId + ": ");
                         for (Reimbursement re: allRes ){
                             if (re.getUserId() == thisUserId){
                                 userRes.add(re);

@@ -66,9 +66,9 @@ public class EventController implements FrontController{
                     case "GET": {
                         event = eventService.searchEventById(bookId);
                         if (event != null) {
-                            response.getWriter().write(om.writeValueAsString(event));
+                            response.getWriter().write(om.writeValueAsString(event.getDescription()));
                         } else {
-                            response.sendError(404, "Book not found");
+                            response.sendError(404, "Event not found");
                         }
                         break;
                     }

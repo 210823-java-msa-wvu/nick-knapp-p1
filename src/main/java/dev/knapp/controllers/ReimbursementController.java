@@ -25,14 +25,23 @@ public class ReimbursementController implements FrontController{
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);
 
-        //using cookie, set path = user id
+
         Cookie[] thisUser=request.getCookies();//there should only be one cookie: user id
         //path = thisUser[0].getValue();
-        String cookieValue = thisUser[0].getValue();
+        int thisUserId = -1;
+
+        for (Cookie coo : thisUser){
+            if (coo.getName().equals("user_id")){
+                thisUserId = Integer.parseInt(coo.getValue());
+            }
+        }
+        /*String cookieValue = thisUser[0].getValue();
         int intCookieValue = Integer.parseInt(cookieValue);
 
         System.out.println("cookie name: " + thisUser[0].getName());
-        System.out.println("cookie value: " + cookieValue);
+        System.out.println("cookie value: " + cookieValue);*/
+
+
         /*if (thisUser != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("cookieName")) {
@@ -41,19 +50,8 @@ public class ReimbursementController implements FrontController{
                 }
             }
         }*/
-        //take cookie user id, get all requests for that user, return them in response
-        List<Reimbursement>  allRes = reService.getAllReimbursements();
-        ArrayList<Reimbursement> userRes = new ArrayList<Reimbursement>();
-        System.out.println("requests of user " + cookieValue + ": ");
-        for (Reimbursement re: allRes ){
-            if (re.getUserId() == intCookieValue){
-                userRes.add(re);
-                System.out.println("event id" + re.getEventId());
-            }
-        }//create exception for the case where user has no past reimbursement requests
 
-        //response.getWriter().write(om.writeValueAsString(userRes));
-        response.sendRedirect("static/mypastrequests.html");
+
 
 
 
@@ -61,7 +59,7 @@ public class ReimbursementController implements FrontController{
 
 
         //no id at end of url
-        if (path == null || path.equals("")) { // http://localhost:8080/Project1/request
+        if (path == null || path.equals("")) { // http://localhost:8080/Project1/
 
 
 
@@ -69,10 +67,24 @@ public class ReimbursementController implements FrontController{
             switch (request.getMethod()) {
 
                 case "GET": {
+                    //***  /Project1/pastrequests
+                    //take cookie user id, get all requests for that user, return them in response
+                    List<Reimbursement>  allRes = reService.getAllReimbursements();
+                    ArrayList<Reimbursement> userRes = new ArrayList<Reimbursement>();
+                    System.out.println("requests of user " + thisUserId + ": ");
+                    for (Reimbursement re: allRes ){
+                        if (re.getUserId() == thisUserId){
+                            userRes.add(re);
+                            System.out.println("event id" + re.getEventId());
+                        }
+                    }//create exception for the case where user has no past reimbursement requests
+
+                    //response.getWriter().write(om.writeValueAsString(userRes));
+                    response.sendRedirect("static/mypastrequests.html");
 
 
-                    System.out.println("Getting all reimbursements from the database...");
-                    response.getWriter().write(om.writeValueAsString(reService.getAllReimbursements()));
+                    //System.out.println("Getting all reimbursements from the database...");
+                    //response.getWriter().write(om.writeValueAsString(reService.getAllReimbursements()));
 
                     break;
                 }

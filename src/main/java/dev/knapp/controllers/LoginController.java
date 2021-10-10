@@ -51,8 +51,23 @@ public class LoginController implements FrontController {
                 }
             }
 
+            Cookie[] pastC =request.getCookies();//there should only be one cookie: user id
+            System.out.println("this is pastC: " + pastC);
+
+            if (pastC != null){
+                for(Cookie c : pastC) {
+                    System.out.println("\nPAST COOKIE: " + c.getName() + " " + c.getValue());
+                    System.out.println("deleting past cookie");
+                    c.setValue("");
+                    c.setPath("/");
+                    c.setMaxAge(0);
+                    response.addCookie(c);
+                }
+            }
 
 
+
+            //Cookie[] myCookies = Cookie.ge
             String name = "user_id";
             String value = String.valueOf(userId);
             Cookie cookie = new Cookie(name,value);
@@ -65,7 +80,15 @@ public class LoginController implements FrontController {
             response.sendRedirect("static/request.html");
         } else {
             //handle this
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid login credentials");
+            //respond with something. In login(): if something, reset forms and print message to screen
+            System.out.println("\ninvalid login");
+            //int myInt = -1;
+            //response.setStatus(myInt);
+            Cookie failedLogin = new Cookie("loginStatus", "failed");
+            response.addCookie(failedLogin);
+            response.sendRedirect("static/index.html");
+
+            //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid login credentials");
         }
     }
 }

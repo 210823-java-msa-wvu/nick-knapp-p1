@@ -45,7 +45,9 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
     let resJson = await res.json()
         .then((resJson) => {
             // This is where we will do our DOM manipulation
+
            let dataSection = document.getElementById('data');
+           dataSection.innerHTML = "";//clear contents of previously selected event
 
            // Create an unordered list element
            let abilities = document.createElement('ul');
@@ -109,18 +111,50 @@ async function loadNewRequests(){//do this on page load.
     let url = "http://localhost:8080/Project1/loadrequests/" + userid;
     //url += userid;
 
- let res = await fetch(url, {credentials: "include"})
+ let res = await fetch(url, {credentials: "include"})//produces 500 error
     let data = await res.json()
 
     .then(data => {
         console.log(data);
-        //populateData(data);
+        //printing active RRs to webpage (assume similar to printing events)
+
+
+        //for each active RR,
+        //      radio button: approve, deny, request more info from [employee, employee's supervisor, ...]
+        //createRadioElement("approve", false);
+        //createRadioElement("deny", false);
+        //createRadioElement("request more info from", false);
+        //      if checked, add new radio buttons for employee, and employee's supervisor
+        //          and create a textbox for any feedback
+
+        //          var input = document.createElement("input");//https://stackoverflow.com/questions/5656392/how-to-create-input-type-text-dynamically
+        //            input.type = "text";
+        //            input.className = "css-class-name"; // set the CSS class
+        //            container.appendChild(input); // put it into the DOM
+        //
+
+        //alternative to radio buttons: dropdown
+
+
+
     })
     .catch(err => console.log(err));
 
     }
 }
 
+function createRadioElement(name, checked) {//https://stackoverflow.com/questions/118693/how-do-you-dynamically-create-a-radio-button-in-javascript-that-works-in-all-bro
+    var radioHtml = '<input type="radio" name="' + name + '"';
+    if ( checked ) {
+        radioHtml += ' checked="checked"';
+    }
+    radioHtml += '/>';
+
+    var radioFragment = document.createElement('div');
+    radioFragment.innerHTML = radioHtml;
+
+    return radioFragment.firstChild;
+}
 
 
 //document uploading
@@ -133,6 +167,7 @@ async function loadNewRequests(){//do this on page load.
 //async function loadMyRequests(){
 //}
 
+//rename to selectEvent
 async function addEvent(){//event dropdown/select event
 
 
@@ -247,6 +282,19 @@ fetch('https://example.com/posts', {
 
 
 async function submitRR(){
+//to do
+//
+//INPUT VALIDATION
+//      make sure user has selected an event
+//
+
+    //validate input
+    //JS form validation: https://www.w3schools.com/js/js_validation.asp
+    /*let x = document.forms["myForm"]["fname"].value;
+      if (x == "") {
+        alert("Name must be filled out");
+        return false;
+      }*/
 
     //Get event ID (user selects event from dropdown)
     //Get data from forms
@@ -263,7 +311,6 @@ async function submitRR(){
         justification: document.getElementById('justification').value,
         //cost: document.getElementById('cost').value, NOT NEEDED
         missedworktime: document.getElementById('missedworktime').value
-        //also need to send event id back; properties need to create Java object
     }
     /*
 
@@ -287,7 +334,8 @@ async function submitRR(){
     let res = await fetch(url, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(request)
+        body: JSON.stringify(request),
+        credentials: "include"
     });
 
     let resJson = await res.json()
@@ -301,7 +349,7 @@ async function submitRR(){
 
 //window.onload = addEvent;//get events as soon as page loads
 
-function populateData(res){
+/*function populateData(res){
 
     // This is where we will do our DOM manipulation
         let dataSection = document.getElementById('data');
@@ -319,12 +367,12 @@ function populateData(res){
              console.log(res.date)
 
 
-        /*for (let element of parsedData){
+        *//*for (let element of parsedData){
             let abli = document.createElement('li');
             abli.innerHTML = element;
             abilities.appendChild(abli);
-        }*/
-}
+        }*//*
+}*/
 
 function getCook(cookiename)
   {

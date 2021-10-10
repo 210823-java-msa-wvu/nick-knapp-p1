@@ -8902,3 +8902,19 @@
 2021-10-09 16:13:23 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-09 16:14:23 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
 2021-10-09 16:14:23 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-09 17:17:24 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 18:24:12 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 18:28:24 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 18:30:02 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 19:35:25 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 19:35:47 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-09 19:35:47 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-09 19:40:06 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 19:43:17 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 19:46:15 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 19:50:59 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-09 19:50:59 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-09 22:12:52 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 22:16:58 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 22:40:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-09 22:47:51 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
