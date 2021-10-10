@@ -28,7 +28,7 @@
 var rrEvent = null;
 
 function start(){
-    addEvent();
+    selectEvent();
     loadNewRequests();
 
 }
@@ -167,8 +167,7 @@ function createRadioElement(name, checked) {//https://stackoverflow.com/question
 //async function loadMyRequests(){
 //}
 
-//rename to selectEvent
-async function addEvent(){//event dropdown/select event
+async function selectEvent(){//event dropdown/select event
 
 
 
@@ -373,6 +372,34 @@ async function submitRR(){
             abilities.appendChild(abli);
         }*//*
 }*/
+async function toNewEventPage(){
+
+    let url = "http://localhost:8080/Project1/toneweventpage/0";
+
+    let res = await fetch(url, {
+
+        credentials: "include"
+    });
+
+    let resJson = await res.json()
+    .then(res => {
+        console.log(res);
+        console.log(typeof res);
+        /*if (res == "-1"){
+        //clear forms
+        document.getElementById("username").reset();
+        document.getElementById("password").reset();
+        //error message
+        alert("invalid login credentials");*/
+
+
+    })
+    .catch(error => {
+        console.log(error);
+    })
+
+}
+
 
 function getCook(cookiename)
   {

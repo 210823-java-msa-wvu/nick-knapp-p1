@@ -50,7 +50,7 @@ async function getEventNameById(eventId){
 
 
 
-            return resJson[0].description;
+            return resJson;
 
         }).catch((error) => {console.log(error);});
 

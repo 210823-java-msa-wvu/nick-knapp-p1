@@ -31,6 +31,7 @@ public class RequestHandler {
         controllerMap.put("users", new UserController());
         controllerMap.put("departments", new DepartmentController());
         controllerMap.put("events", new EventController());
+        controllerMap.put("toneweventpage", new EventController());
         controllerMap.put("newevent", new EventController());
         controllerMap.put("pastrequests", new ReimbursementController());
         controllerMap.put("newrequest", new ReimbursementController());
@@ -38,6 +39,8 @@ public class RequestHandler {
         controllerMap.put("logout", new LogoutController());
         controllerMap.put("loadrequests", new MSRController());
         controllerMap.put("geteventbyid", new EventController());
+        controllerMap.put("back", new BackController());
+
     }
 
     // a method to return the appropriate controller

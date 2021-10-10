@@ -59,10 +59,12 @@
 
 
     </form>
-    <form action="/Project1/newevent" method="POST">
+    <form >
 
-        <label for="thenewevent">Enter New Event</label><!-- how to do dropdown -->
-        <input type="text" name="newevent" id="thenewevent" value="upcoming workshop" required><!--or use placeholder= for greyed out text-->
+        <!--<label for="thenewevent">Enter New Event</label>
+        <input type="text" name="newevent" id="thenewevent" value="upcoming workshop" required> -->
+
+        <!--or use placeholder= for greyed out text-->
         <!-- input types
             email: verifies email addresses (@)
             number: also has arrow keys, min="1" max="200" step="1" (arrow increment/decrement interval)
@@ -70,7 +72,7 @@
 
 
         -->
-        <input type="submit" class="btn btn-primary" onclick="addEvent()" value="Add New Event">
+        <input type="submit" class="btn btn-primary" onclick="toNewEventPage()" value="Add New Event">
         <script src="js/request.js"></script>
 
     </form>

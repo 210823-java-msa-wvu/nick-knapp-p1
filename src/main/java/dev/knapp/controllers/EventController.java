@@ -59,35 +59,41 @@ public class EventController implements FrontController{
 
                 // save that attribute into an integer
                 int bookId = Integer.parseInt(path);
-                Event event = null;
+                if (bookId == 0){//to new event page
+                    response.sendRedirect("static/newevent.html");
+                    System.out.println("\nNEW EVENT RESPONSE SENT\n");
+                }
+                else {
+                    Event event = null;
 
-                switch (request.getMethod()) {
-                    // /books/1
-                    case "GET": {
-                        event = eventService.searchEventById(bookId);
-                        if (event != null) {
-                            response.getWriter().write(om.writeValueAsString(event.getDescription()));
-                        } else {
-                            response.sendError(404, "Event not found");
+                    switch (request.getMethod()) {
+                        // /books/1
+                        case "GET": {
+                            event = eventService.searchEventById(bookId);
+                            if (event != null) {
+                                response.getWriter().write(om.writeValueAsString(event.getDescription()));
+                            } else {
+                                response.sendError(404, "Event not found");
+                            }
+                            break;
                         }
-                        break;
-                    }
 
-                    case "PUT": {
-                        event = om.readValue(request.getReader(), Event.class);
-                        eventService.updateEvent(event);
-                        break;
-                    }
-                    case "DELETE": {
-                        eventService.deleteEvent(bookId);
-                        break;
-                    }
+                        case "PUT": {
+                            event = om.readValue(request.getReader(), Event.class);
+                            eventService.updateEvent(event);
+                            break;
+                        }
+                        case "DELETE": {
+                            eventService.deleteEvent(bookId);
+                            break;
+                        }
 
-                    default: {
-                        response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-                        break;
-                    }
+                        default: {
+                            response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+                            break;
+                        }
 
+                    }
                 }
             }
 
