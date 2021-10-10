@@ -51,12 +51,21 @@ public class LoginController implements FrontController {
                 }
             }
 
-            Cookie[] pastC =request.getCookies();//there should only be one cookie: user id
+            Cookie[] pastC =request.getCookies();
             System.out.println("this is pastC: " + pastC);
-            for (Cookie c : pastC){
-                if (c.getName().equals("loginStatus")){
-                    c.setValue("success");
+            boolean loginStatus = false;
+            if(pastC != null) {
+                for (Cookie c : pastC) {
+                    System.out.println("cookie: "+ c.toString());
+                    if (c.getName().equals("loginStatus")) {
+                        c.setValue("success");
+                        loginStatus = true;
+                    }
                 }
+            }
+            if (loginStatus == false){
+                Cookie cook = new Cookie("loginStatus","success");
+                response.addCookie(cook);
             }
 
            /* if (pastC != null){

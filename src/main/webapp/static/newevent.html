@@ -51,20 +51,42 @@
             <input id="eventcost" type="number" name="eventcost" class="form-control" required>
 
         </label>
-        <label for="gradingformat">Grading Format:
+        <label for="gradingformat">Grading Format
 
-            <input id="gradingformat" type="text" name="gradingformat" class="form-control" required>
 
+
+            <b> Select grading format from dropdown list</b>
+            <select id = "gradingformat" onchange = "favTutorialG()" >
+                <option> Presentation to Management </option>
+                <option> Letter: A, B, C, etc. </option>
+                <option> Pass/Fail </option>
+                <option> Percentage </option>
+                <option> Out of 10 </option>
+                <option> Other/No official grading </option>
+            </select>
+            <p> Your selected event type is:
+                <input type = "text" id = "favourite" size = "20"></p>
         </label>
         <label for="passinggrade">Passing Grade:
 
             <input id="passinggrade" type="text" name="passinggrade" class="form-control" required>
 
         </label>
-        <label for="eventtype">Event Type: dropdown
+        <label for="eventtype">Event Type:
 
-            <input id="eventtype" type="date" name="eventtype" class="form-control" required>
 
+
+            <b> Select event from dropdown list</b>
+            <select id = "eventtype" onchange = "favTutorial()" >
+                <option> University Course</option>
+                <option> Seminar </option>
+                <option> Certification Preparation Class </option>
+                <option> Certification </option>
+                <option> Technical Training </option>
+                <option> Other </option>
+            </select>
+            <p> Your selected event type is:
+                <input type = "text" id = "favourite" size = "20"></p>
         </label>
 
 
@@ -86,7 +108,8 @@
 
 
         <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
+
+        <input type="submit" class="btn-login" onclick="newEvent()" value="SUBMIT">
 
 
 

@@ -90,7 +90,9 @@ public class ReimbursementController implements FrontController{
                     break;
                 }
 
-                case "POST": {
+                case "POST": {//for submitting reimbursements
+
+
                     // then we would add the reimbursement request (read from the request body) to the database
                     Reimbursement r = om.readValue(request.getReader(), Reimbursement.class);
                     reService.createReimbursement(r);

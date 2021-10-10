@@ -21,13 +21,18 @@ public class LogoutController implements FrontController{
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         //delete cookies
         Cookie[] cookies = request.getCookies();
-        if (cookies != null)
+        for(Cookie c: cookies){
+            if(c.getName().equals("loginStatus")){
+                c.setValue("null");
+            }
+        }
+        /*if (cookies != null)//doesn't work
             for (Cookie cookie : cookies) {
                 cookie.setValue("");
                 cookie.setPath("/");
                 cookie.setMaxAge(0);
                 response.addCookie(cookie);
-            }
+            }*/
         //send to login page
         response.sendRedirect("static/index.html");
     }

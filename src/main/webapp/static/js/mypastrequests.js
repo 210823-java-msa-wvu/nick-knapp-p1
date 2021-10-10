@@ -7,7 +7,7 @@ async function getMyRRs(){
     let url ='http://localhost:8080/Project1/viewmypastrequests';
     let res = await fetch(url, {credentials: "include"});
     let resJson = await res.json()
-        .then((resJson) => {
+        .then(async (resJson) => {
             // This is where we will do our DOM manipulation
            let dataSection = document.getElementById('data');
 
@@ -20,7 +20,11 @@ async function getMyRRs(){
            for(let q = 0; q<resJson.length;q++){
                 //console.log(resJson[0]);
                 let w = resJson[q];
-                let eventName = getEventNameById(w.eventId);
+                let eventName = await mainFunction(w.eventId);
+                //let eventName = await getEventNameById(w.eventId);
+                //let eventName = getEventNameById(w.eventId);
+                console.log("event name : " + eventName);// object Promise
+                console.log(typeof eventName);//object
                 let wdata = [w.amountReimbursed, eventName, w.gradeReceived, w.isOverJustification, w.justification,
                 w.overAvailable, w.projectedReimbursement, w.status, w.urgent, w.userId, w.workTimeMissed];
                 let wlabels = ["amount reimbursed: ", "event name: ", "grade Received: ", "justification for going over allowable funds: ",
@@ -39,12 +43,16 @@ async function getMyRRs(){
 
         }).catch((error) => {console.log(error);});
 }
+async function mainFunction(eventId){
+    const result = await getEventNameById(eventId);
+    return result
+}
 
 async function getEventNameById(eventId){
     let url ='http://localhost:8080/Project1/geteventbyid/' + eventId;
     let res = await fetch(url, {credentials: "include"});
-    let resJson = await res.json()
-        .then((resJson) => {
+    return resJson = await res.json()
+        /*.then((resJson) => {
             // This is where we will do our DOM manipulation
             console.log(resJson);
 
@@ -52,7 +60,7 @@ async function getEventNameById(eventId){
 
             return resJson;
 
-        }).catch((error) => {console.log(error);});
+        }).catch((error) => {console.log(error);});*/
 
 }
 

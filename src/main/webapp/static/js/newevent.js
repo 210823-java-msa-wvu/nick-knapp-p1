@@ -1,5 +1,21 @@
+var EventType = null;
+var gradingFormat = null;
+
+function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
+    let mylist = document.getElementById("eventtype");
+    document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+    EventType = mylist.options[mylist.selectedIndex].text;
+
+}
+function favTutorialG() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
+    let mylist = document.getElementById("gradingformat");
+    document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+    gradingFormat = mylist.options[mylist.selectedIndex].text;
+
+}
 async function newEvent(){
-    let url = "http://localhost:8080/Project1/newevent";//or newrequest?
+    let url = "http://localhost:8080/Project1/static/newevent.html";
+    //let url = "http://localhost:8080/Project1/newevent";//or newrequest?
 
     let event = {
         description: document.getElementById('description').value,
@@ -7,9 +23,9 @@ async function newEvent(){
         time: document.getElementById('time').value,
         location: document.getElementById('location').value,
         cost: document.getElementById('cost').value,
-        gradingformat: document.getElementById('gradingformat').value,//dropdown
+        gradingformat: gradingFormat,//from dropdown
         passinggrade: document.getElementById('passinggrade').value,
-        eventtype: document.getElementById('eventtype').value//dropdown
+        eventtype: EventType//from dropdown
     }
     /**
     event_id serial primary key,

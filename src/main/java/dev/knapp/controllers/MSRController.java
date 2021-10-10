@@ -112,6 +112,11 @@ public class MSRController implements FrontController{
                             subIds.add(u.getUser_id());
                         }
                     }
+
+                    for (Integer m: subIds){
+                        System.out.println("sub ID: "+ m);
+                    }
+
                     //for each subordinate,
                     //      get their active reimbursement requests
                     List<Reimbursement> allRRs = reService.getAllReimbursements();
@@ -124,6 +129,9 @@ public class MSRController implements FrontController{
                                 }
                             }
                         }
+                    }
+                    for(Reimbursement rrr: activeRRs){
+                        System.out.println("active RR user ID: "+ rrr.getUserId());
                     }
                     //send activeRRs back in response
                     System.out.println("\nReturning active RRs\n");

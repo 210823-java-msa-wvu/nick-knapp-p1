@@ -195,6 +195,7 @@ let url ='http://localhost:8080/Project1/events';
             //var options = resJson.description;//put event descriptions into a list
             let options = [];
             for(let j = 0; j < resJson.length; j++){
+                //console.log(resJson[j].event_id);
                 options[j] = resJson[j].description;
             }
             //let options = resJson.description;
@@ -306,10 +307,21 @@ async function submitRR(){
     let request = {
 
         //eventname: document.getElementById('eventname').value,
-        eventname: rrEvent,
+        //eventname: rrEvent,
+        userId: 5, //get from cookie
+        eventId: 4, //get id from event name (rrEvent)
+        isUrgent: true, //check date of event, compare to current date, if less than 2 weeks set true
+        status: "Needs direct supervisor approval",
         justification: document.getElementById('justification').value,
+        projectedReimbursement: 100.0,//get from event
+        amountReimbursed: 0,
+        isOverAvailable: false,//compare to user's available funds
+        isOverJustification: "N/A",
+        gradeReceived:"N/A",
+        workTimeMissed: document.getElementById('missedworktime').value
+
         //cost: document.getElementById('cost').value, NOT NEEDED
-        missedworktime: document.getElementById('missedworktime').value
+        //missedworktime: document.getElementById('missedworktime').value
     }
     /*
 
@@ -345,6 +357,13 @@ async function submitRR(){
         console.log(error);
     })
 }
+
+async function getEventData(eventName){
+
+
+
+}
+
 
 //window.onload = addEvent;//get events as soon as page loads
 

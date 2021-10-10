@@ -26,7 +26,7 @@
         <property name="use_sql_comments">false</property>
 
         <!-- determines how many connections that a single user is allowed to the DB-->
-        <property name="hibernate.connection.pool_size">5</property>
+        <property name="hibernate.connection.pool_size">2</property>
 
         <!-- please use responsibly
         <property name="hibernate.hbm2ddl.auto">create</property>-->

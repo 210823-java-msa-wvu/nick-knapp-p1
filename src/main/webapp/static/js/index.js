@@ -1,8 +1,11 @@
+
+var cookies = document.cookie;
+
+console.log(cookies);
+
+
 //get cookies
 //check if there is a previous failed login,  if so, print a message
-var cookies = document.cookie;
-//console.log("login cookies")
-console.log(cookies);
 if (cookies != null){// or ""?
     if (getCook("loginStatus") === "failed"){
         alert("invalid login credentials.  please try again.")
@@ -33,6 +36,7 @@ async function login() {
 
     let resJson = await res.json()
     .then(res => {
+        debugger;
         console.log(res);
         console.log(typeof res);
         /*if (res == "-1"){
