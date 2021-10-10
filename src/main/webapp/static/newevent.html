@@ -11,22 +11,19 @@
     -->
 </head>
 <body>
-<h1>request page</h1>
+<h1>Create New Event</h1>
 
-<form>
-    <label></label>
 
-    <input>
-
-</form>
 
 <form action="Project1/newevent" method="POST">,<!--the most inconvenient commenting syntax ever-->
     <div>
-        <button type="button">Back</button>
+        <form action="/Project1/back" method="GET">
+            <input type="submit" class="btn btn-primary" onclick="back()" value="back">
+        </form>
 
 
 
-        <label for="eventname">Event Description:
+        <label for="eventname">Event Description/Name:
 
             <input id="eventname" type="text" name="eventname" class="form-control" required>
 
@@ -37,6 +34,36 @@
         <label for="eventdate">Event Date:
 
             <input id="eventdate" type="date" name="eventdate" class="form-control" required>
+
+        </label>
+        <label for="eventtime">Event Time:
+
+            <input id="eventtime" type="time" name="eventtime" class="form-control" required>
+
+        </label>
+        <label for="eventlocation">Event Location:
+
+            <input id="eventlocation" type="text" name="eventlocation" class="form-control" required>
+
+        </label>
+        <label for="eventcost">Event Cost, USD:
+
+            <input id="eventcost" type="number" name="eventcost" class="form-control" required>
+
+        </label>
+        <label for="gradingformat">Grading Format:
+
+            <input id="gradingformat" type="text" name="gradingformat" class="form-control" required>
+
+        </label>
+        <label for="passinggrade">Passing Grade:
+
+            <input id="passinggrade" type="text" name="passinggrade" class="form-control" required>
+
+        </label>
+        <label for="eventtype">Event Type: dropdown
+
+            <input id="eventtype" type="date" name="eventtype" class="form-control" required>
 
         </label>
 

@@ -59,11 +59,11 @@ public class EventController implements FrontController{
 
                 // save that attribute into an integer
                 int bookId = Integer.parseInt(path);
-                if (bookId == 0){//to new event page
+                /*if (bookId == 0){//to new event page
                     response.sendRedirect("static/newevent.html");
                     System.out.println("\nNEW EVENT RESPONSE SENT\n");
-                }
-                else {
+                }*/
+                //else {
                     Event event = null;
 
                     switch (request.getMethod()) {
@@ -94,7 +94,7 @@ public class EventController implements FrontController{
                         }
 
                     }
-                }
+                //}
             }
 
         }

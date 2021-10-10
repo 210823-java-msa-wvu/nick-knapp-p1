@@ -27,14 +27,14 @@ public class MSRController implements FrontController{
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);
 
-        //using cookie, set path = user id
+        /*//using cookie, set path = user id
         Cookie[] thisUser=request.getCookies();//there should only be one cookie: user id
         //path = thisUser[0].getValue();
         String cookieValue = thisUser[0].getValue();
         int intCookieValue = Integer.parseInt(cookieValue);
 
         System.out.println("cookie name: " + thisUser[0].getName());
-        System.out.println("cookie value: " + cookieValue);
+        System.out.println("cookie value: " + cookieValue);*/
         /*if (thisUser != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("cookieName")) {
@@ -43,16 +43,16 @@ public class MSRController implements FrontController{
                 }
             }
         }*/
-        //take cookie user id, get all requests for that user, return them in response
-        List<Reimbursement> allRes = reService.getAllReimbursements();
-        ArrayList<Reimbursement> userRes = new ArrayList<Reimbursement>();
-        System.out.println("requests of user " + cookieValue + ": ");
-        for (Reimbursement re: allRes ){
-            if (re.getUserId() == intCookieValue){
-                userRes.add(re);
-                System.out.println("event id" + re.getEventId());
+        Cookie[] thisUser=request.getCookies();//there should only be one cookie: user id
+        //path = thisUser[0].getValue();
+        int thisUserId = -1;
+
+        for (Cookie coo : thisUser){
+            if (coo.getName().equals("user_id")){
+                thisUserId = Integer.parseInt(coo.getValue());
+                System.out.println("user ID from cookies: " + thisUserId);
             }
-        }//create exception for the case where user has no past reimbursement requests
+        }
 
         //response.getWriter().write(om.writeValueAsString(userRes));
         //response.sendRedirect("static/mypastrequests.html");
@@ -94,7 +94,7 @@ public class MSRController implements FrontController{
 
             // save that attribute into an integer
             int userId = Integer.parseInt(path);//reimbursement ID at the end of the url?
-            System.out.println("MSR controller; user ID: " + userId);
+            System.out.println("MSR controller; user ID from path: " + userId);
             Reimbursement r = null;
 
             switch (request.getMethod()) {
@@ -126,17 +126,19 @@ public class MSRController implements FrontController{
                         }
                     }
                     //send activeRRs back in response
+                    System.out.println("\nReturning active RRs\n");
+                    response.getWriter().write(om.writeValueAsString(activeRRs));
 
 
 
-                    r = reService.searchReimbursementById(userId);
+                    /*r = reService.searchReimbursementById(userId);
                     if (r != null) {
                         response.getWriter().write(om.writeValueAsString(r));//converts reimbursement to JSON
 
                         response.sendRedirect("static/mypastrequests.html");
                     } else {
                         response.sendError(404, "Reimbursement Request not found");
-                    }
+                    }*/
                     break;
                 }
 

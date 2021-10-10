@@ -53,8 +53,13 @@ public class LoginController implements FrontController {
 
             Cookie[] pastC =request.getCookies();//there should only be one cookie: user id
             System.out.println("this is pastC: " + pastC);
+            for (Cookie c : pastC){
+                if (c.getName().equals("loginStatus")){
+                    c.setValue("success");
+                }
+            }
 
-            if (pastC != null){
+           /* if (pastC != null){
                 for(Cookie c : pastC) {//deleting cookies either doesn't work or same cookies are generated right after
                     System.out.println("\nPAST COOKIE: " + c.getName() + " " + c.getValue());
                     System.out.println("deleting past cookie");
@@ -63,7 +68,7 @@ public class LoginController implements FrontController {
                     c.setMaxAge(0);
                     //response.addCookie(c);
                 }
-            }
+            }*/
 
 
             // in cookies, set login status to succeeded

@@ -183,7 +183,7 @@ let url ='http://localhost:8080/Project1/events';
       // assuming your json object is wrapped in an array
       response.json().then(i => i.forEach(i => console.log(i.description)))
     })*/
-    let res = await fetch(url);
+    let res = await fetch(url, {credentials: "include"});//500 error
     let resJson = await res.json()
    .then((resJson) => {
         console.log(resJson);
@@ -408,3 +408,9 @@ function getCook(cookiename)
   // Return everything after the equal sign, or an empty string if the cookie name not found
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
   }
+
+async function logout(){
+    let url ='http://localhost:8080/Project1/logout';
+    let res = await fetch(url);
+
+}

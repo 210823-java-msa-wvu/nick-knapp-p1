@@ -1,7 +1,7 @@
 //get cookies
 //check if there is a previous failed login,  if so, print a message
 var cookies = document.cookie;
-console.log("login cookies")
+//console.log("login cookies")
 console.log(cookies);
 if (cookies != null){// or ""?
     if (getCook("loginStatus") === "failed"){

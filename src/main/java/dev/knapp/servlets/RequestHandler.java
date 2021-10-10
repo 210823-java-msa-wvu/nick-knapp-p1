@@ -31,7 +31,7 @@ public class RequestHandler {
         controllerMap.put("users", new UserController());
         controllerMap.put("departments", new DepartmentController());
         controllerMap.put("events", new EventController());
-        controllerMap.put("toneweventpage", new EventController());
+        controllerMap.put("toneweventpage", new NewEventController());
         controllerMap.put("newevent", new EventController());
         controllerMap.put("pastrequests", new ReimbursementController());
         controllerMap.put("newrequest", new ReimbursementController());

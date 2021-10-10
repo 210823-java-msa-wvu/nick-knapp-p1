@@ -59,7 +59,7 @@
 
 
     </form>
-    <form >
+    <form action="/Project1/toneweventpage" method="GET">
 
         <!--<label for="thenewevent">Enter New Event</label>
         <input type="text" name="newevent" id="thenewevent" value="upcoming workshop" required> -->
@@ -72,7 +72,7 @@
 
 
         -->
-        <input type="submit" class="btn btn-primary" onclick="toNewEventPage()" value="Add New Event">
+        <input type="submit" class="btn btn-primary" value="Add New Event">
         <script src="js/request.js"></script>
 
     </form>
@@ -123,6 +123,11 @@
 
 
         <input type="submit" class="btn btn-primary" onclick="submitRR()" value="SUBMIT REQUEST">
+
+        <form action="/Project1/logout" method = "GET">
+            <input type="submit" class="btn btn-primary" onclick="logout()" value="logout">
+
+        </form>
 
 
 

@@ -33,6 +33,7 @@ public class ReimbursementController implements FrontController{
         for (Cookie coo : thisUser){
             if (coo.getName().equals("user_id")){
                 thisUserId = Integer.parseInt(coo.getValue());
+                System.out.println("user ID: " + thisUserId);
             }
         }
         /*String cookieValue = thisUser[0].getValue();
@@ -93,6 +94,7 @@ public class ReimbursementController implements FrontController{
                     // then we would add the reimbursement request (read from the request body) to the database
                     Reimbursement r = om.readValue(request.getReader(), Reimbursement.class);
                     reService.createReimbursement(r);
+                    System.out.println("creating new reimbursement request");
                     break;
                 }
 
