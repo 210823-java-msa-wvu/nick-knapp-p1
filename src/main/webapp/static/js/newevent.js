@@ -15,7 +15,8 @@ function favTutorialG() {//dropdown list; https://www.javatpoint.com/how-to-crea
 }
 async function newEvent(){
     //let url = "http://localhost:8080/Project1/static/newevent.html";
-    let url = "http://localhost:8080/Project1/newevent";//or newrequest?
+    //let url = "http://localhost:8080/Project1/newevent";
+     let url = "http://localhost:8080/Project1/events";
 
     let event = {
         description: document.getElementById('description').value,

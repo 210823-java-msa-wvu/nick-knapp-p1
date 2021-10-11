@@ -9,13 +9,18 @@ public class Reimbursement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int re_id;
+    Integer re_id;
+
+    //@ManyToOne
     @Column(name="user_id")
-    int userId;
+    Integer userId;
+
+    //@ManyToOne
     @Column(name="event_id")
-    int eventId;
+    Integer eventId;
+
     @Column(name="is_urgent")
-    boolean isUrgent;
+    Boolean isUrgent;
     @Column(name="status")
     String status;
     @Column(name="justification")
@@ -25,13 +30,13 @@ public class Reimbursement {
     @Column(name="amount_reimbursed")
     BigDecimal amountReimbursed;
     @Column(name="is_over_available")
-    boolean isOverAvailable;
+    Boolean isOverAvailable;
     @Column(name="is_over_justification")
     String isOverJustification;
     @Column(name="grade_received")
     String gradeReceived;
     @Column(name="work_time_missed_hrs")
-    float workTimeMissed;//hours
+    Float workTimeMissed;//hours
 
     public Reimbursement(){}
 
@@ -66,6 +71,30 @@ public class Reimbursement {
 
     public int getRe_id() {
         return re_id;
+    }
+
+    public void setRe_id(Integer re_id) {
+        this.re_id = re_id;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public void setEventId(Integer eventId) {
+        this.eventId = eventId;
+    }
+
+    public void setUrgent(Boolean urgent) {
+        isUrgent = urgent;
+    }
+
+    public void setOverAvailable(Boolean overAvailable) {
+        isOverAvailable = overAvailable;
+    }
+
+    public void setWorkTimeMissed(Float workTimeMissed) {
+        this.workTimeMissed = workTimeMissed;
     }
 
     public int getUserId() {

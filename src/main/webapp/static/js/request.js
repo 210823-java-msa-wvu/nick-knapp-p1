@@ -38,6 +38,8 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
     document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
     let thisEvent = mylist.options[mylist.selectedIndex].value;
     rrEvent = thisEvent;
+    let myEventName = mylist.options[mylist.selectedIndex].text;
+    //console.log("my event name: " + myEventName)
 
     //fetch event data, print event data for this event to screen
     let url ='http://localhost:8080/Project1/events';
@@ -46,23 +48,23 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
         .then((resJson) => {
             // This is where we will do our DOM manipulation
 
-           let dataSection = document.getElementById('data');
-           dataSection.innerHTML = "";//clear contents of previously selected event
+            let dataSection = document.getElementById('data');
+            dataSection.innerHTML = "";//clear contents of previously selected event
 
-           // Create an unordered list element
-           let abilities = document.createElement('ul');
-           dataSection.innerHTML += 'Event Info<br>';
-           dataSection.appendChild(abilities);
+            // Create an unordered list element
+            let abilities = document.createElement('ul');
+            dataSection.innerHTML += 'Event Info<br>';
+            dataSection.appendChild(abilities);
 
             //var options = ["1", "2", "3", "4", "5"];
             //var options = resJson.description;//put event descriptions into a list
-            let events = [];
+            //let events = [];
             for(let j = 0; j < resJson.length; j++){
-                if (thisEvent == resJson[j].description){
+                if (rrEvent == resJson[j].event_id){
                     let x = resJson[j]
-                    console.log(x);
-                    let myData = [x.event_id, x.description, [x.date.month, x.date.dayOfMonth, x.date.year ], [x.time.hour, x.time.minute], x.location, x.cost, x.eventType, x.gradingFormat, x.passingGrade];
-                    let myDataLabels = ["EVENT ID", "Event Name: ", "Event Date: ", "Event Time: ", "Event Location: ", "Event Cost ($): ", "Event Type: ", "Event Grading Format: ", "Passing Grade: "]
+                    //console.log(x);
+                    let myData = [x.description, [x.date.month, x.date.dayOfMonth, x.date.year ], [x.time.hour, x.time.minute], x.location, x.cost, x.eventType, x.gradingFormat, x.passingGrade];
+                    let myDataLabels = ["Event Name: ", "Event Date: ", "Event Time: ", "Event Location: ", "Event Cost ($): ", "Event Type: ", "Event Grading Format: ", "Passing Grade: "]
                     //print data to screen
                     //populateData(resJson[j]);
                     let k = 0;
@@ -72,19 +74,14 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
                         abilities.appendChild(abli);
                         k ++;
                     }
-
-
-
                 }
             }
-            }).catch((error) => {
-                      console.log(error);
-                  });
+            }).catch((error) => { console.log(error); });
 }
 
 //https://www.tabnine.com/academy/javascript/how-to-set-cookies-javascript/
 var cookies = document.cookie;
-//console.log(cookies);
+console.log(cookies);
 //console.log(typeof cookies);
 
 //once user logs in, get the user's subordinates' requests from the database
@@ -338,7 +335,7 @@ let url ='http://localhost:8080/Project1/events';
 //dropdown with events
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function myFunction() {
+/*function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
@@ -368,7 +365,7 @@ async function loadEvents(){
        })
        .catch(err => console.log(err));
 
-}
+}*/
 
 //upload files
 //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
@@ -413,9 +410,10 @@ async function submitRR(){
     //Send post request
 
     console.log("RR event: " + rrEvent);
+    console.log("userID: " + getCook("user_id"));
 
     let url = "http://localhost:8080/Project1/newrequest";
-    let myEvent = await mainFunction(rrEvent);//get event data using event name/description
+    //let myEvent = await mainFunction(rrEvent);//get event data using event name/description
     //need to write functions for isUrgent and isOverAvailable
     let request = {
 
@@ -436,6 +434,26 @@ async function submitRR(){
         //cost: document.getElementById('cost').value, NOT NEEDED
         //missedworktime: document.getElementById('missedworktime').value
     }
+
+    /*let request = {
+
+            //eventname: document.getElementById('eventname').value,
+            //eventname: rrEvent,
+            userId: 0, //get from cookie
+            eventId:0, //should be event id//myEvent.event_id, //get id from event name (rrEvent)
+            isUrgent: true, //check date of event, compare to current date, if less than 2 weeks set true
+            status: "Needs direct supervisor approval",
+            justification: "need to learn",
+            projectedReimbursement: 200,//get from event
+            amountReimbursed: 0,
+            isOverAvailable: false,//compare to user's available funds
+            isOverJustification: "N/A",
+            gradeReceived:"N/A",
+            workTimeMissed: 4.5
+
+            //cost: document.getElementById('cost').value, NOT NEEDED
+            //missedworktime: document.getElementById('missedworktime').value
+        }*/
     /*
 
     	user_id integer not null,//serverside: get user id from cookie
@@ -464,7 +482,7 @@ async function submitRR(){
 
     let resJson = await res.json()
     .then(res => {
-        console.log(res);
+        console.log("this res: "+res);
     })
     .catch(error => {
         console.log(error);

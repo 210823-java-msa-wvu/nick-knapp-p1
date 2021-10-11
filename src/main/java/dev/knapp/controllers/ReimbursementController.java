@@ -95,8 +95,11 @@ public class ReimbursementController implements FrontController{
 
                     // then we would add the reimbursement request (read from the request body) to the database
                     Reimbursement r = om.readValue(request.getReader(), Reimbursement.class);
+                    //Reimbursement r = om.readValue(request.getInputStream(), Reimbursement.class);
+                    System.out.println("reimbusremtn object created");
                     reService.createReimbursement(r);
                     System.out.println("creating new reimbursement request");
+                    response.getWriter().write(om.writeValueAsString(r));
                     break;
                 }
 

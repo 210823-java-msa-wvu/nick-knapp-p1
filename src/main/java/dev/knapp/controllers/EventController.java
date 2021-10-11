@@ -3,6 +3,9 @@ package dev.knapp.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.knapp.models.Event;
 import dev.knapp.services.EventService;
+import dev.knapp.servlets.FrontControllerServlet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +24,8 @@ import java.io.IOException;
  *              - (PATCH) if you want to partially update a resource
  * */
 public class EventController implements FrontController{
+
+    private Logger log = LogManager.getLogger(FrontControllerServlet.class);
 
         private EventService eventService = new EventService();
         private ObjectMapper om = new ObjectMapper();
@@ -46,8 +51,10 @@ public class EventController implements FrontController{
 
                     case "POST": {
                         // then we would add the book (read from the request body) to the database
+                        log.warn("POSTING NEW EVENT");
                         Event event = om.readValue(request.getReader(), Event.class);
                         eventService.createEvent(event);
+                        response.sendRedirect("static/request.html");
                         break;
                     }
 

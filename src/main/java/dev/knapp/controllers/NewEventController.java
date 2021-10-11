@@ -27,7 +27,7 @@ public class NewEventController implements FrontController{
                 case "GET": {//redirecting to new event page
 
                     response.sendRedirect("static/newevent.html");
-                    System.out.println("\nNEW EVENT RESPONSE SENT\n");
+                    System.out.println("To 'create new event' page");
                     //System.out.println("Getting all events from the database...");
                     //response.getWriter().write(om.writeValueAsString(eventService.getAllEvents()));
                     break;
