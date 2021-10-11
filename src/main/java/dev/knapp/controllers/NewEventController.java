@@ -15,7 +15,7 @@ public class NewEventController implements FrontController{
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("Event Controller");
+        System.out.println("NEW Event Controller");
         // Getting the attribute we set in the RequestHandler's handle() method
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);
@@ -24,7 +24,7 @@ public class NewEventController implements FrontController{
 
             switch (request.getMethod()) {
 
-                case "GET": {
+                case "GET": {//redirecting to new event page
 
                     response.sendRedirect("static/newevent.html");
                     System.out.println("\nNEW EVENT RESPONSE SENT\n");
@@ -33,7 +33,7 @@ public class NewEventController implements FrontController{
                     break;
                 }
 
-                case "POST": {
+                case "POST": {//posting new events
                     // then we would add the book (read from the request body) to the database
                     Event event = om.readValue(request.getReader(), Event.class);
                     eventService.createEvent(event);

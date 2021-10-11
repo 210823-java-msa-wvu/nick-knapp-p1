@@ -116,7 +116,117 @@ async function loadNewRequests(){//do this on page load.
 
     .then(data => {
         console.log(data);
+        let resJson = data;
         //printing active RRs to webpage (assume similar to printing events)
+        let dataSection = document.getElementById('data2');
+                   dataSection.innerHTML = "";//clear contents of previously selected event
+
+                   // Create an unordered list element
+                   let abilities = document.createElement('ul');
+                   dataSection.innerHTML += 'Request Info<br>';
+                   dataSection.appendChild(abilities);
+
+                    //var options = ["1", "2", "3", "4", "5"];
+                    //var options = resJson.description;//put event descriptions into a list
+
+                    for(let j = 0; j < resJson.length; j++){
+
+                            let x = resJson[j]
+                            //console.log(x);
+                            let myData = [x.userId, x.eventId, x.justification, x.overAvailable, x.status];
+                            let myDataLabels = ["User ID: ", "Event ID: ", "Justification: ", "Is Over Available Funds?: ", "Status: "];
+                            //print data to screen
+                            //populateData(resJson[j]);
+                            let k = 0;
+                            for (let element of myData){
+                                let abli = document.createElement('li');
+                                abli.innerHTML = myDataLabels[k] + element;
+                                abilities.appendChild(abli);
+                                k ++;
+                            }
+                            //insert forms here
+                            //      DISPLAY RADIO BUTTON THAT ALLOWS SUPERVISOR TO APPROVE, DENY, OR REQUEST MORE INFO FROM EMPLOYEE, SUPERVISOR, DEPT HEAD, ETC.
+                           /* createRadioElement("approve", false);
+                            createRadioElement("deny", false);
+                            createRadioElement("request more info from", false);*/
+
+                            //https://stackoverflow.com/questions/9275972/creating-dropdown-dynamically-javascript
+
+                            //let select = document.getElementById("data2");
+                            let myForm = document.createElement("form");
+
+                            let options = ["approve", "deny", "more info"]
+                            for(let i = 0; i < options.length; i++) {
+                                            let opt = options[i];
+                                            let el = document.createElement("option");
+                                            el.textContent = opt;
+                                            el.value = opt;
+                                            //select.appendChild(el);
+                                            dataSection.appendChild(el);
+
+
+
+
+                            ///create a form
+
+                            //create a form, https://stackoverflow.com/questions/3297143/dynamically-create-a-html-form-with-javascript
+                            var f = document.createElement("form");
+                            f.setAttribute('method',"post");
+                            f.setAttribute('action',"/Project1/submitRReview");//submit reimburseemtn request review
+
+                            //create input element
+                            var i = document.createElement("input");
+                            i.type = "text";
+                            i.name = "comments";
+                            i.id = "comments" + j;//j should auto convert to string
+
+                            //create a checkbox
+                            /*var c = document.createElement("input");
+                            c.type = "checkbox";
+                            c.id = "checkbox1";
+                            c.name = "check1";*/
+
+                            //create a button
+                            var s = document.createElement("input");
+                            s.type = "submit";
+                            s.value = "Submit";
+                            //function should not be necessary
+
+                            // add all elements to the form
+                            f.appendChild(i);
+                            //f.appendChild(c);
+                            f.appendChild(s);
+
+                            // add the form inside the body
+                            //$("body").append(f);   //using jQuery or
+                            //document.getElementsByTagName('body')[0].appendChild(f); //pure javascript
+                            dataSection.appendChild(f);
+
+
+
+                            //doesn't work
+                            /*var dropdown = document.getElementById("data2");
+                            var opt = document.createElement("option");
+                            opt.text = 'approve';
+                            opt.value = 'approve';
+                            dropdown.options.add(opt);
+                            var opt2 = document.createElement("option");
+                                                        opt2.text = 'deny';
+                                                        opt2.value = 'deny';
+                                                        dropdown.options.add(opt2);
+                            var opt3 = document.createElement("option");
+                                                        opt3.text = 'request more information';
+                                                        opt3.value = 'request more information';
+                                                        dropdown.options.add(opt);*/
+                            let input = document.createElement("input");//https://stackoverflow.com/questions/5656392/how-to-create-input-type-text-dynamically
+                            input.type = "text";
+                            input.className = "css-class-name"; // set the CSS class
+                            dataSection.appendChild(input); // put it into the DOM
+
+
+
+
+                    }
 
 
         //for each active RR,
@@ -303,17 +413,18 @@ async function submitRR(){
 
 
     let url = "http://localhost:8080/Project1/newrequest";
-
+    let myEvent = await mainFunction(rrEvent);//get event data using event name/description
+    //need to write functions for isUrgent and isOverAvailable
     let request = {
 
         //eventname: document.getElementById('eventname').value,
         //eventname: rrEvent,
-        userId: 5, //get from cookie
-        eventId: 4, //get id from event name (rrEvent)
+        userId: getCook("user_id"), //get from cookie
+        eventId: myEvent.event_id, //get id from event name (rrEvent)
         isUrgent: true, //check date of event, compare to current date, if less than 2 weeks set true
         status: "Needs direct supervisor approval",
         justification: document.getElementById('justification').value,
-        projectedReimbursement: 100.0,//get from event
+        projectedReimbursement: myEvent.cost,//get from event
         amountReimbursed: 0,
         isOverAvailable: false,//compare to user's available funds
         isOverJustification: "N/A",
@@ -358,8 +469,17 @@ async function submitRR(){
     })
 }
 
-async function getEventData(eventName){
+async function mainFunction(eventName){
+    const result = await getEventData(eventName);
+    return result;
+}
 
+async function getEventData(eventName){
+let url = "http://localhost:8080/Project1/eventname/" + eventName;
+
+
+ let res = await fetch(url, {credentials: "include"});
+    return resJson = await res.json();
 
 
 }
@@ -427,6 +547,21 @@ function getCook(cookiename)
   // Return everything after the equal sign, or an empty string if the cookie name not found
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
   }
+
+/* https://stackoverflow.com/questions/23641531/get-a-cookie-value-javascript
+function getCookie(cookieName) {
+            var name = cookieName + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if ((c.indexOf(i)) == (all the options listed above)) {
+                    alert("found");
+                }
+
+            }
+            return "undefined";
+        }
+*/
 
 async function logout(){
     let url ='http://localhost:8080/Project1/logout';

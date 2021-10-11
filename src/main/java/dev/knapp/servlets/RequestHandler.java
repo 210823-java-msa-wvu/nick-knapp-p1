@@ -33,6 +33,7 @@ public class RequestHandler {
         controllerMap.put("events", new EventController());
         controllerMap.put("toneweventpage", new NewEventController());
         controllerMap.put("newevent", new EventController());
+        controllerMap.put("eventname", new GetEventBNC());
         controllerMap.put("pastrequests", new ReimbursementController());
         controllerMap.put("newrequest", new ReimbursementController());
         controllerMap.put("viewmypastrequests", new UserReimbursements());

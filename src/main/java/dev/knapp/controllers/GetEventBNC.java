@@ -7,6 +7,7 @@ import dev.knapp.services.EventService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class GetEventBNC implements FrontController{
     private EventService eventService = new EventService();
@@ -45,7 +46,7 @@ public class GetEventBNC implements FrontController{
             // Else -> there IS a path attribute that we need to use in our logic
 
             // save that attribute into an integer
-            int bookId = Integer.parseInt(path);
+            //int bookId = Integer.parseInt(path);
                 /*if (bookId == 0){//to new event page
                     response.sendRedirect("static/newevent.html");
                     System.out.println("\nNEW EVENT RESPONSE SENT\n");
@@ -55,13 +56,24 @@ public class GetEventBNC implements FrontController{
 
             switch (request.getMethod()) {
                 // /books/1
-                case "GET": {
+                case "GET": {//should be the block to execute
+
+                    System.out.println("\nGetting event by name\n");
+
+                    List<Event> allEvents = eventService.getAllEvents();
+                    for (Event ev: allEvents){
+                        if(path.equals(ev.getDescription())){
+                            System.out.println("senting Event info response");
+                            response.getWriter().write(om.writeValueAsString(ev));
+                        }
+                    }
+                    /*
                     event = eventService.searchEventById(bookId);
                     if (event != null) {
                         response.getWriter().write(om.writeValueAsString(event.getDescription()));
                     } else {
                         response.sendError(404, "Event not found");
-                    }
+                    }*/
                     break;
                 }
 
@@ -71,7 +83,7 @@ public class GetEventBNC implements FrontController{
                     break;
                 }
                 case "DELETE": {
-                    eventService.deleteEvent(bookId);
+                    //eventService.deleteEvent(bookId);
                     break;
                 }
 

@@ -56,6 +56,10 @@ public class Event {
         this.eventType = eventType;
     }
 
+    public int getEvent_id() {
+        return event_id;
+    }
+
     public String getDescription() {
         return description;
     }

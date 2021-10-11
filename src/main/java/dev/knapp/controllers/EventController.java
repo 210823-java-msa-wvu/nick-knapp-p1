@@ -53,7 +53,6 @@ public class EventController implements FrontController{
 
                 }
 
-
             } else {
                 // Else -> there IS a path attribute that we need to use in our logic
 

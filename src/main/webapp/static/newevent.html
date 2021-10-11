@@ -13,13 +13,13 @@
 <body>
 <h1>Create New Event</h1>
 
-
-
-<form action="Project1/newevent" method="POST">,<!--the most inconvenient commenting syntax ever-->
+<input type="button" value="Back" onclick="window.history.back()" />
+<!-- new event -->
+<form  method="POST">,<!--the most inconvenient commenting syntax ever-->
     <div>
-        <form action="/Project1/back" method="GET">
+        <!--<form action="/Project1/back" method="GET">
             <input type="submit" class="btn btn-primary" onclick="back()" value="back">
-        </form>
+        </form>-->
 
 
 
@@ -65,7 +65,7 @@
                 <option> Other/No official grading </option>
             </select>
             <p> Your selected event type is:
-                <input type = "text" id = "favourite" size = "20"></p>
+                <input type = "text" id = "favouriteG" size = "20"></p>
         </label>
         <label for="passinggrade">Passing Grade:
 
@@ -103,8 +103,7 @@
         -->
 
 
-        <label>View Previous Requests</label>
-        <input>
+
 
 
         <button type="reset">Reset</button>

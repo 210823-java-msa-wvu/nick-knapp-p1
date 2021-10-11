@@ -64,6 +64,10 @@ public class Reimbursement {
         this.workTimeMissed = workTimeMissed;
     }
 
+    public int getRe_id() {
+        return re_id;
+    }
+
     public int getUserId() {
         return userId;
     }

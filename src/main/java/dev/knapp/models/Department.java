@@ -27,6 +27,10 @@ public class Department {
         this.deptHeadId = deptHeadId;
     }
 
+    public int getDept_id() {
+        return dept_id;
+    }
+
     public String getDeptName() {
         return deptName;
     }

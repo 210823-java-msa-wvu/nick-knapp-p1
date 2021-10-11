@@ -9,13 +9,13 @@ function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-creat
 }
 function favTutorialG() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
     let mylist = document.getElementById("gradingformat");
-    document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+    document.getElementById("favouriteG").value = mylist.options[mylist.selectedIndex].text;
     gradingFormat = mylist.options[mylist.selectedIndex].text;
 
 }
 async function newEvent(){
-    let url = "http://localhost:8080/Project1/static/newevent.html";
-    //let url = "http://localhost:8080/Project1/newevent";//or newrequest?
+    //let url = "http://localhost:8080/Project1/static/newevent.html";
+    let url = "http://localhost:8080/Project1/newevent";//or newrequest?
 
     let event = {
         description: document.getElementById('description').value,
