@@ -9115,3 +9115,8 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 2021-10-10 20:00:02 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-10 20:07:15 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-10 20:11:39 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-10 21:03:59 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-10 21:16:12 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-10 21:17:05 WARN  FrontControllerServlet:68 - Getting event by name
+2021-10-10 21:33:46 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-10 21:33:46 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.

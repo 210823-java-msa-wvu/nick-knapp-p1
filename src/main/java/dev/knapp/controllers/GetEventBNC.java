@@ -3,6 +3,9 @@ package dev.knapp.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.knapp.models.Event;
 import dev.knapp.services.EventService;
+import dev.knapp.servlets.FrontControllerServlet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,8 +13,12 @@ import java.io.IOException;
 import java.util.List;
 
 public class GetEventBNC implements FrontController{
+
+    private Logger log = LogManager.getLogger(FrontControllerServlet.class);
     private EventService eventService = new EventService();
     private ObjectMapper om = new ObjectMapper();
+
+
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -58,12 +65,14 @@ public class GetEventBNC implements FrontController{
                 // /books/1
                 case "GET": {//should be the block to execute
 
-                    System.out.println("\nGetting event by name\n");
+                    log.warn("Getting event by name");
+                    //in path, replace '%20' with " "
+                    path = path.replaceAll("%20", " ");
 
                     List<Event> allEvents = eventService.getAllEvents();
                     for (Event ev: allEvents){
                         if(path.equals(ev.getDescription())){
-                            System.out.println("senting Event info response");
+                            System.out.println("sending Event info response");
                             response.getWriter().write(om.writeValueAsString(ev));
                         }
                     }

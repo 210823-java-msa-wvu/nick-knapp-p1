@@ -6,6 +6,54 @@
 </head>
 <body>
 
+<h1>APPROVE/DENY SUBORDINATE REQUESTS</h1>
+
+<input type="button" value="Back" onclick="window.history.back()" />
+<!-- dropdown to select the specific RR, similar to event dropdown -->
+<form>
+    <b> Select reimbursement request from dropdown list</b>
+    <select id = "RRs" onchange = "favTutorial()" >
+        <option> ---Choose--- </option>
+        <!--<option> w3schools </option>
+        <option> Javatpoint </option>
+        <option> tutorialspoint </option>
+        <option> geeksforgeeks </option>-->
+    </select>
+    <p> Your selected event is:
+        <input type = "text" id = "favourite" size = "20"></p>
+</form>
+
+<form action="/Project1/updateRRstatus" method="PUT">
+
+    <label for="approvaldropdown">Approve Request?
+
+        <b> approve, deny or request more info</b>
+        <select id = "approvaldropdown" onchange = "favTutorialC()" >
+            <option> Approve </option>
+            <option> Deny </option>
+            <option> More Infomation from employee</option>
+            <option> More information from employee's supervisor (if applicable) </option>
+            <option> More information from employee's department head (if applicable) </option>
+
+        </select>
+        <p> Your selected event type is:
+            <input type = "text" id = "favouriteC" size = "20"></p>
+
+
+        <label for="comments">Comment(s):
+
+            <input id="comments" type="text" name="comments" class="form-control">
+
+        </label>
+    </label>
+
+    <button type="reset">Reset</button>
+
+    <input type="submit" class="btn-login"  value="SUBMIT">
+
+</form>
+
+<script src="js/approverequests.js"></script>
 
 
 </body>

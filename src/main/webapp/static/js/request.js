@@ -29,14 +29,14 @@ var rrEvent = null;
 
 function start(){
     selectEvent();
-    loadNewRequests();
+    //loadNewRequests();
 
 }
 
 async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
     var mylist = document.getElementById("events");
     document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
-    let thisEvent = mylist.options[mylist.selectedIndex].text;
+    let thisEvent = mylist.options[mylist.selectedIndex].value;
     rrEvent = thisEvent;
 
     //fetch event data, print event data for this event to screen
@@ -61,8 +61,8 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
                 if (thisEvent == resJson[j].description){
                     let x = resJson[j]
                     console.log(x);
-                    let myData = [x.description, [x.date.month, x.date.dayOfMonth, x.date.year ], [x.time.hour, x.time.minute], x.location, x.cost, x.eventType, x.gradingFormat, x.passingGrade];
-                    let myDataLabels = ["Event Name: ", "Event Date: ", "Event Time: ", "Event Location: ", "Event Cost ($): ", "Event Type: ", "Event Grading Format: ", "Passing Grade: "]
+                    let myData = [x.event_id, x.description, [x.date.month, x.date.dayOfMonth, x.date.year ], [x.time.hour, x.time.minute], x.location, x.cost, x.eventType, x.gradingFormat, x.passingGrade];
+                    let myDataLabels = ["EVENT ID", "Event Name: ", "Event Date: ", "Event Time: ", "Event Location: ", "Event Cost ($): ", "Event Type: ", "Event Grading Format: ", "Passing Grade: "]
                     //print data to screen
                     //populateData(resJson[j]);
                     let k = 0;
@@ -91,7 +91,7 @@ var cookies = document.cookie;
  //if nonzero number of requests, display message: "you have active requests"
  //and print request info to screen, allow input: approve/deny/request more info from requester and/or subordinate
  //if request more info, send notification to appropriate user(s) about status update
-async function loadNewRequests(){//do this on page load.
+/*async function loadNewRequests(){//do this on page load.
 //CHECK FOR USER ID (FROM COOKIE(?))
 //USE USER ID TO GET SUBORDINATE'S REQUESTS IF ANY
 //IF NONZERO AMOUNT OF SUBORDINATE'S REQUESTS
@@ -146,9 +146,9 @@ async function loadNewRequests(){//do this on page load.
                             }
                             //insert forms here
                             //      DISPLAY RADIO BUTTON THAT ALLOWS SUPERVISOR TO APPROVE, DENY, OR REQUEST MORE INFO FROM EMPLOYEE, SUPERVISOR, DEPT HEAD, ETC.
-                           /* createRadioElement("approve", false);
+                           *//* createRadioElement("approve", false);
                             createRadioElement("deny", false);
-                            createRadioElement("request more info from", false);*/
+                            createRadioElement("request more info from", false);*//*
 
                             //https://stackoverflow.com/questions/9275972/creating-dropdown-dynamically-javascript
 
@@ -181,10 +181,10 @@ async function loadNewRequests(){//do this on page load.
                             i.id = "comments" + j;//j should auto convert to string
 
                             //create a checkbox
-                            /*var c = document.createElement("input");
+                            *//*var c = document.createElement("input");
                             c.type = "checkbox";
                             c.id = "checkbox1";
-                            c.name = "check1";*/
+                            c.name = "check1";*//*
 
                             //create a button
                             var s = document.createElement("input");
@@ -205,7 +205,7 @@ async function loadNewRequests(){//do this on page load.
 
 
                             //doesn't work
-                            /*var dropdown = document.getElementById("data2");
+                            *//*var dropdown = document.getElementById("data2");
                             var opt = document.createElement("option");
                             opt.text = 'approve';
                             opt.value = 'approve';
@@ -217,7 +217,7 @@ async function loadNewRequests(){//do this on page load.
                             var opt3 = document.createElement("option");
                                                         opt3.text = 'request more information';
                                                         opt3.value = 'request more information';
-                                                        dropdown.options.add(opt);*/
+                                                        dropdown.options.add(opt);*//*
                             let input = document.createElement("input");//https://stackoverflow.com/questions/5656392/how-to-create-input-type-text-dynamically
                             input.type = "text";
                             input.className = "css-class-name"; // set the CSS class
@@ -251,7 +251,7 @@ async function loadNewRequests(){//do this on page load.
     .catch(err => console.log(err));
 
     }
-}
+}*/
 
 function createRadioElement(name, checked) {//https://stackoverflow.com/questions/118693/how-do-you-dynamically-create-a-radio-button-in-javascript-that-works-in-all-bro
     var radioHtml = '<input type="radio" name="' + name + '"';
@@ -304,9 +304,11 @@ let url ='http://localhost:8080/Project1/events';
             //var options = ["1", "2", "3", "4", "5"];
             //var options = resJson.description;//put event descriptions into a list
             let options = [];
+            let eventIDs = []
             for(let j = 0; j < resJson.length; j++){
                 //console.log(resJson[j].event_id);
                 options[j] = resJson[j].description;
+                eventIDs[j] = resJson[j].event_id;
             }
             //let options = resJson.description;
             console.log(options);
@@ -316,7 +318,7 @@ let url ='http://localhost:8080/Project1/events';
                 var opt = options[i];
                 var el = document.createElement("option");
                 el.textContent = opt;
-                el.value = opt;
+                el.value = eventIDs[i];
                 select.appendChild(el);
             }
     }).catch((error) => {
@@ -410,7 +412,7 @@ async function submitRR(){
     //Get data from forms
     //Send post request
 
-
+    console.log("RR event: " + rrEvent);
 
     let url = "http://localhost:8080/Project1/newrequest";
     let myEvent = await mainFunction(rrEvent);//get event data using event name/description
@@ -420,7 +422,7 @@ async function submitRR(){
         //eventname: document.getElementById('eventname').value,
         //eventname: rrEvent,
         userId: getCook("user_id"), //get from cookie
-        eventId: myEvent.event_id, //get id from event name (rrEvent)
+        eventId: rrEvent, //should be event id//myEvent.event_id, //get id from event name (rrEvent)
         isUrgent: true, //check date of event, compare to current date, if less than 2 weeks set true
         status: "Needs direct supervisor approval",
         justification: document.getElementById('justification').value,

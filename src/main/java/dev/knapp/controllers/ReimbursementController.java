@@ -123,7 +123,6 @@ public class ReimbursementController implements FrontController{
                     }
                     break;
                 }
-
                 case "PUT": {
                     r = om.readValue(request.getReader(), Reimbursement.class);
                     reService.updateReimbursement(r);
@@ -133,12 +132,10 @@ public class ReimbursementController implements FrontController{
                     reService.deleteReimbursement(reId);
                     break;
                 }
-
                 default: {
                     response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
                     break;
                 }
-
             }
         }
     }
