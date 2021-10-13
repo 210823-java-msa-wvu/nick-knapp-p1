@@ -78,7 +78,7 @@
         <script src="js/request.js"></script>
 
     </form>
-    <form action="/Project1/newrequest" method="POST">
+    <form><!-- action="/Project1/newrequest" method="POST" -->
         <!-- also need to post user's available reimbursement amount -->
 
         <!--
@@ -103,12 +103,12 @@
 
         <label for="missedworktime">Time Off Work (hours), e.g. 2.5:
 
-            <input id="missedworktime" type="text" name="missedworktime" class="form-control" required>
+            <input id="missedworktime" type="number" name="missedworktime" class="form-control" required>
 
         </label>
-        <label>Relevant File Attachments:
+        <!--<label>Relevant File Attachments:
             <input id="fileattachments" type="file" />
-        </label>
+        </label>-->
 
         <br><br>
 
@@ -123,8 +123,10 @@
 
         <button type="reset">Reset</button>
 
+        <button type="button" class="btn btn-primary" onclick="submitRR()">submit</button>
 
-        <input type="submit" class="btn btn-primary" onclick="submitRR()" value="SUBMIT REQUEST">
+
+
 
 
 

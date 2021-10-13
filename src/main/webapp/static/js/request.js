@@ -25,7 +25,7 @@
 //
 //    document.getElementById("menuProfile").style.display="block";
 //    document.getElementById("showProfile").style.display="none";
-var rrEvent = null;
+//var rrEvent = null;
 
 function start(){
     selectEvent();
@@ -37,9 +37,14 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
     var mylist = document.getElementById("events");
     document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
     let thisEvent = mylist.options[mylist.selectedIndex].value;
-    rrEvent = thisEvent;
+    //window.myEvent = thisEvent;
+    window.rrEvent = parseInt(thisEvent);
     let myEventName = mylist.options[mylist.selectedIndex].text;
     //console.log("my event name: " + myEventName)
+    console.log("RR event: " + window.rrEvent);
+        console.log("userID: " + parseInt(getCook("user_id")));
+        console.log(typeof rrEvent);
+        console.log(typeof parseInt(getCook("user_id")));
 
     //fetch event data, print event data for this event to screen
     let url ='http://localhost:8080/Project1/events';
@@ -311,6 +316,7 @@ let url ='http://localhost:8080/Project1/events';
             console.log(options);
 
 
+
             for(var i = 0; i < options.length; i++) {
                 var opt = options[i];
                 var el = document.createElement("option");
@@ -409,69 +415,69 @@ async function submitRR(){
     //Get data from forms
     //Send post request
 
-    console.log("RR event: " + rrEvent);
-    console.log("userID: " + getCook("user_id"));
 
-    let url = "http://localhost:8080/Project1/newrequest";
-    //let myEvent = await mainFunction(rrEvent);//get event data using event name/description
-    //need to write functions for isUrgent and isOverAvailable
-    let request = {
 
-        //eventname: document.getElementById('eventname').value,
-        //eventname: rrEvent,
-        userId: getCook("user_id"), //get from cookie
-        eventId: rrEvent, //should be event id//myEvent.event_id, //get id from event name (rrEvent)
-        isUrgent: true, //check date of event, compare to current date, if less than 2 weeks set true
-        status: "Needs direct supervisor approval",
-        justification: document.getElementById('justification').value,
-        projectedReimbursement: myEvent.cost,//get from event
-        amountReimbursed: 0,
-        isOverAvailable: false,//compare to user's available funds
-        isOverJustification: "N/A",
-        gradeReceived:"N/A",
-        workTimeMissed: document.getElementById('missedworktime').value
+     /*let request = {
 
-        //cost: document.getElementById('cost').value, NOT NEEDED
-        //missedworktime: document.getElementById('missedworktime').value
-    }
+                //eventname: document.getElementById('eventname').value,
+                //eventname: rrEvent,
+                userId: 7, //get from cookie
+                eventId: 1, //should be event id//myEvent.event_id, //get id from event name (rrEvent)
+                urgent: true, //check date of event, compare to current date, if less than 2 weeks set true
+                status: "Needs direct supervisor approval",
+                justification: "login then s r",
+                projectedReimbursement: 2,//get from event
+                amountReimbursed: 0,
+                overAvailable: false,//compare to user's available funds
+                overJustification: "N/A",
+                gradeReceived:"N/A",
+                workTimeMissed: 1
 
-    /*let request = {
+                //cost: document.getElementById('cost').value, NOT NEEDED
+                //missedworktime: document.getElementById('missedworktime').value
+            }*/
+        /*
 
-            //eventname: document.getElementById('eventname').value,
-            //eventname: rrEvent,
-            userId: 0, //get from cookie
-            eventId:0, //should be event id//myEvent.event_id, //get id from event name (rrEvent)
-            isUrgent: true, //check date of event, compare to current date, if less than 2 weeks set true
-            status: "Needs direct supervisor approval",
-            justification: "need to learn",
-            projectedReimbursement: 200,//get from event
-            amountReimbursed: 0,
-            isOverAvailable: false,//compare to user's available funds
-            isOverJustification: "N/A",
-            gradeReceived:"N/A",
-            workTimeMissed: 4.5
+        	user_id integer not null,//serverside: get user id from cookie
+        	event_id integer not null,
+        	is_urgent boolean not null,//serverside: determine
+        	status varchar not null,//set serverside
+        	cost: get serverside
+        	projected_reimbursment money not null,//set serverside
+        	amount_reimbursed money not null,//set serverside
+        	is_over_available boolean not null,//set serverside
+        	is_over_justification varchar not null,//set serverside
+        	grade_received varchar not null,//set serverside
+
+        	work_time_missed_hrs numeric not null,
+
+        */
+
+        //let myEvent = await mainFunction(rrEvent);//get event data using event name/description
+            //need to write functions for isUrgent and isOverAvailable
 
             //cost: document.getElementById('cost').value, NOT NEEDED
-            //missedworktime: document.getElementById('missedworktime').value
-        }*/
-    /*
+                    //missedworktime: document.getElementById('missedworktime').value
+        //eventname: document.getElementById('eventname').value,
+                //eventname: rrEvent,
 
-    	user_id integer not null,//serverside: get user id from cookie
-    	event_id integer not null,
-    	is_urgent boolean not null,//serverside: determine
-    	status varchar not null,//set serverside
-    	cost: get serverside
-    	projected_reimbursment money not null,//set serverside
-    	amount_reimbursed money not null,//set serverside
-    	is_over_available boolean not null,//set serverside
-    	is_over_justification varchar not null,//set serverside
-    	grade_received varchar not null,//set serverside
+    let userID = parseInt(getCook("user_id"));
 
-    	work_time_missed_hrs numeric not null,
+    let url = "http://localhost:8080/Project1/newrequest";
 
-    */
-
-    console.log(request);
+    let request = {
+        userId: userID,
+        eventId: parseInt(window.rrEvent), //should be event id//myEvent.event_id, //get id from event name (rrEvent)
+        urgent: true, //check date of event, compare to current date, if less than 2 weeks set true
+        status: "Needs direct supervisor approval",
+        justification: document.getElementById('justification').value,
+        projectedReimbursement: 100,//parseInt(myEvent.cost),//get from event
+        amountReimbursed: 0,
+        overAvailable: false,//compare to user's available funds
+        overJustification: "N/A",
+        gradeReceived:"N/A",
+        workTimeMissed: parseInt(document.getElementById('missedworktime').value)
+    }
 
     let res = await fetch(url, {
         method: "POST",
@@ -479,10 +485,12 @@ async function submitRR(){
         body: JSON.stringify(request),
         credentials: "include"
     });
-
-    let resJson = await res.json()
+    let resJson = await res.text()
+    //let resJson = await res.json()
     .then(res => {
-        console.log("this res: "+res);
+        console.log("rr submit success");
+        console.log(res);
+        console.log(resJson);
     })
     .catch(error => {
         console.log(error);

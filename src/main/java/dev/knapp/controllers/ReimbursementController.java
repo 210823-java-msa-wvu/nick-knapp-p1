@@ -29,11 +29,12 @@ public class ReimbursementController implements FrontController{
         Cookie[] thisUser=request.getCookies();//there should only be one cookie: user id
         //path = thisUser[0].getValue();
         int thisUserId = -1;
-
-        for (Cookie coo : thisUser){
-            if (coo.getName().equals("user_id")){
-                thisUserId = Integer.parseInt(coo.getValue());
-                System.out.println("user ID: " + thisUserId);
+        if(thisUser != null) {
+            for (Cookie coo : thisUser) {
+                if (coo.getName().equals("user_id")) {
+                    thisUserId = Integer.parseInt(coo.getValue());
+                    System.out.println("user ID: " + thisUserId);
+                }
             }
         }
         /*String cookieValue = thisUser[0].getValue();
@@ -92,13 +93,11 @@ public class ReimbursementController implements FrontController{
 
                 case "POST": {//for submitting reimbursements
 
-
-                    // then we would add the reimbursement request (read from the request body) to the database
+                    //add the reimbursement request (read from the request body) to the database
                     Reimbursement r = om.readValue(request.getReader(), Reimbursement.class);
-                    //Reimbursement r = om.readValue(request.getInputStream(), Reimbursement.class);
-                    System.out.println("reimbusremtn object created");
+                    System.out.println("read the r");
                     reService.createReimbursement(r);
-                    System.out.println("creating new reimbursement request");
+                    System.out.println("posted r to DB");
                     response.getWriter().write(om.writeValueAsString(r));
                     break;
                 }
