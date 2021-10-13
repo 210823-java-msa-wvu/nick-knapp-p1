@@ -28,23 +28,61 @@
 //var rrEvent = null;
 
 function start(){
+    getCookies();
+    displayUserInfo();
     selectEvent();
-    //loadNewRequests();
+}
+
+function getCookies(){
+    var cookies = document.cookie;
+    console.log(cookies);
+    window.userId = parseInt(getCook("user_id"));
+    window.isSupervisor = getCook("isSupervisor");
+}
+
+async function displayUserInfo(){
+
+    let url ='http://localhost:8080/Project1/users/' + getCook("user_id");
+    let res = await fetch(url, {credentials: "include"})
+    let data = await res.json()
+
+    .then(data => {
+        //print data to screen
+        console.log(data);
+        console.log("Welcome, " + data.firstname + " " + data.lastname);
+        console.log("Available balance: " + data.availableReimbursement);
+    })
+    .catch(err => console.log(err));
 
 }
+/*
+async function displayUserInfo(){
+    const myInfo = getUserInfo();
+    return myInfo;
+}
+
+async function getUserInfo(){
+
+    let url ='http://localhost:8080/Project1/users/' + getCook("user_id");
+
+    let res = await fetch(url, {credentials: "include"});
+    //return resJson = await res.json()
+       .then((resJson) => {
+
+        }).catch((error) => {
+            console.log(error);
+        });
+}*/
 
 async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
     var mylist = document.getElementById("events");
     document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
     let thisEvent = mylist.options[mylist.selectedIndex].value;
     //window.myEvent = thisEvent;
-    window.rrEvent = parseInt(thisEvent);
+    window.eventId = parseInt(thisEvent);
     let myEventName = mylist.options[mylist.selectedIndex].text;
     //console.log("my event name: " + myEventName)
-    console.log("RR event: " + window.rrEvent);
-        console.log("userID: " + parseInt(getCook("user_id")));
-        console.log(typeof rrEvent);
-        console.log(typeof parseInt(getCook("user_id")));
+
 
     //fetch event data, print event data for this event to screen
     let url ='http://localhost:8080/Project1/events';
@@ -85,9 +123,8 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
 }
 
 //https://www.tabnine.com/academy/javascript/how-to-set-cookies-javascript/
-var cookies = document.cookie;
-console.log(cookies);
-//console.log(typeof cookies);
+
+
 
 //once user logs in, get the user's subordinates' requests from the database
  //if nonzero number of requests, display message: "you have active requests"
@@ -569,13 +606,12 @@ async function toNewEventPage(){
 }
 
 
-function getCook(cookiename)
-  {
+function getCook(cookiename){
   // Get name followed by anything except a semicolon
   var cookiestring=RegExp(cookiename+"=[^;]+").exec(document.cookie);
   // Return everything after the equal sign, or an empty string if the cookie name not found
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
-  }
+}
 
 /* https://stackoverflow.com/questions/23641531/get-a-cookie-value-javascript
 function getCookie(cookieName) {
@@ -595,5 +631,4 @@ function getCookie(cookieName) {
 async function logout(){
     let url ='http://localhost:8080/Project1/logout';
     let res = await fetch(url);
-
 }

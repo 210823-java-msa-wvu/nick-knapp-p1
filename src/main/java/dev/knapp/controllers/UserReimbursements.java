@@ -106,6 +106,7 @@ public class UserReimbursements implements FrontController{
                     // /books/1
                     case "GET": {
                         r = reService.searchReimbursementById(reId);
+
                         if (r != null) {
                             response.getWriter().write(om.writeValueAsString(r));//converts reimbursement to JSON
 
