@@ -1,15 +1,23 @@
+function start(){
 
-var cookies = document.cookie;
+    let cookies = document.cookie;
 
-console.log(cookies);
+    console.log(cookies);
+    console.log(typeof cookies);
 
 
-//get cookies
-//check if there is a previous failed login,  if so, print a message
-if (cookies != null){// or ""?
-    if (getCook("loginStatus") === "failed"){
-        alert("invalid login credentials.  please try again.")
+    //get cookies
+    //check if there is a previous failed login,  if so, print a message
+    if (cookies != null){// or ""?
+    console.log(getCook("loginStatus"));
+            console.log(typeof getCook("loginStatus"));
+        if (getCook("loginStatus") === "failed"){
+
+            alert("invalid login credentials.  please try again.");
+        }
     }
+
+
 }
 
 

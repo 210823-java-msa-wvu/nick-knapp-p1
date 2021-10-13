@@ -22440,3 +22440,15 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 2021-10-12 20:35:15 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-12 21:06:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-12 21:22:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-12 21:35:19 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-12 22:28:19 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-12 22:28:19 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-13 16:29:01 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 16:34:02 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 16:35:57 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 16:37:34 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 17:19:33 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 17:22:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 17:27:08 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 17:30:06 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 17:33:02 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)

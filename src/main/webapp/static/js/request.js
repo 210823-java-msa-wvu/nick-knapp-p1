@@ -485,12 +485,13 @@ async function submitRR(){
         body: JSON.stringify(request),
         credentials: "include"
     });
-    let resJson = await res.text()
-    //let resJson = await res.json()
-    .then(res => {
-        console.log("rr submit success");
-        console.log(res);
-        console.log(resJson);
+    //let resJson = await res.text()
+    let resJson = await res.json()
+    .then(resJson => {
+        alert("Reimbursement request ID# " + resJson.re_id + " has successfully been created.");
+        //console.log("rr submit success");
+        //console.log(res);
+
     })
     .catch(error => {
         console.log(error);

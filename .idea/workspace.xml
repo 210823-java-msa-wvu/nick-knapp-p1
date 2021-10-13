@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f7e7a41-fa00-464f-9159-0cf0138f5933" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ReimbursementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ReimbursementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Reimbursement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Reimbursement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/static/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/request.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ADRController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ADRController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/MSRController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/MSRController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ReimbursementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ReimbursementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/UserReimbursements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/UserReimbursements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/models/Reimbursement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/models/Reimbursement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/LoginController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,15 +130,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ReimbursementController.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="com.poratu.idea.plugins.tomcat">
         <watch expression="((byte[])((HeapByteBuffer)((InputBuffer)((CoyoteInputStream)((Request)((RequestFacade)request).request).inputStream).ib).bb).hb)[9]" custom="org.apache.catalina.connector.RequestFacade,byte[],org.apache.catalina.connector.Request,org.apache.catalina.connector.CoyoteInputStream,org.apache.catalina.connector.InputBuffer,java.nio.HeapByteBuffer" />
