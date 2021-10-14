@@ -115,7 +115,7 @@ async function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to
             //var options = resJson.description;//put event descriptions into a list
             //let events = [];
             for(let j = 0; j < resJson.length; j++){
-                if (rrEvent == resJson[j].event_id){
+                if (window.eventId == resJson[j].event_id){
                     let x = resJson[j]
                     //console.log(x);
                     let myData = [x.description, [x.date.month, x.date.dayOfMonth, x.date.year ], [x.time.hour, x.time.minute], x.location, x.cost, x.eventType, x.gradingFormat, x.passingGrade];
@@ -516,7 +516,7 @@ async function submitRR(){
 
     let request = {
         userId: userID,
-        eventId: parseInt(window.rrEvent), //should be event id//myEvent.event_id, //get id from event name (rrEvent)
+        eventId: window.eventId, //should be event id//myEvent.event_id, //get id from event name (rrEvent)
         urgent: true, //check date of event, compare to current date, if less than 2 weeks set true
         status: "Needs direct supervisor approval",
         justification: document.getElementById('justification').value,
@@ -525,7 +525,9 @@ async function submitRR(){
         overAvailable: false,//compare to user's available funds
         overJustification: "N/A",
         gradeReceived:"N/A",
-        workTimeMissed: parseInt(document.getElementById('missedworktime').value)
+        workTimeMissed: parseInt(document.getElementById('missedworktime').value),
+        comment: null,
+        commenterId: null
     }
 
     let res = await fetch(url, {

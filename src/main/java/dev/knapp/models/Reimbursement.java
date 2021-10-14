@@ -38,6 +38,10 @@ public class Reimbursement {
     String gradeReceived;
     @Column(name="work_time_missed_hrs")
     Float workTimeMissed;//hours
+    @Column(name="last_comment")
+    String comment;
+    @Column(name="last_commenter_id")
+    Integer commenterId;
 
     /*
     * If you have a date you're dealing with you might need this in your class or method:
@@ -50,7 +54,7 @@ public class Reimbursement {
 
     public Reimbursement(){}
 
-    public Reimbursement(int re_id, int userId, int eventId, boolean urgent, String status, String justification, BigDecimal projectedReimbursement, BigDecimal amountReimbursed, boolean overAvailable, String overJustification, String gradeReceived, float workTimeMissed) {
+    public Reimbursement(Integer re_id, Integer userId, Integer eventId, Boolean urgent, String status, String justification, BigDecimal projectedReimbursement, BigDecimal amountReimbursed, Boolean overAvailable, String overJustification, String gradeReceived, Float workTimeMissed, String comment, Integer commenterId) {
         this.re_id = re_id;
         this.userId = userId;
         this.eventId = eventId;
@@ -63,9 +67,11 @@ public class Reimbursement {
         this.overJustification = overJustification;
         this.gradeReceived = gradeReceived;
         this.workTimeMissed = workTimeMissed;
+        this.comment = comment;
+        this.commenterId = commenterId;
     }
 
-    public Reimbursement(int userId, int eventId, boolean urgent, String status, String justification, BigDecimal projectedReimbursement, BigDecimal amountReimbursed, boolean overAvailable, String overJustification, String gradeReceived, float workTimeMissed) {
+    public Reimbursement(Integer userId, Integer eventId, Boolean urgent, String status, String justification, BigDecimal projectedReimbursement, BigDecimal amountReimbursed, Boolean overAvailable, String overJustification, String gradeReceived, Float workTimeMissed, String comment, Integer commenterId) {
         this.userId = userId;
         this.eventId = eventId;
         this.urgent = urgent;
@@ -77,6 +83,8 @@ public class Reimbursement {
         this.overJustification = overJustification;
         this.gradeReceived = gradeReceived;
         this.workTimeMissed = workTimeMissed;
+        this.comment = comment;
+        this.commenterId = commenterId;
     }
 
     public Integer getRe_id() {
@@ -173,5 +181,21 @@ public class Reimbursement {
 
     public void setWorkTimeMissed(Float workTimeMissed) {
         this.workTimeMissed = workTimeMissed;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Integer getCommenterId() {
+        return commenterId;
+    }
+
+    public void setCommenterId(Integer commenterId) {
+        this.commenterId = commenterId;
     }
 }

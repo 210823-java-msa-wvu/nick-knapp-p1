@@ -22471,3 +22471,29 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
   Position: 178
 2021-10-13 22:32:36 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-13 22:37:06 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 22:44:14 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 05:54:47 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 06:01:10 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 06:01:28 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 23502
+2021-10-14 06:01:28 ERROR SqlExceptionHelper:142 - ERROR: null value in column "event_id" violates not-null constraint
+  Detail: Failing row contains (21, 5, null, t, Needs direct supervisor approval, test5, $100.00, $0.00, f, N/A, N/A, 5, null, null).
+2021-10-14 06:04:53 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 06:05:17 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 23502
+2021-10-14 06:05:17 ERROR SqlExceptionHelper:142 - ERROR: null value in column "event_id" violates not-null constraint
+  Detail: Failing row contains (22, 5, null, t, Needs direct supervisor approval, test6, $100.00, $0.00, f, N/A, N/A, 6, null, null).
+2021-10-14 06:09:10 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 06:29:01 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 06:32:57 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 06:35:38 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 08:56:12 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:16:21 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:21:04 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:22:42 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:24:04 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:32:33 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:35:29 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:45:59 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:52:31 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 09:56:42 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 10:15:32 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 10:22:47 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)

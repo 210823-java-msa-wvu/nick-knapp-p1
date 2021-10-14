@@ -22,7 +22,7 @@ public class MSRController implements FrontController{
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("\nentering MSR controller, fetching subordinate's reimbursements\n\n");
+        System.out.println("\nentering MSRR controller\n");//my subordinates' reimbursement requests
         // Getting the attribute we set in the RequestHandler's handle() method
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);

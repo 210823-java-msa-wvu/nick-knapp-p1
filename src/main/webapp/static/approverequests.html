@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body onload="loadNewRequests();">
 
 <h1>APPROVE/DENY SUBORDINATE REQUESTS</h1>
 
@@ -23,20 +23,24 @@
         <input type = "text" id = "favourite" size = "20"></p>
 </form>
 
+<section id="data">
+
+</section>
+
 <form action="/Project1/updateRRstatus" method="PUT">
 
     <label for="approvaldropdown">Approve Request?
 
         <b> approve, deny or request more info</b>
-        <select id = "approvaldropdown" onchange = "favTutorialC()" >
+        <select id = "approvaldropdown" onchange = "favTutorialC()" required>
+            <option> --- Select Approval Status --- </option>
             <option> Approve </option>
             <option> Deny </option>
-            <option> More Infomation from employee</option>
-            <option> More information from employee's supervisor (if applicable) </option>
-            <option> More information from employee's department head (if applicable) </option>
+            <option> More Infomation (specify from who in comments)</option>
+
 
         </select>
-        <p> Your selected event type is:
+        <p> Your selected response is:
             <input type = "text" id = "favouriteC" size = "20"></p>
 
 
@@ -49,7 +53,7 @@
 
     <button type="reset">Reset</button>
 
-    <input type="submit" class="btn-login"  value="SUBMIT">
+    <button type="button" class="btn btn-primary" onclick="submitRR()">submit</button>
 
 </form>
 

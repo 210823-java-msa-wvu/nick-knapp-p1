@@ -30,18 +30,23 @@ public class RequestHandler {
         controllerMap.put("login", new LoginController());
         controllerMap.put("users", new UserController());
         controllerMap.put("departments", new DepartmentController());
-        controllerMap.put("events", new EventController());
+
         controllerMap.put("toneweventpage", new NewEventController());
+        controllerMap.put("events", new EventController());
         controllerMap.put("newevent", new EventController());
+        controllerMap.put("geteventbyid", new EventController());
         controllerMap.put("eventname", new GetEventBNC());
+
         controllerMap.put("pastrequests", new ReimbursementController());
         controllerMap.put("newrequest", new ReimbursementController());
         controllerMap.put("viewmypastrequests", new UserReimbursements());
-        controllerMap.put("logout", new LogoutController());
-        controllerMap.put("loadrequests", new MSRController());
-        controllerMap.put("geteventbyid", new EventController());
-        controllerMap.put("back", new BackController());
         controllerMap.put("topendingrequests", new MSRController());
+        controllerMap.put("loadrequests", new MSRController());
+        controllerMap.put("myRR", new GetOneRRController());
+
+        controllerMap.put("logout", new LogoutController());
+        controllerMap.put("back", new BackController());
+
 
     }
 
