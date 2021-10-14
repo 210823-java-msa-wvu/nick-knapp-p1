@@ -23,35 +23,35 @@
 
 
 
-        <label for="eventname">Event Description/Name:
+        <label for="description">Event Description/Name:
 
-            <input id="eventname" type="text" name="eventname" class="form-control" required>
+            <input id="description" type="text" name="eventname" class="form-control" required>
 
         </label>
 
         <br><br>
 
-        <label for="eventdate">Event Date:
+        <label for="date">Event Date:
 
-            <input id="eventdate" type="date" name="eventdate" class="form-control" required>
-
-        </label>
-        <br>
-        <label for="eventtime">Event Time:
-
-            <input id="eventtime" type="time" name="eventtime" class="form-control" required>
+            <input id="date" type="date" name="eventdate" class="form-control" required>
 
         </label>
         <br>
-        <label for="eventlocation">Event Location:
+        <label for="time">Event Time:
 
-            <input id="eventlocation" type="text" name="eventlocation" class="form-control" required>
+            <input id="time" type="time" name="eventtime" class="form-control" required>
 
         </label>
         <br>
-        <label for="eventcost">Event Cost, USD:
+        <label for="location">Event Location:
 
-            <input id="eventcost" type="number" name="eventcost" class="form-control" required>
+            <input id="location" type="text" name="eventlocation" class="form-control" required>
+
+        </label>
+        <br>
+        <label for="cost">Event Cost, USD:
+
+            <input id="cost" type="number" name="eventcost" class="form-control" required>
 
         </label>
         <label for="gradingformat">Grading Format
@@ -111,7 +111,7 @@
 
         <button type="reset">Reset</button>
 
-        <input type="submit" class="btn-login" onclick="newEvent()" value="SUBMIT">
+        <button type="button" class="btn-login" onclick="newEvent()">submit</button>
 
 
 

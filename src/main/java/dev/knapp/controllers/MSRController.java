@@ -72,9 +72,9 @@ public class MSRController implements FrontController{
 
                 case "GET": {
 
-
-                    System.out.println("Getting all reimbursements from the database...");
-                    response.getWriter().write(om.writeValueAsString(reService.getAllReimbursements()));
+                    response.sendRedirect("static/approverequests.html");
+                    //System.out.println("Getting all reimbursements from the database...");
+                    //response.getWriter().write(om.writeValueAsString(reService.getAllReimbursements()));
 
                     break;
                 }

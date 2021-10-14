@@ -1,6 +1,7 @@
 package dev.knapp.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import dev.knapp.models.Event;
 import dev.knapp.services.EventService;
 import dev.knapp.servlets.FrontControllerServlet;
@@ -11,6 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /*
  *
@@ -30,12 +33,18 @@ public class EventController implements FrontController{
         private EventService eventService = new EventService();
         private ObjectMapper om = new ObjectMapper();
 
+
         @Override
         public void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
             System.out.println("Event Controller");
             // Getting the attribute we set in the RequestHandler's handle() method
             String path = (String) request.getAttribute("path");
             System.out.println("Path attribute: " + path);
+
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+            om.setDateFormat(df);
+            //om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
             if (path == null || path.equals("")) { // http://localhost:8080/Project1/events
 
@@ -52,9 +61,11 @@ public class EventController implements FrontController{
                     case "POST": {
                         // then we would add the book (read from the request body) to the database
                         log.warn("POSTING NEW EVENT");
+
                         Event event = om.readValue(request.getReader(), Event.class);
                         eventService.createEvent(event);
-                        response.sendRedirect("static/request.html");
+                        //response.sendRedirect("static/request.html");
+                        response.getWriter().write(om.writeValueAsString(event));
                         break;
                     }
 

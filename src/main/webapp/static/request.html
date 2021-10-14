@@ -16,6 +16,27 @@
 <body onload="start();">
     <h1>request page</h1>
 
+    <p id="welcome"></p>
+    <p id="amount"></p>
+
+    <form action="/Project1/topendingrequests" method="GET">
+
+        <!--<label for="thenewevent">Enter New Event</label>
+        <input type="text" name="newevent" id="thenewevent" value="upcoming workshop" required> -->
+
+        <!--or use placeholder= for greyed out text-->
+        <!-- input types
+            email: verifies email addresses (@)
+            number: also has arrow keys, min="1" max="200" step="1" (arrow increment/decrement interval)
+            date:
+
+
+        -->
+        <input id="supervisors" type="submit" class="btn btn-primary" value="View Pending Requests">
+        <script src="js/request.js"></script>
+
+    </form>
+
     <section id="data2"><!-- section for printing subordinate requests -->
 
     </section>

@@ -29,6 +29,7 @@
 
 function start(){
     getCookies();
+    supervisorButton();
     displayUserInfo();
     selectEvent();
 }
@@ -37,7 +38,16 @@ function getCookies(){
     var cookies = document.cookie;
     console.log(cookies);
     window.userId = parseInt(getCook("user_id"));
-    window.isSupervisor = getCook("isSupervisor");
+    window.isSupervisor = getCook("supervisor");
+}
+
+function supervisorButton(){
+    if (window.isSupervisor === "true"){
+
+        document.getElementById("supervisors").style.visibility = "visible";
+    } else {
+        document.getElementById("supervisors").style.visibility = "hidden";
+    }
 }
 
 async function displayUserInfo(){
@@ -49,8 +59,10 @@ async function displayUserInfo(){
     .then(data => {
         //print data to screen
         console.log(data);
-        console.log("Welcome, " + data.firstname + " " + data.lastname);
-        console.log("Available balance: " + data.availableReimbursement);
+        let a = "Welcome, " + data.firstname + " " + data.lastname;
+        document.getElementById("welcome").innerHTML = a;
+        let b = "Available Balance: $" + data.availableReimbursement;
+        document.getElementById("amount").innerHTML = b;
     })
     .catch(err => console.log(err));
 

@@ -8,9 +8,19 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class EventRepo implements CrudRepository<Event>{
+
+    /*PreparedStatement ps = new PreparedStatement();
+
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    ps.setDate(2, Date.valueOf(dateFormat.format(r.getStartsOn())));*/
+
     @Override
     public Event add(Event event) {
         Session s = HibernateUtil.getSession();

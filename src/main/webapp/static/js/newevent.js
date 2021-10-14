@@ -1,16 +1,16 @@
-var EventType = null;
-var gradingFormat = null;
+//var EventType = null;
+//var gradingFormat = null;
 
 function favTutorial() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
     let mylist = document.getElementById("eventtype");
     document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
-    EventType = mylist.options[mylist.selectedIndex].text;
+    window.EventType = mylist.options[mylist.selectedIndex].text;
 
 }
 function favTutorialG() {//dropdown list; https://www.javatpoint.com/how-to-create-dropdown-list-using-javascript
     let mylist = document.getElementById("gradingformat");
     document.getElementById("favouriteG").value = mylist.options[mylist.selectedIndex].text;
-    gradingFormat = mylist.options[mylist.selectedIndex].text;
+    window.gradingFormat = mylist.options[mylist.selectedIndex].text;
 
 }
 async function newEvent(){
@@ -24,9 +24,9 @@ async function newEvent(){
         time: document.getElementById('time').value,
         location: document.getElementById('location').value,
         cost: document.getElementById('cost').value,
-        gradingformat: gradingFormat,//from dropdown
-        passinggrade: document.getElementById('passinggrade').value,
-        eventtype: EventType//from dropdown
+        gradingFormat: window.gradingFormat,//from dropdown
+        passingGrade: document.getElementById('passinggrade').value,
+        eventType: window.EventType//from dropdown
     }
     /**
     event_id serial primary key,
@@ -45,12 +45,13 @@ async function newEvent(){
     let res = await fetch(url, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(event)
+        body: JSON.stringify(event),
+        credentials: "include"
     });
 
     let resJson = await res.json()
-    .then(res => {
-        console.log(res);
+    .then(resJson => {
+        alert("Successfully created new event ID# " + resJson.event_id);
     })
     .catch(error => {
         console.log(error);

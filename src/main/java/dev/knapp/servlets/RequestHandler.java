@@ -41,6 +41,7 @@ public class RequestHandler {
         controllerMap.put("loadrequests", new MSRController());
         controllerMap.put("geteventbyid", new EventController());
         controllerMap.put("back", new BackController());
+        controllerMap.put("topendingrequests", new MSRController());
 
     }
 

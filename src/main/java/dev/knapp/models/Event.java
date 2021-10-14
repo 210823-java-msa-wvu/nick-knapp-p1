@@ -3,8 +3,7 @@ package dev.knapp.models;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.Date;
 
 
 @Entity
@@ -16,10 +15,16 @@ public class Event {
     int event_id;
     @Column(name="description")
     String description;
+
+    //@JsonDeserialize(using = LocalDateDeserializer.class)
+    //@JsonSerialize(using = LocalDateSerializer.class)
     @Column(name="event_date")
-    LocalDate date;
+    private Date date;//LocalDate startDate = newRequest.getStartsOn().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
     @Column(name="event_time")
-    LocalTime time;
+    String time;//Time
+    //LocalDate startDate = newRequest.getStartsOn().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    //ps.setString(3, r.getStartTime() + ":00");
     @Column(name="event_location")
     String location;
     @Column(name="event_cost")
@@ -33,8 +38,7 @@ public class Event {
 
     public Event(){}
 
-    public Event(int event_id, String description, LocalDate date, LocalTime time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
-        this.event_id = event_id;
+    public Event(String description, Date date, String time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
         this.description = description;
         this.date = date;
         this.time = time;
@@ -45,7 +49,8 @@ public class Event {
         this.eventType = eventType;
     }
 
-    public Event(String description, LocalDate date, LocalTime time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
+    public Event(int event_id, String description, Date date, String time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
+        this.event_id = event_id;
         this.description = description;
         this.date = date;
         this.time = time;
@@ -60,6 +65,10 @@ public class Event {
         return event_id;
     }
 
+    public void setEvent_id(int event_id) {
+        this.event_id = event_id;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -68,19 +77,19 @@ public class Event {
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public LocalTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

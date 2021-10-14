@@ -7,9 +7,6 @@
 //idea: use dropdown for all active requests, similar to event selection on R request page
 //      this way, we only need one set of radio buttons and one textbox for input
 
-var myRR = null;
-var myStatus = null;
-
 async function loadNewRequests(){//do this on page load.
 //CHECK FOR USER ID (FROM COOKIE(?))
 //USE USER ID TO GET SUBORDINATE'S REQUESTS IF ANY

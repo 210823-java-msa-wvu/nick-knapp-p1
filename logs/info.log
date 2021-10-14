@@ -22453,3 +22453,21 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 2021-10-13 17:30:06 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-13 17:33:02 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-13 17:35:00 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 18:26:53 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 19:46:01 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 19:53:20 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 20:47:59 WARN  FrontControllerServlet:58 - POSTING NEW EVENT
+2021-10-13 21:05:04 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 21:05:45 WARN  FrontControllerServlet:58 - POSTING NEW EVENT
+2021-10-13 21:08:03 WARN  FrontControllerServlet:61 - POSTING NEW EVENT
+2021-10-13 21:13:31 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-13 21:16:39 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-13 21:37:01 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-13 21:48:40 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-13 21:48:45 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 21:48:52 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 42804
+2021-10-13 21:48:52 ERROR SqlExceptionHelper:142 - ERROR: column "event_time" is of type time without time zone but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 178
+2021-10-13 22:32:36 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-13 22:37:06 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)

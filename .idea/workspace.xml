@@ -7,9 +7,22 @@
     <list default="true" id="4f7e7a41-fa00-464f-9159-0cf0138f5933" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserReimbursements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserReimbursements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ADRController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ADRController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/MSRController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/MSRController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/EventRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/EventRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/approverequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/approverequests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/newevent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/newevent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/newevent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/newevent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ADRController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ADRController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/EventController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/EventController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/MSRController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/MSRController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/models/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/models/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/servlets/RequestHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/servlets/RequestHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
