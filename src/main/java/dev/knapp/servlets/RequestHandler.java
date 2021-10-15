@@ -43,6 +43,7 @@ public class RequestHandler {
         controllerMap.put("topendingrequests", new MSRController());
         controllerMap.put("loadrequests", new MSRController());
         controllerMap.put("myRR", new GetOneRRController());
+        controllerMap.put("updateRRstatus", new GetOneRRController());
 
         controllerMap.put("logout", new LogoutController());
         controllerMap.put("back", new BackController());
@@ -58,6 +59,7 @@ public class RequestHandler {
 
         // This is where the logic will go to parse the URI and send back the appropriate controller
         StringBuilder uriString = new StringBuilder(request.getRequestURI()); // uri = /LibraryServlet/books/1
+        System.out.println("URI Strings: ");
         System.out.println(uriString);
 
         // Remove context path

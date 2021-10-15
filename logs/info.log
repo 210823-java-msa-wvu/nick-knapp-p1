@@ -22497,3 +22497,71 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 2021-10-14 09:56:42 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-14 10:15:32 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-14 10:22:47 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 10:29:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:06:07 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:17:29 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:20:49 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:23:28 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:27:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:30:14 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:34:53 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:38:28 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:41:13 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 13:52:51 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 14:04:26 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-14 14:04:26 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 42804
+2021-10-14 14:04:26 ERROR SqlExceptionHelper:142 - ERROR: column "event_time" is of type time without time zone but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 178
+2021-10-14 14:11:12 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-14 14:11:17 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 14:11:25 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 23502
+2021-10-14 14:11:25 ERROR SqlExceptionHelper:142 - ERROR: null value in column "grading_format" violates not-null constraint
+  Detail: Failing row contains (3, Google Cloud Architect Certification Training, 2021-10-19 00:00:00-05, 15:11, Google HQ, 122, null, pass, Certification Preparation Class).
+2021-10-14 14:12:32 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-14 14:12:32 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-14 14:12:32 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-14 14:12:51 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08001
+2021-10-14 14:12:51 ERROR SqlExceptionHelper:142 - The connection attempt failed.
+2021-10-14 14:13:15 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-14 14:21:57 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 15:00:20 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 15:04:48 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 15:05:11 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 15:08:36 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 15:13:50 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 15:16:01 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 15:17:21 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 15:22:12 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 17:24:30 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 17:24:36 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 22007
+2021-10-14 17:24:36 ERROR SqlExceptionHelper:142 - Bad value for type timestamp/date/time: {1}
+2021-10-14 17:26:42 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-14 17:30:23 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-14 17:42:11 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-14 17:42:14 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 17:51:29 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 17:53:44 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 17:57:57 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:04:09 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:07:09 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:09:00 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:14:18 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:17:56 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:37:10 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:40:23 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:54:49 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 18:55:49 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:02:11 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:04:18 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:07:11 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:10:27 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:12:52 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:16:10 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:17:41 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:30:46 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-14 19:30:46 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-14 19:30:46 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-14 19:30:46 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-14 19:44:57 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-14 19:55:59 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)

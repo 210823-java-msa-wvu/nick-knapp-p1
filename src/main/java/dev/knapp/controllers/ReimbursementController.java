@@ -1,15 +1,20 @@
 package dev.knapp.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.knapp.models.Event;
 import dev.knapp.models.Reimbursement;
+import dev.knapp.models.User;
 import dev.knapp.services.DepartmentService;
+import dev.knapp.services.EventService;
 import dev.knapp.services.ReimbursementService;
+import dev.knapp.services.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +22,8 @@ public class ReimbursementController implements FrontController{
 
     private ReimbursementService reService = new ReimbursementService();
     private ObjectMapper om = new ObjectMapper();
+    UserService userService = new UserService();
+    EventService eventService = new EventService();
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -95,7 +102,29 @@ public class ReimbursementController implements FrontController{
 
                     //add the reimbursement request (read from the request body) to the database
                     Reimbursement r = om.readValue(request.getReader(), Reimbursement.class);
-                    System.out.println("read the r");
+
+                    //subtract amount from user's account
+                    int thisEventId = r.getEventId();
+                    Event thisEvent = eventService.searchEventById(thisEventId);
+                    BigDecimal eventCost = thisEvent.getCost();
+                    String eventType = thisEvent.getEventType();
+                    Double coef  = 0.0;
+                    switch (eventType){
+                        case "University Course": {coef = 0.8;}
+                        case "Seminar": {coef = 0.6;}
+                        case "Certification Preparation Class": {coef = 0.75;}
+                        case "Certification": {coef = 1.0;}
+                        case "Technical Training": {coef = 0.9;}
+                        case "Other": {coef = 0.3;}
+                    }
+
+                    int thisId = r.getUserId();
+                    User aUser = userService.searchUserById(thisId);
+                    BigDecimal avail = aUser.getAvailableReimbursement();
+                    //Double reimbursed = eventCost * coef;
+
+
+                            System.out.println("read the r");
                     reService.createReimbursement(r);
                     System.out.println("posted r to DB");
                     response.getWriter().write(om.writeValueAsString(r));

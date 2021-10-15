@@ -18,7 +18,8 @@ public class GetOneRRController implements FrontController{
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("\nentering USER reimbursement controller\n\n");
+        System.out.println("\nentering GET ONE RR controller\n");
+        System.out.println("my method:" + request.getMethod());
         // Getting the attribute we set in the RequestHandler's handle() method
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);
@@ -33,10 +34,7 @@ public class GetOneRRController implements FrontController{
             }
         }
 
-        System.out.println("printing cookies");
-        for (Cookie c : thisUser ){
-            System.out.println("\ncookie Name: " + c.getName() + " cookie Value: " + c.getValue());
-        }
+
         /*if (thisUser != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("cookieName")) {
@@ -94,6 +92,7 @@ public class GetOneRRController implements FrontController{
 
 
         } else {
+            System.out.println("ELSE BLOCK");
             // Else -> there IS a path attribute that we need to use in our logic
 
             // save that attribute into an integer
@@ -103,21 +102,34 @@ public class GetOneRRController implements FrontController{
             switch (request.getMethod()) {
                 // /books/1
                 case "GET": {
+                    System.out.println("\nGETTING " + reId + "\n");
+                    //used to get RRs and send to approval page
                     r = reService.searchReimbursementById(reId);
+                    System.out.println(r.getJustification());
+                    if (r == null){
+                        System.out.println("r is null");
+                    }
 
                     if (r != null) {
+
                         response.getWriter().write(om.writeValueAsString(r));//converts reimbursement to JSON
+                        System.out.println("response sent*****");
 
 
                     } else {
+                        System.out.println("ERROR 99938293");
                         response.sendError(404, "Reimbursement Request not found");
+
                     }
                     break;
                 }
 
-                case "PUT": {
+                case "PUT": {//used to update status of RRs
+
                     r = om.readValue(request.getReader(), Reimbursement.class);
                     reService.updateReimbursement(r);
+                    response.getWriter().write(om.writeValueAsString(r));
+
                     break;
                 }
                 case "DELETE": {

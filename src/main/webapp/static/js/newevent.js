@@ -28,6 +28,7 @@ async function newEvent(){
         passingGrade: document.getElementById('passinggrade').value,
         eventType: window.EventType//from dropdown
     }
+    console.log(event);
     /**
     event_id serial primary key,
     	description varchar not null,--is now unique

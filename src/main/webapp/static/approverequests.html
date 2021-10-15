@@ -22,21 +22,23 @@
     <p> Your selected event is:
         <input type = "text" id = "favourite" size = "20"></p>
 </form>
-
+<br>
 <section id="data">
 
 </section>
+<div class="container2"></div>
+<br>
 
-<form action="/Project1/updateRRstatus" method="PUT">
+<form><!--  action="/Project1/updateRRstatus" method="PUT"-->
 
     <label for="approvaldropdown">Approve Request?
 
         <b> approve, deny or request more info</b>
         <select id = "approvaldropdown" onchange = "favTutorialC()" required>
             <option> --- Select Approval Status --- </option>
-            <option> Approve </option>
-            <option> Deny </option>
-            <option> More Infomation (specify from who in comments)</option>
+            <option>Approve</option>
+            <option>Deny</option>
+            <option>More Information (specify from who in comments)</option>
 
 
         </select>
@@ -53,7 +55,7 @@
 
     <button type="reset">Reset</button>
 
-    <button type="button" class="btn btn-primary" onclick="submitRR()">submit</button>
+    <button type="button" class="btn btn-primary" onclick="updateRRStatus()">submit</button>
 
 </form>
 

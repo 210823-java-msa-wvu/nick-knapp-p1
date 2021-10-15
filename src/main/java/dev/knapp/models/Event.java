@@ -19,7 +19,7 @@ public class Event {
     //@JsonDeserialize(using = LocalDateDeserializer.class)
     //@JsonSerialize(using = LocalDateSerializer.class)
     @Column(name="event_date")
-    private Date date;//LocalDate startDate = newRequest.getStartsOn().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    java.sql.Date date;//LocalDate startDate = newRequest.getStartsOn().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
     @Column(name="event_time")
     String time;//Time
@@ -38,7 +38,7 @@ public class Event {
 
     public Event(){}
 
-    public Event(String description, Date date, String time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
+    public Event(String description, java.sql.Date date, String time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
         this.description = description;
         this.date = date;
         this.time = time;
@@ -49,7 +49,7 @@ public class Event {
         this.eventType = eventType;
     }
 
-    public Event(int event_id, String description, Date date, String time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
+    public Event(int event_id, String description, java.sql.Date date, String time, String location, BigDecimal cost, String gradingFormat, String passingGrade, String eventType) {
         this.event_id = event_id;
         this.description = description;
         this.date = date;
@@ -81,7 +81,7 @@ public class Event {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.sql.Date date) {
         this.date = date;
     }
 
