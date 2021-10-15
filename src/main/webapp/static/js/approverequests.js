@@ -342,8 +342,8 @@ async function updateRRStatus(){
         workTimeMissed: y.workTimeMissed
     }
 
-    console.log("before resp");
-    console.log(request);
+    //console.log("before resp");
+    //console.log(request);
 //let reId = window.RRid;//get from dropdown
     let url = "http://localhost:8080/Project1/updateRRstatus/" + y.re_id;
     let resp = await fetch(url, {

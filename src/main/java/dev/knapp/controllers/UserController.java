@@ -28,6 +28,7 @@ public class UserController implements FrontController{
         // Getting the attribute we set in the RequestHandler's handle() method
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);
+        System.out.println("method: " + request.getMethod());
 
 
         Cookie[] thisUser=request.getCookies();//there should only be one cookie: user id

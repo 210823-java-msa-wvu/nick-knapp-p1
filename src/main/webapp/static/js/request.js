@@ -526,8 +526,8 @@ async function submitRR(){
         overJustification: "N/A",
         gradeReceived:"N/A",
         workTimeMissed: parseInt(document.getElementById('missedworktime').value),
-        comment: null,
-        commenterId: null
+        comment: "no comment",
+        commenterId: userID
     }
 
     let res = await fetch(url, {

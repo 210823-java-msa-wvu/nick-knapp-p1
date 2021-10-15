@@ -22641,3 +22641,64 @@ entering reimbursement controller
 entering reimbursement controller
 
 
+2021-10-15 12:38:33 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 12:41:21 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-15 12:42:36 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 12:42:36 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-15 12:42:36 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-15 12:47:07 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-15 12:47:07 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-15 12:52:11 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 12:52:43 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 12:55:56 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 12:57:55 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 13:03:40 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 13:05:43 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-15 13:05:43 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-15 13:06:43 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-15 13:06:43 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-15 13:07:02 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 15:02:27 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 15:03:41 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-15 15:04:28 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 15:04:36 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 15:06:33 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 15:07:59 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 15:11:54 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 15:12:50 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
