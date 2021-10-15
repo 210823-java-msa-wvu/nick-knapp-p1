@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -130,6 +131,7 @@ public class GetOneRRController implements FrontController{
 
                     if(r.getStatus().equals("Approved for Reimbursement")){
                         r.setAmountReimbursed(r.getProjectedReimbursement());
+                        r.setProjectedReimbursement(BigDecimal.ZERO);
                     }
                     reService.updateReimbursement(r);
                     response.getWriter().write(om.writeValueAsString(r));

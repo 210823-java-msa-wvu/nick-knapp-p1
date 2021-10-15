@@ -39,19 +39,26 @@
         <br>
         <label for="time">Event Time:
 
-            <input id="time" type="text" name="eventtime" class="form-control" required>
+            <input id="time" type="text" name="eventtime" class="form-control"
+                   maxlength="20"
+                   required>
 
         </label>
         <br>
         <label for="location">Event Location:
 
-            <input id="location" type="text" name="eventlocation" class="form-control" required>
+            <input id="location" type="text" name="eventlocation" class="form-control"
+                   maxlength="100"
+                   required>
 
         </label>
         <br>
         <label for="cost">Event Cost, USD:
 
-            <input id="cost" type="number" name="eventcost" class="form-control" required>
+            <input id="cost" type="number" name="eventcost" class="form-control"
+                   min="0"
+                   max="1000"
+                   required>
 
         </label>
         <label for="gradingformat">Grading Format
@@ -69,11 +76,13 @@
                 <option> Other/No official grading </option>
             </select>
             <p> Your selected grading format is:
-                <input type = "text" id = "favouriteG" size = "20"></p>
+                <input type = "text" id = "favouriteG" size = "20" required readonly></p>
         </label>
         <label for="passinggrade">Passing Grade:
 
-            <input id="passinggrade" type="text" name="passinggrade" class="form-control" required>
+            <input id="passinggrade" type="text" name="passinggrade" class="form-control"
+                   maxlength="50"
+                   required>
 
         </label>
         <br>
@@ -89,7 +98,7 @@
                 <option> Other </option>
             </select>
             <p> Your selected event type is:
-                <input type = "text" id = "favourite" size = "20"></p>
+                <input type = "text" id = "favourite" size = "20" required readonly></p>
         </label>
 
 

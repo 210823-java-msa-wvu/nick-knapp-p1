@@ -11,7 +11,25 @@
     -->
 </head>
 <body onload="getMyRRs();">
-    <h1>past reimburseemtn request page</h1>
+    <h1>My past reimbursement requests</h1>
+    <h2>Enter request ID and comment to edit comment and give more information to your supervisors if they have requested it.</h2>
+    <label for="Rid">Enter Request ID Here:
+
+        <input id="Rid" type="number" name="missedworktime" class="form-control"
+               min="0"
+               required>
+
+    </label>
+
+    <label for="moreinfo">Enter additional information here, max length 300 characters:
+
+        <input id="moreinfo" type="text" name="justification" class="resizedTextbox"
+               maxlength="300"
+               required>
+
+    </label>
+    <button type="button" class="btn btn-primary" onclick="updateRRStatus()">submit</button>
+
     <section id="data">
 
     </section>

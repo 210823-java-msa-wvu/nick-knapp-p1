@@ -287,24 +287,42 @@ async function updateRRStatus(){
                 console.log(y);*/
 
     let y = await mainFunctionR();
-    console.log("here9000909");
+    //console.log("here9000909");
     //.then( async (y) =>{
     //let mm = document.getElementById("approvaldropdown").value;
     let mm = window.myApproval;
     let newStatus = "";
+    let newGrade = document.getElementById("grade").value;
     if (mm == "Approve"){
         if (y.status == "Needs direct supervisor approval"){
             newStatus = "Needs department head approval";
         } else if (y.status == "Needs department head approval"){
             newStatus = "Needs benefits coordinator approval";
         } else if (y.status == "Needs benefits coordinator approval"){
-            newStatus = "Approved for Reimbursement";
+            if (newGrade != "" && newGrade != null){
+                newStatus = "Approved for Reimbursement";
+            } else if (y.gradeReceived != "" && y.gradeReceived != null){
+                newGrade = y.gradeReceived;
+                newStatus = "Approved for Reimbursement";
+            } else {
+                newStatus = "Pending Grade";
+            }
+        } else if (y.status == "Pending Grade"){
+            if (newGrade != "" && newGrade != null){
+                newStatus = "Approved for Reimbursement";
+            } else if (y.gradeReceived != "" && y.gradeReceived != null){
+                newGrade = y.gradeReceived;
+                newStatus = "Approved for Reimbursement";
+            } else {
+                newStatus = "Pending Grade";
+            }
         }
         //update to next level of authority
     } else if (mm == "Deny"){
         newStatus = "Denied";
-    } else if (mm == "More Information (specify from who in comments)"){
-        newStatus = "More Information Please";
+    } else if (mm == "More Information from Requester"){
+
+        newStatus = "More Information Needed";
     }
 
     let request = {
@@ -316,7 +334,7 @@ async function updateRRStatus(){
         amountReimbursed: y.amountReimbursed,
         comment: document.getElementById("comments").value,
         commenterId: getCook("user_id"),
-        gradeReceived: document.getElementById("grade").value,
+        gradeReceived: newGrade,
         justification: y.justification,
         overAvailable: y.overAvailable,
         overJustification: y.overJustification,

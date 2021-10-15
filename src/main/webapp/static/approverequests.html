@@ -34,8 +34,8 @@
         <option> tutorialspoint </option>
         <option> geeksforgeeks </option>-->
     </select>
-    <p> Your selected event is:
-        <input type = "text" id = "favourite" size = "20"></p>
+    <p> Your selected reimbursement request:
+        <input type = "text" id = "favourite" size = "20" readonly required></p>
 </form>
 <br>
 <section id="data">
@@ -53,22 +53,22 @@
             <option> --- Select Approval Status --- </option>
             <option>Approve</option>
             <option>Deny</option>
-            <option>More Information (specify from who in comments)</option>
+            <option>More Information from Requester</option>
 
 
         </select>
         <p> Your selected response is:
-            <input type = "text" id = "favouriteC" size = "20"></p>
+            <input type = "text" id = "favouriteC" size = "20" readonly required></p>
 
 
         <label for="comments">Comment(s) (optional):
 
-            <input id="comments" type="text" name="comments" class="form-control">
+            <input id="comments" type="text" name="comments" class="form-control" maxlength="100">
 
         </label>
         <label for="grade">Input Grade (optional):
 
-            <input id="grade" type="text" name="comments" class="form-control">
+            <input id="grade" type="text" name="comments" class="form-control" maxlength="50">
 
         </label>
     </label>

@@ -141,7 +141,7 @@ public class MSRController implements FrontController{
                     for (Reimbursement rr : allRRs){
                         for (Integer ID : subIds){
                             if (rr.getUserId() == ID){
-                                if(rr.getStatus().equals("Needs direct supervisor approval")){
+                                if(rr.getStatus().equals("Needs direct supervisor approval") || rr.getStatus().equals("Pending Grade")){
                                     activeRRs.add(rr);
                                 }
                             }

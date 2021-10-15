@@ -8,6 +8,9 @@ import dev.knapp.services.DepartmentService;
 import dev.knapp.services.EventService;
 import dev.knapp.services.ReimbursementService;
 import dev.knapp.services.UserService;
+import dev.knapp.servlets.FrontControllerServlet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -20,6 +23,7 @@ import java.util.List;
 
 public class ReimbursementController implements FrontController{
 
+    private Logger log = LogManager.getLogger(ReimbursementController.class);
     private ReimbursementService reService = new ReimbursementService();
     private ObjectMapper om = new ObjectMapper();
     UserService userService = new UserService();
@@ -27,7 +31,7 @@ public class ReimbursementController implements FrontController{
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("\nentering reimbursement controller\n\n");
+        log.warn("\nentering reimbursement controller\n\n");
         // Getting the attribute we set in the RequestHandler's handle() method
         String path = (String) request.getAttribute("path");
         System.out.println("Path attribute: " + path);
@@ -111,33 +115,42 @@ public class ReimbursementController implements FrontController{
                     String eventType = thisEvent.getEventType();
                     Double coef  = 0.0;
                     System.out.println("\n\nEVENT TYPE: " + eventType + "\n\n");
-                    switch (eventType){
-                        case "University Course": {
-                            System.out.println("univeritys course");
-                            coef = 0.8;
-                        break;}
-                        case "Seminar": {
-                            System.out.println("seminar");
-                            coef = 0.6;
-                        break;}
-                        case "Certification Preparation Class": {
-                            System.out.println("certification prep class");
-                            coef = 0.75;
-                        break;}
-                        case "exam": {coef = 1.0;
-                        break;}
-                        case "Certification": {coef = 1.0; break;}
-                        case "Technical Training": {coef = 0.9; break;}
-                        case "Conference": {coef = 0.3; break;}
-                        case "Other": {coef = 0.3; break;}
-                        default: {
-                            System.out.println("unknown event type");
-                            break;
+                    if(eventType.equals("exam") || eventType.equals("Certification")){
+                        coef = 1.0;
+                    } else if (eventType.equals("Conference") || eventType.equals("Other")) {
+                        coef = 0.3;
+                    } else {
+                        switch (eventType) {
+                            case "University Course": {
+                                System.out.println("univeritys course");
+                                coef = 0.8;
+                                break;
+                            }
+                            case "Seminar": {
+                                System.out.println("seminar");
+                                coef = 0.6;
+                                break;
+                            }
+                            case "Certification Preparation Class": {
+                                System.out.println("certification prep class");
+                                coef = 0.75;
+                                break;
+                            }
 
+                            case "Technical Training": {
+                                coef = 0.9;
+                                break;
+                            }
+
+                            default: {
+                                log.warn("unknown event type");
+                                break;
+
+                            }
                         }
                     }
-                    System.out.println("coefficient: ");
-                    System.out.println(coef);
+                    //System.out.println("coefficient: ");
+                    //System.out.println(coef);
                     double d = eventCost.doubleValue();
                     int thisId = r.getUserId();
                     User aUser = userService.searchUserById(thisId);
@@ -156,21 +169,14 @@ public class ReimbursementController implements FrontController{
 
                         over = true;
                     }
-                    System.out.println("my account " + myAccount);
-                    System.out.println("my reimbursed " + myReimbursed);
-                    System.out.println("\nmy new account: "+ myNewAccount);
+                    //System.out.println("my account " + myAccount);
+                    //System.out.println("my reimbursed " + myReimbursed);
+                    //System.out.println("\nmy new account: "+ myNewAccount);
                     aUser.setAvailableReimbursement(BigDecimal.valueOf(myNewAccount));
                     userService.updateUser(aUser);
 
-                    User bUser = userService.searchUserById(thisId);
-                    System.out.println("should match: " + bUser.getAvailableReimbursement());
-
-
-
-
-
-
-
+                    //User bUser = userService.searchUserById(thisId);
+                    //System.out.println("should match: " + bUser.getAvailableReimbursement());
 
                     r.setProjectedReimbursement(BigDecimal.valueOf(myReimbursed));
                             System.out.println("read the r");

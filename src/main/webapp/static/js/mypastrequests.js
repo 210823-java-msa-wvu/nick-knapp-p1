@@ -26,13 +26,13 @@ async function getMyRRs(){
                 let eventName = await mainFunction(w.eventId);
                 //let eventName = await getEventNameById(w.eventId);
                 //let eventName = getEventNameById(w.eventId);
-                console.log("event name : " + eventName);// object Promise
-                console.log(typeof eventName);//object
-                let wdata = [w.amountReimbursed, eventName, w.gradeReceived, w.isOverJustification, w.justification,
+                //console.log("event name : " + eventName);// object Promise
+                //console.log(typeof eventName);//object
+                let wdata = [w.re_id, w.comment, w.amountReimbursed, eventName, w.gradeReceived, w.isOverJustification, w.justification,
                 w.overAvailable, w.projectedReimbursement, w.status, w.urgent, w.userId, w.workTimeMissed];
-                let wlabels = ["amount reimbursed: ", "event name: ", "grade Received: ", "justification for going over allowable funds: ",
+                let wlabels = ["Reimbursement Request ID: ","Comment", "amount reimbursed: ", "event name: ", "grade Received: ", "justification for going over allowable funds: ",
                 "Justification: ", "did you need more than your available funds? ", "projected reimbursement: ", "status: ",
-                "Urgent?", "Requester ID: ", "work time missed: "];
+                "Urgent? ", "Requester (your) ID: ", "work time missed, hours: "];
                 let r = 0;
                                     for (let element of wdata){
                                         let abli = document.createElement('li');
@@ -121,4 +121,126 @@ async function logout(){
     let url ='http://localhost:8080/Project1/logout';
     let res = await fetch(url);
 
+}
+
+async function mainFunctionR(){
+    const resultR = await getRRInfo();
+    return resultR;
+}
+
+async function getRRInfo(){
+//let reId = window.RRid;//get from dropdown
+let RID = document.getElementById("Rid").value;
+    let url = "http://localhost:8080/Project1/updateRRstatus/" + RID;
+
+    let res = await fetch(url, {
+                    method: "GET",
+
+                    credentials: "include"
+                    });
+        //console.log("in here440");
+        return resJson = await res.json()
+
+}
+
+async function updateRRStatus(){
+   /* reId = window.RRid;//get from dropdown
+    let url = "http://localhost:8080/Project1/updateRRstatus/" + reId;
+
+    let res = await fetch(url, {
+                    method: "GET",
+
+                    credentials: "include"
+                    });
+        console.log("in here441");
+        let resJson = await res.json()
+            .then(async (resJson) => {
+
+
+            console.log("in here442");
+                let y = resJson;
+                console.log(y);*/
+
+    let y = await mainFunctionR();
+    //console.log("here9000909");
+    //.then( async (y) =>{
+    //let mm = document.getElementById("approvaldropdown").value;
+    /*let mm = window.myApproval;
+    let newStatus = "";
+    let newGrade = document.getElementById("grade").value;
+    if (mm == "Approve"){
+        if (y.status == "Needs direct supervisor approval"){
+            newStatus = "Needs department head approval";
+        } else if (y.status == "Needs department head approval"){
+            newStatus = "Needs benefits coordinator approval";
+        } else if (y.status == "Needs benefits coordinator approval"){
+            if (newGrade != "" && newGrade != null){
+                newStatus = "Approved for Reimbursement";
+            } else if (y.gradeReceived != "" && y.gradeReceived != null){
+                newGrade = y.gradeReceived;
+                newStatus = "Approved for Reimbursement";
+            } else {
+                newStatus = "Pending Grade";
+            }
+        } else if (y.status == "Pending Grade"){
+            if (newGrade != "" && newGrade != null){
+                newStatus = "Approved for Reimbursement";
+            } else if (y.gradeReceived != "" && y.gradeReceived != null){
+                newGrade = y.gradeReceived;
+                newStatus = "Approved for Reimbursement";
+            } else {
+                newStatus = "Pending Grade";
+            }
+        }
+        //update to next level of authority
+    } else if (mm == "Deny"){
+        newStatus = "Denied";
+    } else if (mm == "More Information from Requester"){
+
+        newStatus = "More Information Needed";
+    }*/
+    newStatus = "Needs direct supervisor approval";
+    let RID = document.getElementById("Rid").value;
+
+    let request = {
+        re_id: RID,
+        userId:y.userId,
+        eventId: y.eventId,
+        urgent: y.eventId,
+        status: newStatus,
+        amountReimbursed: y.amountReimbursed,
+        comment: document.getElementById("moreinfo").value,
+        commenterId: getCook("user_id"),
+        gradeReceived: y.gradeReceived,
+        justification: y.justification,
+        overAvailable: y.overAvailable,
+        overJustification: y.overJustification,
+        projectedReimbursement: y.projectedReimbursement,
+        workTimeMissed: y.workTimeMissed
+    }
+
+    //console.log("before resp");
+    console.log(request);
+//let reId = window.RRid;//get from dropdown
+    let url = "http://localhost:8080/Project1/updateRRstatus/" + RID;
+    let resp = await fetch(url, {
+                method: "PUT",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(request),
+                credentials: "include"
+                });
+    let respJson = resp.json()
+        .then(respJson => {
+        console.log(respJson);
+            alert("RR ID " + respJson.re_id + " has successfully been updated with comment " + respJson.comment);
+
+        }).catch(error => {console.log(error); })
+        //}).catch(error => {console.log(error); })
+}
+
+function getCook(cookiename){
+  // Get name followed by anything except a semicolon
+  var cookiestring=RegExp(cookiename+"=[^;]+").exec(document.cookie);
+  // Return everything after the equal sign, or an empty string if the cookie name not found
+  return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
 }

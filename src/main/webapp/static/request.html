@@ -16,6 +16,7 @@
         #favourite{
         border-style: dotted;
         }
+        .resizedTextbox {width: 100px; height: 20px; padding: 1px}
     </style>
 </head>
 <body onload="start();">
@@ -60,7 +61,7 @@
             <option> geeksforgeeks </option>-->
         </select>
         <p> Your selected event is:
-            <input type = "text" id = "favourite" size = "20"></p>
+            <input type = "text" id = "favourite" size = "20" readonly required></p>
     </form>
 
 
@@ -121,15 +122,20 @@
 
         <label for="justification">Justification for attending the event:
 
-            <input id="justification" type="text" name="justification" class="form-control" required>
+            <input id="justification" type="text" name="justification" class="resizedTextbox"
+                   maxlength="300"
+                   required>
 
         </label>
 
 
 
-        <label for="missedworktime">Time Off Work (hours), e.g. 2.5:
+        <label for="missedworktime">Time off work needed to attend the event (integer, hours):
 
-            <input id="missedworktime" type="number" name="missedworktime" class="form-control" required>
+            <input id="missedworktime" type="number" name="missedworktime" class="form-control"
+                   min="0"
+                   max="100"
+                   required>
 
         </label>
         <!--<label>Relevant File Attachments:

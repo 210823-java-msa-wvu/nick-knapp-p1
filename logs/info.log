@@ -22581,3 +22581,63 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 2021-10-14 23:37:30 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-14 23:42:33 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 2021-10-14 23:43:39 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-15 06:38:06 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 06:38:30 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 06:40:42 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-15 06:44:18 WARN  FrontControllerServlet:63 - POSTING NEW EVENT
+2021-10-15 06:44:20 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 07:18:33 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 07:19:38 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 07:25:32 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 07:57:25 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 07:57:59 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 07:58:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 07:58:44 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 08:01:17 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 08:02:53 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 08:05:03 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 08:07:18 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 08:11:51 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 08:12:49 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 08:13:06 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-15 08:13:06 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-15 08:13:49 WARN  SqlExceptionHelper:137 - SQL Error: 0, SQLState: 08006
+2021-10-15 08:13:49 ERROR SqlExceptionHelper:142 - An I/O error occurred while sending to the backend.
+2021-10-15 08:14:35 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 08:22:19 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-10-15 08:23:27 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 08:24:43 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
+2021-10-15 08:27:03 WARN  ReimbursementController:34 - 
+entering reimbursement controller
+
+
