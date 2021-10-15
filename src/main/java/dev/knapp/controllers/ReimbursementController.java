@@ -112,19 +112,32 @@ public class ReimbursementController implements FrontController{
                     Double coef  = 0.0;
                     System.out.println("\n\nEVENT TYPE: " + eventType + "\n\n");
                     switch (eventType){
-                        case "University Course": {coef = 0.8;}
-                        case "Seminar": {coef = 0.6;}
-                        case "Certification Preparation Class": {coef = 0.75;}
-                        case "exam": {coef = 1.0;}
-                        case "Certification": {coef = 1.0;}
-                        case "Technical Training": {coef = 0.9;}
-                        case "Conference": {coef = 0.3;}
-                        case "Other": {coef = 0.3;}
+                        case "University Course": {
+                            System.out.println("univeritys course");
+                            coef = 0.8;
+                        break;}
+                        case "Seminar": {
+                            System.out.println("seminar");
+                            coef = 0.6;
+                        break;}
+                        case "Certification Preparation Class": {
+                            System.out.println("certification prep class");
+                            coef = 0.75;
+                        break;}
+                        case "exam": {coef = 1.0;
+                        break;}
+                        case "Certification": {coef = 1.0; break;}
+                        case "Technical Training": {coef = 0.9; break;}
+                        case "Conference": {coef = 0.3; break;}
+                        case "Other": {coef = 0.3; break;}
                         default: {
                             System.out.println("unknown event type");
+                            break;
 
                         }
                     }
+                    System.out.println("coefficient: ");
+                    System.out.println(coef);
                     double d = eventCost.doubleValue();
                     int thisId = r.getUserId();
                     User aUser = userService.searchUserById(thisId);
@@ -138,10 +151,13 @@ public class ReimbursementController implements FrontController{
                     int myNewAccount = myAccount - myReimbursed;
                     boolean over = false;
                     if (myNewAccount < 0){
-                        myNewAccount = 0;
                         myReimbursed = myAccount;
+                        myNewAccount = 0;
+
                         over = true;
                     }
+                    System.out.println("my account " + myAccount);
+                    System.out.println("my reimbursed " + myReimbursed);
                     System.out.println("\nmy new account: "+ myNewAccount);
                     aUser.setAvailableReimbursement(BigDecimal.valueOf(myNewAccount));
                     userService.updateUser(aUser);
