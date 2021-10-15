@@ -63,6 +63,7 @@ public class DepartmentRepo implements CrudRepository<Department> {
         try(Session s = HibernateUtil.getSession()){
             tx = s.beginTransaction();
             s.update(d);
+            tx.commit();
         }catch (HibernateException e){
             e.printStackTrace();
             if (tx != null)

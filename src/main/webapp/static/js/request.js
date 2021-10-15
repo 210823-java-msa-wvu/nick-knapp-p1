@@ -517,10 +517,10 @@ async function submitRR(){
     let request = {
         userId: userID,
         eventId: window.eventId, //should be event id//myEvent.event_id, //get id from event name (rrEvent)
-        urgent: true, //check date of event, compare to current date, if less than 2 weeks set true
+        urgent: false, //check date of event, compare to current date, if less than 2 weeks set true
         status: "Needs direct supervisor approval",
         justification: document.getElementById('justification').value,
-        projectedReimbursement: 100,//parseInt(myEvent.cost),//get from event
+        projectedReimbursement: 0,//parseInt(myEvent.cost),//get from event
         amountReimbursed: 0,
         overAvailable: false,//compare to user's available funds
         overJustification: "N/A",

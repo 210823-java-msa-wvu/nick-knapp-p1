@@ -91,6 +91,7 @@ public class UserRepo implements CrudRepository<User>{
         try(Session s = HibernateUtil.getSession()){
             tx = s.beginTransaction();
             s.update(u);
+            tx.commit();
 
         }catch (HibernateException e){
             e.printStackTrace();

@@ -3,6 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+
+        #RRs{
+        background-color: green;
+        }
+        #data{
+         background-color: blue;
+         }
+         #container2{
+         background-color: yellow;
+         }
+         #grade{
+         color: BlueViolet;
+         }
+    </style>
 </head>
 <body onload="loadNewRequests();">
 
@@ -31,7 +46,7 @@
 
 <form><!--  action="/Project1/updateRRstatus" method="PUT"-->
 
-    <label for="approvaldropdown">Approve Request?
+    <label for="approvaldropdown">Approve Request? (required)
 
         <b> approve, deny or request more info</b>
         <select id = "approvaldropdown" onchange = "favTutorialC()" required>
@@ -46,9 +61,14 @@
             <input type = "text" id = "favouriteC" size = "20"></p>
 
 
-        <label for="comments">Comment(s):
+        <label for="comments">Comment(s) (optional):
 
             <input id="comments" type="text" name="comments" class="form-control">
+
+        </label>
+        <label for="grade">Input Grade (optional):
+
+            <input id="grade" type="text" name="comments" class="form-control">
 
         </label>
     </label>

@@ -98,10 +98,11 @@ public class ReimbursementController implements FrontController{
                     break;
                 }
 
-                case "POST": {//for submitting reimbursements
+                case "POST": {//for submitting reimbursement requests
 
                     //add the reimbursement request (read from the request body) to the database
                     Reimbursement r = om.readValue(request.getReader(), Reimbursement.class);
+                    //int Rid = r.getRe_id();
 
                     //subtract amount from user's account
                     int thisEventId = r.getEventId();
@@ -109,24 +110,61 @@ public class ReimbursementController implements FrontController{
                     BigDecimal eventCost = thisEvent.getCost();
                     String eventType = thisEvent.getEventType();
                     Double coef  = 0.0;
+                    System.out.println("\n\nEVENT TYPE: " + eventType + "\n\n");
                     switch (eventType){
                         case "University Course": {coef = 0.8;}
                         case "Seminar": {coef = 0.6;}
                         case "Certification Preparation Class": {coef = 0.75;}
+                        case "exam": {coef = 1.0;}
                         case "Certification": {coef = 1.0;}
                         case "Technical Training": {coef = 0.9;}
+                        case "Conference": {coef = 0.3;}
                         case "Other": {coef = 0.3;}
-                    }
+                        default: {
+                            System.out.println("unknown event type");
 
+                        }
+                    }
+                    double d = eventCost.doubleValue();
                     int thisId = r.getUserId();
                     User aUser = userService.searchUserById(thisId);
                     BigDecimal avail = aUser.getAvailableReimbursement();
-                    //Double reimbursed = eventCost * coef;
+                    double d2 = avail.doubleValue();
+
+                    double reimbursed = d * coef;
+                    int myReimbursed = (int) Math.round(reimbursed);
+                    int myAccount = (int) Math.round(d2);
+
+                    int myNewAccount = myAccount - myReimbursed;
+                    boolean over = false;
+                    if (myNewAccount < 0){
+                        myNewAccount = 0;
+                        myReimbursed = myAccount;
+                        over = true;
+                    }
+                    System.out.println("\nmy new account: "+ myNewAccount);
+                    aUser.setAvailableReimbursement(BigDecimal.valueOf(myNewAccount));
+                    userService.updateUser(aUser);
+
+                    User bUser = userService.searchUserById(thisId);
+                    System.out.println("should match: " + bUser.getAvailableReimbursement());
 
 
+
+
+
+
+
+
+                    r.setProjectedReimbursement(BigDecimal.valueOf(myReimbursed));
                             System.out.println("read the r");
                     reService.createReimbursement(r);
                     System.out.println("posted r to DB");
+
+                    //update r based on requester funds
+                    //Reimbursement r2 = reService.searchReimbursementById(Rid);
+
+                    //reService.updateReimbursement(r2);
                     response.getWriter().write(om.writeValueAsString(r));
                     break;
                 }

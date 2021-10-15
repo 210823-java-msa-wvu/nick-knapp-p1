@@ -316,7 +316,7 @@ async function updateRRStatus(){
         amountReimbursed: y.amountReimbursed,
         comment: document.getElementById("comments").value,
         commenterId: getCook("user_id"),
-        gradeReceived: y.gradeReceived,
+        gradeReceived: document.getElementById("grade").value,
         justification: y.justification,
         overAvailable: y.overAvailable,
         overJustification: y.overJustification,
@@ -337,7 +337,7 @@ async function updateRRStatus(){
     let respJson = resp.json()
         .then(respJson => {
         console.log(respJson);
-            alert("RR ID " + respJson.re_id + "has successfully been updated with comment " + respJson.comment);
+            alert("RR ID " + respJson.re_id + " has successfully been updated with comment " + respJson.comment);
 
         }).catch(error => {console.log(error); })
         //}).catch(error => {console.log(error); })

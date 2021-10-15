@@ -73,6 +73,7 @@ public class EventRepo implements CrudRepository<Event>{
         try(Session s = HibernateUtil.getSession()){
             tx = s.beginTransaction();
             s.update(event);
+            tx.commit();
 
         }catch (HibernateException e){
             e.printStackTrace();

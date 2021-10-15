@@ -10,14 +10,17 @@ async function getMyRRs(){
         .then(async (resJson) => {
             // This is where we will do our DOM manipulation
            let dataSection = document.getElementById('data');
-
-           // Create an unordered list element
-           let abilities = document.createElement('ul');
            dataSection.innerHTML += 'My Past Reimbursement Requests<br>';
-           dataSection.appendChild(abilities);
+
            //console.log(resJson);
            //console.log(resJson[0]);
            for(let q = 0; q<resJson.length;q++){
+           dataSection.appendChild(document.createElement('br'));
+
+                      // Create an unordered list element
+                      let abilities = document.createElement('ul');
+
+                      dataSection.appendChild(abilities);
                 //console.log(resJson[0]);
                 let w = resJson[q];
                 let eventName = await mainFunction(w.eventId);

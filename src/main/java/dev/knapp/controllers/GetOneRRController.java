@@ -127,6 +127,10 @@ public class GetOneRRController implements FrontController{
                 case "PUT": {//used to update status of RRs
 
                     r = om.readValue(request.getReader(), Reimbursement.class);
+
+                    if(r.getStatus().equals("Approved for Reimbursement")){
+                        r.setAmountReimbursed(r.getProjectedReimbursement());
+                    }
                     reService.updateReimbursement(r);
                     response.getWriter().write(om.writeValueAsString(r));
 
