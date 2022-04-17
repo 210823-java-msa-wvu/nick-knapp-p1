@@ -30,19 +30,30 @@ public class RequestHandler {
         controllerMap.put("login", new LoginController());
         controllerMap.put("users", new UserController());
         controllerMap.put("departments", new DepartmentController());
+
+        controllerMap.put("toneweventpage", new NewEventController());
         controllerMap.put("events", new EventController());
-        controllerMap.put("reimbursements", new ReimbursementController());
+        controllerMap.put("newevent", new EventController());
+        controllerMap.put("geteventbyid", new EventController());
+        controllerMap.put("eventname", new GetEventBNC());
+
+        controllerMap.put("pastrequests", new ReimbursementController());
+        controllerMap.put("newrequest", new ReimbursementController());
+        controllerMap.put("viewmypastrequests", new UserReimbursements());
+        controllerMap.put("topendingrequests", new MSRController());
+        controllerMap.put("loadrequests", new MSRController());
+        controllerMap.put("myRR", new GetOneRRController());
+        controllerMap.put("updateRRstatus", new GetOneRRController());
+
+        controllerMap.put("logout", new LogoutController());
+        controllerMap.put("back", new BackController());
     }
 
     // a method to return the appropriate controller
     public FrontController handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        //getting all the cookies
-        Cookie cookies[]=request.getCookies();
-
         // This is where the logic will go to parse the URI and send back the appropriate controller
         StringBuilder uriString = new StringBuilder(request.getRequestURI()); // uri = /LibraryServlet/books/1
+        System.out.println("URI Strings: ");
         System.out.println(uriString);
 
         // Remove context path

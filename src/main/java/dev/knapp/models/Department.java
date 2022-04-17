@@ -14,6 +14,8 @@ public class Department {
     @Column(name="dept_head_id")
     int deptHeadId;
 
+    public Department(){}
+
     public Department(int dept_id, String deptName, int deptHeadId) {
         this.dept_id = dept_id;
         this.deptName = deptName;
@@ -23,6 +25,10 @@ public class Department {
     public Department(String deptName, int deptHeadId) {
         this.deptName = deptName;
         this.deptHeadId = deptHeadId;
+    }
+
+    public int getDept_id() {
+        return dept_id;
     }
 
     public String getDeptName() {

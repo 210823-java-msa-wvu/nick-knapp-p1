@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #RRs{
+        background-color: green;
+        }
+        #data{
+         background-color: blue;
+         }
+         #container2{
+         background-color: yellow;
+         }
+         #grade{
+         color: BlueViolet;
+         }
+    </style>
+</head>
+<body onload="loadNewRequests();">
+
+<h1>APPROVE/DENY SUBORDINATE REQUESTS</h1>
+
+<input type="button" value="Back" onclick="window.history.back()" />
+<!-- dropdown to select the specific RR, similar to event dropdown -->
+<form>
+    <b> Select reimbursement request from dropdown list</b>
+    <select id = "RRs" onchange = "favTutorial()" >
+        <option> ---Choose--- </option>
+        <!--<option> w3schools </option>
+        <option> Javatpoint </option>
+        <option> tutorialspoint </option>
+        <option> geeksforgeeks </option>-->
+    </select>
+    <p> Your selected reimbursement request:
+        <input type = "text" id = "favourite" size = "20" readonly required></p>
+</form>
+<br>
+<section id="data">
+
+</section>
+<div class="container2"></div>
+<br>
+
+<form><!--  action="/Project1/updateRRstatus" method="PUT"-->
+
+    <label for="approvaldropdown">Approve Request? (required)
+
+        <b> approve, deny or request more info</b>
+        <select id = "approvaldropdown" onchange = "favTutorialC()" required>
+            <option> --- Select Approval Status --- </option>
+            <option>Approve</option>
+            <option>Deny</option>
+            <option>More Information from Requester</option>
+
+
+        </select>
+        <p> Your selected response is:
+            <input type = "text" id = "favouriteC" size = "20" readonly required></p>
+
+
+        <label for="comments">Comment(s) (optional):
+
+            <input id="comments" type="text" name="comments" class="form-control" maxlength="100">
+
+        </label>
+        <label for="grade">Input Grade (optional):
+
+            <input id="grade" type="text" name="comments" class="form-control" maxlength="50">
+
+        </label>
+    </label>
+
+    <button type="reset">Reset</button>
+
+    <button type="button" class="btn btn-primary" onclick="updateRRStatus()">submit</button>
+
+</form>
+
+<script src="js/approverequests.js"></script>
+
+
+</body>
+</html>

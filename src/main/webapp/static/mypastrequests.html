@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Request</title>
+
+    <!--Bootstrap CSS
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    -->
+</head>
+<body onload="getMyRRs();">
+    <h1>My past reimbursement requests</h1>
+    <h2>Enter request ID and comment to edit comment and give more information to your supervisors if they have requested it.</h2>
+    <label for="Rid">Enter Request ID Here:
+
+        <input id="Rid" type="number" name="missedworktime" class="form-control"
+               min="0"
+               required>
+
+    </label>
+
+    <label for="moreinfo">Enter additional information here, max length 300 characters:
+
+        <input id="moreinfo" type="text" name="justification" class="resizedTextbox"
+               maxlength="300"
+               required>
+
+    </label>
+    <button type="button" class="btn btn-primary" onclick="updateRRStatus()">submit</button>
+
+    <section id="data">
+
+    </section>
+
+
+
+
+    <input type="button" value="Back" onclick="window.history.back()" />
+<!--the most inconvenient commenting syntax ever-->
+    <div>
+        <!-- for each request that is active, check time since request, if time has been more than 4 days
+        and still awaiting approval, auto approve the request-->
+
+        <!--<form action="/Project1/back" method="GET">
+            <input type="submit" class="btn btn-primary" onclick="back()" value="back">
+        </form>-->
+
+
+        <form action="/Project1/logout" method = "GET">
+            <input type="submit" class="btn btn-primary" onclick="logout()" value="logout">
+
+        </form>
+
+
+
+
+    </div>
+
+    <script src="js/mypastrequests.js"></script>
+
+
+<!-- Bootstrap Scripts
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+-->
+
+</body>
+</html>

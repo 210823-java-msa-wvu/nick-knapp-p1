@@ -8,9 +8,19 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class EventRepo implements CrudRepository<Event>{
+
+    /*PreparedStatement ps = new PreparedStatement();
+
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    ps.setDate(2, Date.valueOf(dateFormat.format(r.getStartsOn())));*/
+
     @Override
     public Event add(Event event) {
         Session s = HibernateUtil.getSession();
@@ -47,7 +57,7 @@ public class EventRepo implements CrudRepository<Event>{
     public List<Event> getAll() {
         Session s = HibernateUtil.getSession();
         //create a query object
-        String query = "from events"; //HQL
+        String query = "from Event"; //HQL
         Query<Event> q = s.createQuery(query, Event.class);
 
         List<Event> events = q.getResultList();
@@ -63,6 +73,7 @@ public class EventRepo implements CrudRepository<Event>{
         try(Session s = HibernateUtil.getSession()){
             tx = s.beginTransaction();
             s.update(event);
+            tx.commit();
 
         }catch (HibernateException e){
             e.printStackTrace();

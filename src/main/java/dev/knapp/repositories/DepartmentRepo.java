@@ -47,7 +47,7 @@ public class DepartmentRepo implements CrudRepository<Department> {
     public List<Department> getAll() {
         Session s = HibernateUtil.getSession();
         //create a query object
-        String query = "from departments"; //HQL
+        String query = "from Department"; //HQL
         Query<Department> q = s.createQuery(query, Department.class);
 
         List<Department> departments = q.getResultList();
@@ -63,6 +63,8 @@ public class DepartmentRepo implements CrudRepository<Department> {
         try(Session s = HibernateUtil.getSession()){
             tx = s.beginTransaction();
             s.update(d);
+            tx.commit();
+
         }catch (HibernateException e){
             e.printStackTrace();
             if (tx != null)
