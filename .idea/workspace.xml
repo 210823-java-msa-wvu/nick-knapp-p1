@@ -6,15 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4f7e7a41-fa00-464f-9159-0cf0138f5933" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/approverequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/approverequests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -35,6 +34,21 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="1yWGD4HUS4dq06Biq0UwPTviQrB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
