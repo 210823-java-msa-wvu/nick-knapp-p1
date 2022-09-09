@@ -5,107 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f7e7a41-fa00-464f-9159-0cf0138f5933" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_14_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_14_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_50.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_9_0_50.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_5_7_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_27_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_2_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/info.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ADRController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/BackController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/GetEventBNC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/GetOneRRController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LogoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/MSRController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/NewEventController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserReimbursements.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/approverequests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/approverequests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/mypastrequests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/mypastrequests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/newevent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ADRController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/BackController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/GetEventBNC.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/GetOneRRController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/LogoutController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/MSRController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/NewEventController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/UserReimbursements.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/log4j2.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/EventController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ReimbursementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/ReimbursementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Reimbursement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/Reimbursement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/DepartmentRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/DepartmentRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/EventRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/EventRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/ReimbursementRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/ReimbursementRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/repositories/UserRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/FrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/FrontControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/knapp/servlets/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/newevent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/newevent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/request.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/EventController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/EventController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ReimbursementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/ReimbursementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/models/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/models/Department.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/models/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/models/Event.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/models/Reimbursement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/models/Reimbursement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/repositories/DepartmentRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/repositories/DepartmentRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/repositories/EventRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/repositories/EventRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/repositories/ReimbursementRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/repositories/ReimbursementRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/repositories/UserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/repositories/UserRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/servlets/FrontControllerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/servlets/FrontControllerServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/knapp/servlets/RequestHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/knapp/servlets/RequestHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +43,7 @@
         <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
@@ -148,6 +51,7 @@
         <entry key="JPA Inspector" value="false" />
         <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -183,7 +87,9 @@
       <option name="adminPort" value="8005" />
       <option name="contextPath" value="/Project1" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions" />
+      <option name="envOptions">
+        <map />
+      </option>
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8080" />
       <option name="tomcatInfo">
